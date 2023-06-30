@@ -1,0 +1,434 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>产业信息管理系统</title>
+    <link rel="stylesheet" href="~/css/main.css" />
+    <link rel="stylesheet" href="~/css/datamanage.css" />
+    <link rel="stylesheet" href="~/lib/element-ui/theme-chalk/index.css" />
+    <script src="~/js/jquery.min.js">
+        import { time } from "console";
+    </script>
+    <script src="~/js/jquery-3.3.1.min.js"></script>   
+    <script src="~/lib/vue/vue.js"></script>
+    <script type="text/javascript" src="~/lib/element-ui/index.js"></script>
+    <script src="~/js/echarts.min.js"></script>
+    <script src="~/lib/axios/axios.js"></script>
+    <script src="~/js/request.js"></script>
+    <script src="~/js/GPStransform.js"></script>
+    <script src="~/lib/linq/linq.js"></script>
+    <script src="~/js/echarts-collections.js"></script>
+    <script src="~/js/json.js"></script>
+    <script src="~/js/urlUtils.js"></script>
+    <script src="~/js/apiHelper.js"></script>
+    <script src="~/js/testData.js"></script>
+    <script src="~/lib/axios/axios.js"></script>
+    <script src="~/lib/moment/moment.js"></script>
+    <link href="~/css/index.css"  rel="stylesheet" />
+    <script type="text/javascript">
+        window._AMapSecurityConfig = {
+            securityJsCode:'acca991ccaf8f2bb97df91a7bf547a24',
+        }
+    </script>
+    @*<script type="text/javascript" src="https://webapi.amap.com/maps?v=2.0&key=af03b4b1406996840b39d11d81850677"></script>*@
+    <script type="text/javascript" src="~/lib/amap/loader.js"></script>
+    <script type="text/javascript" src="~/js/AMapLoader.js"></script>
+    <script type="text/javascript" src="~/lib/echarts/echarts.min.js"></script>
+    <script type="text/javascript" src="~/js/echarts-collections.js"></script>
+</head>
+<body>
+    <div id="app">
+        <el-container>
+            <el-header>
+                <div class="logo">
+                    <a href="#" id="logoTitle">产业信息管理系统</a>
+                </div>
+                <el-menu style="width:500px;height:80px;border: 0px solid #d03d20" class="nav_right el-menu-demo" :default-active="activeIndex" mode="horizontal" @@select="handleSelect">
+                    <!--天气预报-->
+                    <el-menu-item style="margin-right:5%;margin-top:2%" id="weatherInfo">
+                        <img src="images/main/weatherIcon.png" />
+                        <div>
+                            多云
+                        </div>
+                    </el-menu-item>
+                    <!--/天气预报-->
+                    <!--时间-->
+                    <el-menu-item style="margin-right:5%;margin-top:2%;width:130px;background:none !important">
+                        <div id="nowtime">
+                            <div class="time">
+                                {time}
+                            </div>
+                            <div class="time">
+                                {date}
+                            </div>
+                        </div>
+                    </el-menu-item>
+                    <!--/时间-->
+                    <el-menu-item style="margin-right:5%" id="message">
+                        <img src="images/main/messageIcon.png" />
+                        <!--通知消息-->
+                        <div class="notice">1</div>
+                        <!--/通知消息-->
+                    </el-menu-item>
+                    <el-menu-item id="user">
+                        <img src="~/images/main/userlogo.png" />
+                    </el-menu-item>
+                    <el-submenu index="user" style="margin-top:2%" class="userbtn">
+                        <template slot="title" id="" class="now-user" style="font-size:0.9rem;">
+                            {{userName}}
+                        </template>
+                        <el-menu-item style="background: rgba(10, 126, 209, 1) !important" index="user-exit" @@click="exitLogin"><a class="head-a" href="#" style="color:#fff">退出</a></el-menu-item>
+                        <el-menu-item style="background: rgba(10, 126, 209, 1) !important" index="user-info"><a class="head-a" href="#" style="color:#fff">个人信息</a></el-menu-item>
+                        <el-menu-item style="background: rgba(10, 126, 209, 1) !important" index="user-editpwd"><a class="head-a" href="#" style="color:#fff">修改密码</a></el-menu-item>
+                    </el-submenu>
+                </el-menu>
+                <ul class="nav_left el-menu-demo" :default-active="activeIndex" mode="horizontal">
+                    <li class="el-url" style="width:180px;"><a class="el-url-one">主控舱</a></li>
+                    <li class="el-url" style="width:180px;"><a class="el-url-two">园区系统</a></li>
+                    <li class="el-url" style="width:180px;"><a class="el-url-three">种植统计</a></li>
+                    <li class="el-url" style="width:180px;"><a class="el-url-four">农事大数据</a></li>
+                </ul>
+            </el-header>
+            <el-container style="height:87%">
+                <el-aside width="collapse">
+                    <div class="left_open">
+                        <i class="el-icon-s-fold iconColor" @@click="isC" v-show="block"></i>
+                        <i class="el-icon-s-unfold iconColor" @@click="isC" v-show="toggle"></i>
+                    </div>
+                    <el-menu :default-active="tabsIndex"
+                             class="el-menu-vertical-demo home-menu"
+                             @@open="handleOpen"
+                             @@close="handleClose"
+                             text-color="#fff"
+                             active-text-color="#ffd04b"
+                             :unique-opened="true"
+                             style="height: 95%;"
+                             :collapse="isCollapse">
+
+                        <el-menu-item index="2">
+                            <img src="images/main/2_03.png" class="home-menu-icon"/>
+                            <span slot="title">首页</span>
+                        </el-menu-item>
+                        <el-submenu style="min-width: 158px" index="3">
+                            <template style="padding-left:18px" slot="title">
+                                <img src="images/main/2_09.png" class="home-menu-icon"/>
+                                <span>区域分区</span>
+                            </template>
+                            <el-menu-item-group>
+                                <el-menu-item v-for="(item, index) in regions" :key="index" 
+                                   @@click="elmenuRegionClick(item.id)" style="padding-left:12%;min-width: 158px;" :index="'3-'+(index+1)">{{item.name}}</el-menu-item>
+                            </el-menu-item-group>
+                        </el-submenu>
+                        <el-menu-item @@click="gotoDataPage" index="4">
+                            <img src="images/main/2_12.png" class="home-menu-icon"/>
+                            <span slot="title">数据编辑</span>
+                        </el-menu-item>
+                        <el-menu-item @@click="gotoDataPage" index="5">
+                            <img src="images/main/2_14.png" class="home-menu-icon"/>
+                            <span slot="title">历史记录</span>
+                        </el-menu-item>
+                    </el-menu>
+                </el-aside>
+
+                <el-main>
+                    <el-tabs v-model="tabsIndex" type="border-card" @@tab-click="handleClick" closable @@tab-remove="removeTab" style="height:100%;width:100%">
+
+                        <el-tab-pane v-for="(item, index) in tabsData"
+                                     :key="item.name"
+                                     :label="item.title"
+                                     :name="item.name">
+                            <div class="page-cont" :id="'tab_'+item.name"></div>
+                            <component :is="item.content" :ref="item.name" :tabIndex="item.name"> </component>
+                        </el-tab-pane>
+                    </el-tabs>
+                </el-main>
+            </el-container>
+        </el-container>
+    </div>
+</body>
+</html>
+<script>
+    var nowTimeTemplate="";
+    var rootDistrictId=3127;
+    var globalRegions=[];
+    var globalAllRegions=[];
+    var app = new Vue({
+        el: "#app",
+        data: {
+            tabsData: [
+                {
+                    name: '1',
+                    title: '首页',
+                    content: ''
+                },
+                {
+                    name: '4',
+                    title: '数据编辑',
+                    content: ''
+                }
+            ],
+            tabsIndex: '1',
+            isCollapse: false,
+            toggle: false,//第二个图标默认隐藏
+            block: true,//默认显示第一个图标
+            timer: null,
+            _this: null,
+            activeIndex: '1',
+            regions:[],
+            options: [{
+                value: '1',
+                label: '生态园智能网关'
+            }, {
+                value: '2',
+                label: '中心园控制器'
+            }, {
+                value: '3',
+                label: '智能网关03'
+            }],
+            value: '1',
+            userName:'123'
+        },
+        mounted: function () {
+            _that = this;
+            this.initHome();
+            //this.GetWeather();
+            this.setTime();
+            this.getUserInfo();
+            this.initMenu();
+            //initTestData(_that.regions);
+        },
+        methods: {
+            handleClick(tab, event){
+                console.log(this.tabsIndex);
+                switch(this.tabsIndex)
+                {
+                    case "1":
+                       this.elmenuRegionClick(rootDistrictId);
+                       break;
+                    case "4":
+                       this.gotoDataPage();
+                       break;
+                }
+            },
+            showRootRegion(){
+                elmenuRegionClick(rootDistrictId);
+            },
+            queryChildRegions(rootDistrictId,regionDatas){
+                var _that=this;
+                for(var i=0;i<regionDatas.length;i++){
+                    var itemRegion=regionDatas[i];
+                    if(parseInt(itemRegion.parent_id)==rootDistrictId)
+                    {
+                        console.log(itemRegion.name);
+                        this.regions.push(itemRegion);
+                    }
+                }
+            },
+            queryRegions(rootDistrictId,regionDatas){
+                var _that=this;
+                _that.regions=[];
+                for(var i=0;i<regionDatas.length;i++){
+                    var itemRegion=regionDatas[i];                    
+                    if(parseInt(itemRegion.id)==rootDistrictId)
+                    {
+                        console.log(itemRegion.name);
+                        this.regions.push(itemRegion);
+                    }
+                }
+            },
+            elmenuRegionClick(regionId){
+                var tabs = this.tabsData;
+                var _that=this;
+                $.post('/Main?regionId='+regionId, function (result) {
+                    console.log(result);
+                    $("#tab_" + _that.tabsData[0].name).html(result);
+                });
+            },
+            //初始化菜单
+            initMenu() {
+                var _that=this;
+                $.getJSON("osc_region.json",function(data){
+                    globalAllRegions=data.RECORDS;
+                    _that.queryRegions(rootDistrictId,data.RECORDS);
+                    _that.queryChildRegions(rootDistrictId,data.RECORDS);
+                    globalRegions=_that.regions;
+                    initTestData(_that.regions);
+                    console.log("_that.regions");
+                    console.log(_that.regions);
+                });
+            }, 
+            handleOpen(key, keyPath) {
+                console.log(key, keyPath);
+            },
+            handleClose(key, keyPath) {
+                console.log(key, keyPath);
+            },
+            handleSelect(key, keyPath) {
+                console.log(key, keyPath);
+            },
+            initAMap() {
+                var map = new AMap.Map('container', {
+                    zoom:11,//级别
+                    center: [116.397428, 39.90923],//中心点坐标
+                    viewMode:'3D'//使用3D视图
+                });
+            },
+            gotoDataPage(){
+                var _that=this;
+                console.log(_that.tabsData);
+                _that.tabsIndex=_that.tabsData[1].name;
+                 $.post('/DataManage', function (result) {
+                    $("#tab_" + _that.tabsData[1].name).html(result);
+                });
+                //this.addTab('数据编辑','/DataManage','4');
+            },
+            //默认显示主页面
+            initHome() {
+                this.elmenuRegionClick(rootDistrictId);
+            },
+            //点击左侧菜单栏
+            addTab(title, path, name) {
+                var flag = false;
+                var tabs = this.tabsData;
+                var self = this;
+                for (var tab of tabs) {
+                    if (tab.name === name) {
+                        this.tabsIndex = name;
+                        flag = true;
+                        return false;
+                    }
+                }
+                //console.log(name);
+                if (!flag) {
+                    this.tabsData.push({
+                        title: title,
+                        name: name,
+                        content: null
+                    })
+                    this.tabsIndex = name;
+                    $.post(path, function (result) {
+                        $("#tab_" + name).html(result);
+                    })
+                }
+
+            },
+            removeTab(targetName) {
+                var tabs = this.tabsData;
+                let activeName = this.tabsIndex;
+                if (activeName === targetName) {
+                    tabs.forEach((tab, index) => {
+                        if (tab.name === targetName) {
+                            let nextTab = tabs[index + 1] || tabs[index - 1];
+                            if (nextTab) {
+                                activeName = nextTab.name;
+                            }
+                        }
+                    });
+                }
+                this.tabsIndex = activeName;
+                this.tabsData = tabs.filter(m => m.name != targetName)
+            },
+            isC() {
+                this.isCollapse = !this.isCollapse;
+                this.toggle = !this.toggle;
+                this.block = !this.block;
+            },
+            GetWeather() {
+                $.ajax({
+                    type: "POST",
+                    url: "http://aliv8.data.moji.com/whapi/json/aliweather/condition",
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader("Authorization", "APPCODE 789f685badbd4760b62be8b0cbe0be8a");
+                    },
+                    data: { lat: 39.5420, lon: 116.2529 },
+                    success: function (msg) {
+                        var _data = JSON.parse(msg);
+                        var todayData = _data.data.condition;
+                        var url = "/images/weather/W" + todayData.icon + ".png";
+                        alert(todayData.condition);
+                        $('#weatherA').html('<img src="' + url + '" style="width:25px;" /><span style="font-size: 0.9rem;">' + todayData.condition + '&nbsp;' + todayData.temp + '℃</span>')
+                    }
+                });
+            },
+            setTime: function () {
+                if (this.timer !== null) {
+                    clearTimeout(this.timer);
+                }
+                var _that=this;
+                setTimeout(function () {
+                    //var time = this.$options.methods.getTime1();
+                    //console.log(_this.$options.methods.getTime1())
+                    if(nowTimeTemplate=="")
+                       nowTimeTemplate=$("#nowtime").html();
+                    var timeTemplate=nowTimeTemplate;
+                    var timeAry=_that.getTime1().split(" ");
+                    timeTemplate=timeTemplate.replace("{time}",timeAry[1]);
+                    timeTemplate=timeTemplate.replace("{date}",timeAry[0]);
+                    $("#nowtime").html(timeTemplate);
+                    _that.setTime();
+                }, 1000);
+            },
+            getTime1: function () {
+                var week = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+                var localToday = '';
+                var offset_GMT = new Date().getTimezoneOffset(); // 本地时间和格林威治的时间差，单位为分钟
+                var nowDate = new Date().getTime(); // 本地时间距 1970 年 1 月 1 日午夜（GMT 时间）之间的毫秒数
+                var d = new Date(nowDate + offset_GMT * 60 * 1000 + 8 * 60 * 60 * 1000);
+                //var d = new Date();
+                localToday = d.getFullYear()+"/"+(d.getMonth() + 1) + "/" + d.getDate();
+                var mon = d.getMonth() + 1;
+                var dd = d.getDate();
+                var time = '';
+                var hh = d.getHours();            //时
+                var mm = d.getMinutes();          //分
+                var ss = d.getSeconds();
+                if (mon < 10)
+                    mon = "0" + mon;
+                if (dd < 10) dd = "0" + dd;
+                if (hh < 10)
+                    time += "0";
+
+                time += hh + ":";
+
+                if (mm < 10) time += '0';
+                time += mm + ":";
+
+                if (ss < 10) time += '0';
+                time += ss;
+
+                return localToday + " " + time;
+            },
+            //返回控制器页面
+            returnPage() {
+                window.location = "/GateWay"
+            },
+            getUserInfo() {
+                //checkCookie();
+                //axget('user').then(function (data) {
+                //    console.log(_this.userName);
+                //    if (data.status == 0) {
+                //        _this.userName = data.result.account
+                //    }
+                //}).catch(error => {
+                //    this.$message.error(error);
+                //})
+            },
+
+            //退出登录，取消cookie有效时间
+            exitLogin() {
+                //console.log(123)
+                var exp = new Date();
+                exp.setTime(exp.getTime()-10);
+                document.cookie = "token=" + escape('echo') + ";expires=" + exp.toGMTString() + ";path=/";
+
+                window.location = "/Login"
+            }
+
+        }
+
+    });
+</script>

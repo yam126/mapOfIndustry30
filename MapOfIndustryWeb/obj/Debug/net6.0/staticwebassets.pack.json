@@ -1,0 +1,2105 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\HideMenus.json",
+      "PackagePath": "staticwebassets\\HideMenus.json"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\MainMenuModels.json",
+      "PackagePath": "staticwebassets\\MainMenuModels.json"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\css\\AveragePrice.css",
+      "PackagePath": "staticwebassets\\css\\AveragePrice.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\css\\CompanyMaster.css",
+      "PackagePath": "staticwebassets\\css\\CompanyMaster.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\css\\LandManage.css",
+      "PackagePath": "staticwebassets\\css\\LandManage.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\css\\NewHome.css",
+      "PackagePath": "staticwebassets\\css\\NewHome.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\css\\datamanage.css",
+      "PackagePath": "staticwebassets\\css\\datamanage.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\css\\detailPage.css",
+      "PackagePath": "staticwebassets\\css\\detailPage.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\css\\gateway.css",
+      "PackagePath": "staticwebassets\\css\\gateway.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\css\\index.css",
+      "PackagePath": "staticwebassets\\css\\index.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\css\\login.css",
+      "PackagePath": "staticwebassets\\css\\login.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\css\\main.css",
+      "PackagePath": "staticwebassets\\css\\main.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\css\\swiper.min.css",
+      "PackagePath": "staticwebassets\\css\\swiper.min.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\css\\video-js.css",
+      "PackagePath": "staticwebassets\\css\\video-js.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\font\\iconfont.css",
+      "PackagePath": "staticwebassets\\font\\iconfont.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\font\\iconfont.js",
+      "PackagePath": "staticwebassets\\font\\iconfont.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\font\\iconfont.json",
+      "PackagePath": "staticwebassets\\font\\iconfont.json"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\font\\iconfont.ttf",
+      "PackagePath": "staticwebassets\\font\\iconfont.ttf"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\font\\iconfont.woff",
+      "PackagePath": "staticwebassets\\font\\iconfont.woff"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\font\\iconfont.woff2",
+      "PackagePath": "staticwebassets\\font\\iconfont.woff2"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\43661c57cd87c78d1640332504.png",
+      "PackagePath": "staticwebassets\\images\\43661c57cd87c78d1640332504.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\5cb181d9a93129731.png",
+      "PackagePath": "staticwebassets\\images\\5cb181d9a93129731.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\8105fc0db88d97451606474632.png",
+      "PackagePath": "staticwebassets\\images\\8105fc0db88d97451606474632.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\b9XvP2DLqm.png",
+      "PackagePath": "staticwebassets\\images\\b9XvP2DLqm.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\detailPage\\closebtnIcon.png",
+      "PackagePath": "staticwebassets\\images\\detailPage\\closebtnIcon.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\dtype\\icon\\dt6.png",
+      "PackagePath": "staticwebassets\\images\\dtype\\icon\\dt6.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\grow\\qi1.png",
+      "PackagePath": "staticwebassets\\images\\grow\\qi1.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\grow\\qi1_no.png",
+      "PackagePath": "staticwebassets\\images\\grow\\qi1_no.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\grow\\qi2.png",
+      "PackagePath": "staticwebassets\\images\\grow\\qi2.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\grow\\qi2_no.png",
+      "PackagePath": "staticwebassets\\images\\grow\\qi2_no.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\grow\\qi3.png",
+      "PackagePath": "staticwebassets\\images\\grow\\qi3.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\grow\\qi3_no.png",
+      "PackagePath": "staticwebassets\\images\\grow\\qi3_no.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\grow\\qi4.png",
+      "PackagePath": "staticwebassets\\images\\grow\\qi4.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\grow\\qi4_no.png",
+      "PackagePath": "staticwebassets\\images\\grow\\qi4_no.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\grow\\qi5.png",
+      "PackagePath": "staticwebassets\\images\\grow\\qi5.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\grow\\qi5_no.png",
+      "PackagePath": "staticwebassets\\images\\grow\\qi5_no.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\icon\\corn.png",
+      "PackagePath": "staticwebassets\\images\\icon\\corn.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\icon\\corn_small.fw.png",
+      "PackagePath": "staticwebassets\\images\\icon\\corn_small.fw.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\icon\\corn_small.png",
+      "PackagePath": "staticwebassets\\images\\icon\\corn_small.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\icon\\soybean_small.fw.png",
+      "PackagePath": "staticwebassets\\images\\icon\\soybean_small.fw.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\icon\\soybean_small.png",
+      "PackagePath": "staticwebassets\\images\\icon\\soybean_small.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\icon\\wheat_small.fw.png",
+      "PackagePath": "staticwebassets\\images\\icon\\wheat_small.fw.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\icon\\wheat_small.png",
+      "PackagePath": "staticwebassets\\images\\icon\\wheat_small.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\img\\baojing.png",
+      "PackagePath": "staticwebassets\\images\\img\\baojing.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\img\\chengxu.png",
+      "PackagePath": "staticwebassets\\images\\img\\chengxu.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\img\\cxutu.png",
+      "PackagePath": "staticwebassets\\images\\img\\cxutu.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\img\\leiji.png",
+      "PackagePath": "staticwebassets\\images\\img\\leiji.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\img\\liuliangji.png",
+      "PackagePath": "staticwebassets\\images\\img\\liuliangji.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\img\\ph.png",
+      "PackagePath": "staticwebassets\\images\\img\\ph.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\img\\return.png",
+      "PackagePath": "staticwebassets\\images\\img\\return.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\img\\shebei.png",
+      "PackagePath": "staticwebassets\\images\\img\\shebei.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\img\\shidu.png",
+      "PackagePath": "staticwebassets\\images\\img\\shidu.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\img\\shitu_icon.png",
+      "PackagePath": "staticwebassets\\images\\img\\shitu_icon.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\img\\shoudong.png",
+      "PackagePath": "staticwebassets\\images\\img\\shoudong.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\img\\shunshi.png",
+      "PackagePath": "staticwebassets\\images\\img\\shunshi.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\img\\tongji.png",
+      "PackagePath": "staticwebassets\\images\\img\\tongji.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\login\\bg1.jpg",
+      "PackagePath": "staticwebassets\\images\\login\\bg1.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\login\\login_boxbg.png",
+      "PackagePath": "staticwebassets\\images\\login\\login_boxbg.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\login\\login_logo.png",
+      "PackagePath": "staticwebassets\\images\\login\\login_logo.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\login\\loginboxbg.png",
+      "PackagePath": "staticwebassets\\images\\login\\loginboxbg.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\login\\logo.png",
+      "PackagePath": "staticwebassets\\images\\login\\logo.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\login\\title.png",
+      "PackagePath": "staticwebassets\\images\\login\\title.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\login\\usercode.png",
+      "PackagePath": "staticwebassets\\images\\login\\usercode.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\login\\username.png",
+      "PackagePath": "staticwebassets\\images\\login\\username.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\login\\userpwd.png",
+      "PackagePath": "staticwebassets\\images\\login\\userpwd.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\2_03.png",
+      "PackagePath": "staticwebassets\\images\\main\\2_03.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\2_07.png",
+      "PackagePath": "staticwebassets\\images\\main\\2_07.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\2_09.png",
+      "PackagePath": "staticwebassets\\images\\main\\2_09.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\2_12.png",
+      "PackagePath": "staticwebassets\\images\\main\\2_12.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\2_14.png",
+      "PackagePath": "staticwebassets\\images\\main\\2_14.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\2_20.png",
+      "PackagePath": "staticwebassets\\images\\main\\2_20.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\2_22.png",
+      "PackagePath": "staticwebassets\\images\\main\\2_22.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\add.png",
+      "PackagePath": "staticwebassets\\images\\main\\add.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\bg.jpg",
+      "PackagePath": "staticwebassets\\images\\main\\bg.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\border.png",
+      "PackagePath": "staticwebassets\\images\\main\\border.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\card_title.png",
+      "PackagePath": "staticwebassets\\images\\main\\card_title.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\card_title_left.png",
+      "PackagePath": "staticwebassets\\images\\main\\card_title_left.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\card_title_middle.png",
+      "PackagePath": "staticwebassets\\images\\main\\card_title_middle.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\card_title_right.png",
+      "PackagePath": "staticwebassets\\images\\main\\card_title_right.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\close.png",
+      "PackagePath": "staticwebassets\\images\\main\\close.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\contrl.png",
+      "PackagePath": "staticwebassets\\images\\main\\contrl.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\del.png",
+      "PackagePath": "staticwebassets\\images\\main\\del.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\edit.png",
+      "PackagePath": "staticwebassets\\images\\main\\edit.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\icon_farm.jpg",
+      "PackagePath": "staticwebassets\\images\\main\\icon_farm.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\icon_farm.png",
+      "PackagePath": "staticwebassets\\images\\main\\icon_farm.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\icon_farming.fw.png",
+      "PackagePath": "staticwebassets\\images\\main\\icon_farming.fw.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\icon_farming.png",
+      "PackagePath": "staticwebassets\\images\\main\\icon_farming.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\icon_guangai.png",
+      "PackagePath": "staticwebassets\\images\\main\\icon_guangai.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\icon_guangaion.png",
+      "PackagePath": "staticwebassets\\images\\main\\icon_guangaion.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\icon_kuc.png",
+      "PackagePath": "staticwebassets\\images\\main\\icon_kuc.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\icon_kucon.png",
+      "PackagePath": "staticwebassets\\images\\main\\icon_kucon.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\icon_xunt.png",
+      "PackagePath": "staticwebassets\\images\\main\\icon_xunt.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\icon_xunton.png",
+      "PackagePath": "staticwebassets\\images\\main\\icon_xunton.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\icon_zhuk.png",
+      "PackagePath": "staticwebassets\\images\\main\\icon_zhuk.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\icon_zhukon.png",
+      "PackagePath": "staticwebassets\\images\\main\\icon_zhukon.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\left_bg.jpg",
+      "PackagePath": "staticwebassets\\images\\main\\left_bg.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\messageIcon.fw.png",
+      "PackagePath": "staticwebassets\\images\\main\\messageIcon.fw.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\messageIcon.png",
+      "PackagePath": "staticwebassets\\images\\main\\messageIcon.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\stitlebg.png",
+      "PackagePath": "staticwebassets\\images\\main\\stitlebg.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\stitlebg0.png",
+      "PackagePath": "staticwebassets\\images\\main\\stitlebg0.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\time.png",
+      "PackagePath": "staticwebassets\\images\\main\\time.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\title.png",
+      "PackagePath": "staticwebassets\\images\\main\\title.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\titleicon.png",
+      "PackagePath": "staticwebassets\\images\\main\\titleicon.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\userlogo.png",
+      "PackagePath": "staticwebassets\\images\\main\\userlogo.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\main\\weatherIcon.png",
+      "PackagePath": "staticwebassets\\images\\main\\weatherIcon.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\01_18.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\01_18.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\2.jpg",
+      "PackagePath": "staticwebassets\\images\\newhome\\2.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\account.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\account.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\bg.jpg",
+      "PackagePath": "staticwebassets\\images\\newhome\\bg.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\border_bottom.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\border_bottom.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\border_middle.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\border_middle.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\border_top.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\border_top.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\crops-01.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\crops-01.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\crops-02.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\crops-02.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\crops-03.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\crops-03.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\crops-04.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\crops-04.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\crops-05.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\crops-05.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\detailbg.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\detailbg.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\hezuoshe.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\hezuoshe.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\qi2.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\qi2.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\qiye.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\qiye.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\title_nav_click.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\title_nav_click.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\title_nav_normal.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\title_nav_normal.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\titlebg01-01.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\titlebg01-01.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\titlebg01.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\titlebg01.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\titlebg02-02.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\titlebg02-02.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\top.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\top.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\top_left_bg.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\top_left_bg.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\top_right_bg.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\top_right_bg.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\top_title_bg.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\top_title_bg.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\total-statistics.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\total-statistics.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\video-click.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\video-click.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\video-nomal.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\video-nomal.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\大豆.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\大豆.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\效果图.jpg",
+      "PackagePath": "staticwebassets\\images\\newhome\\效果图.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\框上.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\框上.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\框下.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\框下.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\框中.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\框中.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\玉米.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\玉米.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\统计.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\统计.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\详情.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\详情.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\newhome\\谷子.png",
+      "PackagePath": "staticwebassets\\images\\newhome\\谷子.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\njq9JjY7p9.png",
+      "PackagePath": "staticwebassets\\images\\njq9JjY7p9.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W0.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W0.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W1.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W1.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W10.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W10.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W13.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W13.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W14.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W14.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W15.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W15.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W16.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W16.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W17.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W17.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W18.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W18.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W19.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W19.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W2.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W2.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W20.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W20.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W29.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W29.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W3.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W3.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W30.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W30.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W31.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W31.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W32.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W32.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W33.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W33.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W34.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W34.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W35.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W35.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W36.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W36.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W4.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W4.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W44.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W44.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W45.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W45.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W46.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W46.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W5.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W5.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W6.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W6.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W7.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W7.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W8.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W8.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\images\\weather\\W9.png",
+      "PackagePath": "staticwebassets\\images\\weather\\W9.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\AMapLoader.js",
+      "PackagePath": "staticwebassets\\js\\AMapLoader.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\CompanyInfo.js",
+      "PackagePath": "staticwebassets\\js\\CompanyInfo.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\DateDiffMethod.js",
+      "PackagePath": "staticwebassets\\js\\DateDiffMethod.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\GPStransform.js",
+      "PackagePath": "staticwebassets\\js\\GPStransform.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\MainMenu.js",
+      "PackagePath": "staticwebassets\\js\\MainMenu.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\TianDiTuMapLoader.js",
+      "PackagePath": "staticwebassets\\js\\TianDiTuMapLoader.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\TianDiTuMapLoaderAdmin.js",
+      "PackagePath": "staticwebassets\\js\\TianDiTuMapLoaderAdmin.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\apiHelper.js",
+      "PackagePath": "staticwebassets\\js\\apiHelper.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\cookieHelper.js",
+      "PackagePath": "staticwebassets\\js\\cookieHelper.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\dateTimeFromat.js",
+      "PackagePath": "staticwebassets\\js\\dateTimeFromat.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\echarts-collections.js",
+      "PackagePath": "staticwebassets\\js\\echarts-collections.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\echarts.min.js",
+      "PackagePath": "staticwebassets\\js\\echarts.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\ezuikit.js",
+      "PackagePath": "staticwebassets\\js\\ezuikit.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\jquery-3.3.1.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery-3.3.1.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\jquery.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\json.js",
+      "PackagePath": "staticwebassets\\js\\json.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\localStorageHelper.js",
+      "PackagePath": "staticwebassets\\js\\localStorageHelper.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\login.js",
+      "PackagePath": "staticwebassets\\js\\login.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\menu.js",
+      "PackagePath": "staticwebassets\\js\\menu.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\osc_region_new.js",
+      "PackagePath": "staticwebassets\\js\\osc_region_new.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\request.js",
+      "PackagePath": "staticwebassets\\js\\request.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\request.min.js",
+      "PackagePath": "staticwebassets\\js\\request.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\sort.js",
+      "PackagePath": "staticwebassets\\js\\sort.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\swiper.min.js",
+      "PackagePath": "staticwebassets\\js\\swiper.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\testData.js",
+      "PackagePath": "staticwebassets\\js\\testData.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\urlUtils.js",
+      "PackagePath": "staticwebassets\\js\\urlUtils.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\video.js",
+      "PackagePath": "staticwebassets\\js\\video.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\js\\videojs-contrib-hls.js",
+      "PackagePath": "staticwebassets\\js\\videojs-contrib-hls.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\amap\\loader.js",
+      "PackagePath": "staticwebassets\\lib\\amap\\loader.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\angular.js\\angular-csp.css",
+      "PackagePath": "staticwebassets\\lib\\angular.js\\angular-csp.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\angular.js\\angular-csp.min.css",
+      "PackagePath": "staticwebassets\\lib\\angular.js\\angular-csp.min.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\angular.js\\angular.js",
+      "PackagePath": "staticwebassets\\lib\\angular.js\\angular.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\angular.js\\angular.min.js",
+      "PackagePath": "staticwebassets\\lib\\angular.js\\angular.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\angular.js\\angular.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\angular.js\\angular.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\axios\\axios.js",
+      "PackagePath": "staticwebassets\\lib\\axios\\axios.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\axios\\axios.map",
+      "PackagePath": "staticwebassets\\lib\\axios\\axios.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\axios\\axios.min.js",
+      "PackagePath": "staticwebassets\\lib\\axios\\axios.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\axios\\axios.min.map",
+      "PackagePath": "staticwebassets\\lib\\axios\\axios.min.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-datepicker3.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-datepicker3.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap3.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap3.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap-datepicker.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap-datepicker.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap-datepicker.zh-CN.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap-datepicker.zh-CN.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\moment.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\moment.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\zh-cn.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\zh-cn.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\echarts\\echarts.min.js",
+      "PackagePath": "staticwebassets\\lib\\echarts\\echarts.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\index.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\index.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\af-ZA.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\af-ZA.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\af-ZA.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\af-ZA.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\af-ZA.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\af-ZA.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ar.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ar.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ar.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ar.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ar.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ar.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\bg.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\bg.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\bg.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\bg.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\bg.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\bg.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ca.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ca.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ca.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ca.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ca.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ca.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\cs-CZ.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\cs-CZ.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\cs-CZ.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\cs-CZ.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\cs-CZ.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\cs-CZ.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\da.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\da.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\da.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\da.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\da.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\da.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\de.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\de.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\de.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\de.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\de.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\de.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ee.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ee.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ee.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ee.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ee.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ee.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\el.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\el.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\el.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\el.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\el.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\el.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\en.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\en.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\en.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\en.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\en.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\en.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\eo.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\eo.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\eo.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\eo.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\eo.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\eo.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\es.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\es.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\es.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\es.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\es.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\es.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\eu.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\eu.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\eu.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\eu.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\eu.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\eu.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\fa.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\fa.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\fa.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\fa.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\fa.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\fa.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\fi.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\fi.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\fi.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\fi.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\fi.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\fi.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\fr.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\fr.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\fr.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\fr.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\fr.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\fr.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\he.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\he.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\he.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\he.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\he.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\he.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\hr.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\hr.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\hr.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\hr.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\hr.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\hr.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\hu.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\hu.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\hu.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\hu.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\hu.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\hu.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\hy-AM.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\hy-AM.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\hy-AM.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\hy-AM.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\hy-AM.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\hy-AM.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\id.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\id.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\id.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\id.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\id.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\id.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\it.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\it.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\it.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\it.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\it.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\it.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ja.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ja.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ja.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ja.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ja.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ja.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\kg.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\kg.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\kg.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\kg.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\kg.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\kg.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\km.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\km.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\km.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\km.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\km.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\km.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ko.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ko.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ko.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ko.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ko.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ko.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ku.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ku.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ku.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ku.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ku.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ku.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\kz.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\kz.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\kz.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\kz.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\kz.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\kz.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\lt.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\lt.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\lt.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\lt.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\lt.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\lt.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\lv.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\lv.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\lv.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\lv.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\lv.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\lv.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\mn.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\mn.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\mn.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\mn.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\mn.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\mn.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\nb-NO.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\nb-NO.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\nb-NO.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\nb-NO.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\nb-NO.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\nb-NO.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\nl.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\nl.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\nl.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\nl.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\nl.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\nl.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\pl.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\pl.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\pl.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\pl.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\pl.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\pl.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\pt-br.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\pt-br.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\pt-br.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\pt-br.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\pt-br.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\pt-br.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\pt.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\pt.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\pt.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\pt.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\pt.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\pt.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ro.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ro.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ro.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ro.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ro.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ro.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ru-RU.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ru-RU.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ru-RU.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ru-RU.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ru-RU.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ru-RU.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\sk.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\sk.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\sk.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\sk.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\sk.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\sk.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\sl.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\sl.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\sl.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\sl.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\sl.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\sl.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\sr.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\sr.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\sr.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\sr.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\sr.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\sr.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\sv-SE.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\sv-SE.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\sv-SE.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\sv-SE.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\sv-SE.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\sv-SE.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ta.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ta.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ta.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ta.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ta.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ta.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\th.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\th.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\th.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\th.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\th.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\th.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\tk.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\tk.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\tk.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\tk.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\tk.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\tk.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\tr-TR.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\tr-TR.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\tr-TR.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\tr-TR.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\tr-TR.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\tr-TR.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ua.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ua.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ua.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ua.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ua.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ua.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ug-CN.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ug-CN.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ug-CN.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ug-CN.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\ug-CN.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\ug-CN.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\uz-UZ.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\uz-UZ.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\uz-UZ.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\uz-UZ.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\uz-UZ.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\uz-UZ.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\vi.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\vi.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\vi.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\vi.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\vi.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\vi.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\zh-CN.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\zh-CN.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\zh-CN.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\zh-CN.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\zh-CN.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\zh-CN.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\zh-TW.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\zh-TW.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\zh-TW.min.js",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\zh-TW.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\locale\\zh-TW.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\locale\\zh-TW.min.js.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\theme-chalk\\fonts\\element-icons.ttf",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\theme-chalk\\fonts\\element-icons.ttf"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\theme-chalk\\fonts\\element-icons.woff",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\theme-chalk\\fonts\\element-icons.woff"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\element-ui\\theme-chalk\\index.css",
+      "PackagePath": "staticwebassets\\lib\\element-ui\\theme-chalk\\index.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\css\\date-font.css",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\css\\date-font.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\css\\example.css",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\css\\example.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\css\\foundation-datepicker.css",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\css\\foundation-datepicker.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\css\\foundation-datepicker.min.css",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\css\\foundation-datepicker.min.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\css\\foundation.min.css",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\css\\foundation.min.css"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\foundation-datepicker.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\foundation-datepicker.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\foundation-datepicker.min.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\foundation-datepicker.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\foundation.min.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\foundation.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\jquery-1.11.3.min.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\jquery-1.11.3.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.ar.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.ar.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.az.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.az.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.bg.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.bg.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.bs.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.bs.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.ca.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.ca.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.cs.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.cs.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.cy.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.cy.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.da.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.da.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.de.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.de.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.el.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.el.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.en-GB.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.en-GB.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.eo.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.eo.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.es.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.es.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.et.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.et.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.eu.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.eu.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.fa.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.fa.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.fi.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.fi.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.fo.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.fo.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.fr-CH.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.fr-CH.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.fr.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.fr.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.gl.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.gl.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.he.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.he.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.hr.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.hr.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.hu.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.hu.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.hy.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.hy.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.id.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.id.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.is.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.is.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.it-CH.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.it-CH.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.it.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.it.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.ja.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.ja.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.ka.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.ka.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.kh.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.kh.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.kk.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.kk.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.ko.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.ko.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.kr.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.kr.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.lt.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.lt.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.lv.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.lv.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.me.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.me.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.mk.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.mk.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.mn.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.mn.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.ms.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.ms.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.nb.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.nb.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.nl-BE.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.nl-BE.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.nl.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.nl.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.no.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.no.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.pl.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.pl.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.pt-br.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.pt-br.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.pt.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.pt.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.ro.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.ro.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.rs-latin.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.rs-latin.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.rs.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.rs.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.ru.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.ru.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.sk.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.sk.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.sl.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.sl.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.sq.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.sq.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.sr-latin.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.sr-latin.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.sr.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.sr.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.sv.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.sv.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.sw.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.sw.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.th.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.th.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.tr.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.tr.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.uk.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.uk.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.vi.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.vi.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.zh-CN.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.zh-CN.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.zh-TW.js",
+      "PackagePath": "staticwebassets\\lib\\jqueryDatepicker\\js\\locales\\foundation-datepicker.zh-TW.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\linq\\linq.js",
+      "PackagePath": "staticwebassets\\lib\\linq\\linq.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\moment\\moment.js",
+      "PackagePath": "staticwebassets\\lib\\moment\\moment.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\vue\\vue.common.js",
+      "PackagePath": "staticwebassets\\lib\\vue\\vue.common.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\vue\\vue.esm.browser.js",
+      "PackagePath": "staticwebassets\\lib\\vue\\vue.esm.browser.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\vue\\vue.esm.js",
+      "PackagePath": "staticwebassets\\lib\\vue\\vue.esm.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\vue\\vue.js",
+      "PackagePath": "staticwebassets\\lib\\vue\\vue.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\vue\\vue.min.js",
+      "PackagePath": "staticwebassets\\lib\\vue\\vue.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\vue\\vue.runtime.common.js",
+      "PackagePath": "staticwebassets\\lib\\vue\\vue.runtime.common.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\vue\\vue.runtime.esm.js",
+      "PackagePath": "staticwebassets\\lib\\vue\\vue.runtime.esm.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\vue\\vue.runtime.js",
+      "PackagePath": "staticwebassets\\lib\\vue\\vue.runtime.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\vue\\vue.runtime.min.js",
+      "PackagePath": "staticwebassets\\lib\\vue\\vue.runtime.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\xlsx\\cpexcel.js",
+      "PackagePath": "staticwebassets\\lib\\xlsx\\cpexcel.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\xlsx\\cpexcel.min.js",
+      "PackagePath": "staticwebassets\\lib\\xlsx\\cpexcel.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\xlsx\\jszip.js",
+      "PackagePath": "staticwebassets\\lib\\xlsx\\jszip.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\xlsx\\jszip.min.js",
+      "PackagePath": "staticwebassets\\lib\\xlsx\\jszip.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\xlsx\\shim.min.js",
+      "PackagePath": "staticwebassets\\lib\\xlsx\\shim.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\xlsx\\xlsx.core.min.js",
+      "PackagePath": "staticwebassets\\lib\\xlsx\\xlsx.core.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\xlsx\\xlsx.core.min.map",
+      "PackagePath": "staticwebassets\\lib\\xlsx\\xlsx.core.min.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\xlsx\\xlsx.extendscript.js",
+      "PackagePath": "staticwebassets\\lib\\xlsx\\xlsx.extendscript.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\xlsx\\xlsx.extendscript.min.js",
+      "PackagePath": "staticwebassets\\lib\\xlsx\\xlsx.extendscript.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\xlsx\\xlsx.full.min.js",
+      "PackagePath": "staticwebassets\\lib\\xlsx\\xlsx.full.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\xlsx\\xlsx.full.min.map",
+      "PackagePath": "staticwebassets\\lib\\xlsx\\xlsx.full.min.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\xlsx\\xlsx.js",
+      "PackagePath": "staticwebassets\\lib\\xlsx\\xlsx.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\xlsx\\xlsx.min.js",
+      "PackagePath": "staticwebassets\\lib\\xlsx\\xlsx.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\xlsx\\xlsx.min.map",
+      "PackagePath": "staticwebassets\\lib\\xlsx\\xlsx.min.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\xlsx\\xlsx.mini.min.js",
+      "PackagePath": "staticwebassets\\lib\\xlsx\\xlsx.mini.min.js"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\lib\\xlsx\\xlsx.mini.min.map",
+      "PackagePath": "staticwebassets\\lib\\xlsx\\xlsx.mini.min.map"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\osc_region.json",
+      "PackagePath": "staticwebassets\\osc_region.json"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\osc_region_new.json",
+      "PackagePath": "staticwebassets\\osc_region_new.json"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\template\\companyInfoTemplate.xls",
+      "PackagePath": "staticwebassets\\template\\companyInfoTemplate.xls"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\template\\oscregionTemplate.xls",
+      "PackagePath": "staticwebassets\\template\\oscregionTemplate.xls"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\test\\SampleVideo_640x360_30mb.mp4",
+      "PackagePath": "staticwebassets\\test\\SampleVideo_640x360_30mb.mp4"
+    },
+    {
+      "Id": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\wwwroot\\test\\SampleVideo_720x480_10mb.mp4",
+      "PackagePath": "staticwebassets\\test\\SampleVideo_720x480_10mb.mp4"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.MapOfIndustryWeb.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.MapOfIndustryWeb.props",
+      "PackagePath": "build\\MapOfIndustryWeb.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.MapOfIndustryWeb.props",
+      "PackagePath": "buildMultiTargeting\\MapOfIndustryWeb.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.MapOfIndustryWeb.props",
+      "PackagePath": "buildTransitive\\MapOfIndustryWeb.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

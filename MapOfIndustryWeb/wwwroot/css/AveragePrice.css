@@ -1,0 +1,58 @@
+﻿#averagePrice {
+    width: 100%;
+    height: 100%;
+    margin: 0% auto;
+    position: relative;
+    background-color: #0b2c7885;
+}
+
+    #averagePrice .title-container {
+        width: 98%;
+        height: 5%;
+        margin-left: 1%;
+        margin-top: 2%;
+        border: 0px solid red;
+        float: left;
+    }
+
+        #averagePrice .title-container .title-center {
+            min-width: 25%;
+            width: auto !important;
+            height: 85%;
+            font-family: 'Microsoft YaHei UI';
+            font-size: 1.3vw;
+            color: #DDEAFE;
+            text-align: center;
+            margin-top: 0.2%;
+            margin-left: 39%;
+            border: 0px solid red;
+            float: left;
+        }
+
+        #averagePrice .title-container .btnClose {
+            width: 2.8%;
+            height: 3vh;
+            line-height: 2.8vh;
+            float: left;
+            cursor: pointer;
+            border-radius: 8px;
+            font-family: 'Microsoft YaHei UI';
+            font-size: 2vh;
+            color: #fdfdfd;
+            text-align: center;
+            border: 1px solid #71e907;
+            cursor: pointer;
+            background-color: #218579c9;
+            box-shadow: 4px 5px 5px 1px #44f3cf8a inset, -3px -4px 5px 1px #31cd8c61 inset, -1px -5px 5px 1px #35c796a6 inset;
+            margin-left: 31%;
+            margin-top: 0.3%;
+        }
+
+    #averagePrice .echart-container {
+        width: 98%;
+        height: 86%;
+        margin-left: 1%;
+        margin-top: 2%;
+        border: 0px solid red;
+        float: left;
+    }

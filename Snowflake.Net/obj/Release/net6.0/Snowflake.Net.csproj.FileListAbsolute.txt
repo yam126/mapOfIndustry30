@@ -1,0 +1,12 @@
+C:\Users\Administrator\Desktop\mapOfIndustry30-2023-06-12\Snowflake.Net\bin\Release\net6.0\Snowflake.Net.deps.json
+C:\Users\Administrator\Desktop\mapOfIndustry30-2023-06-12\Snowflake.Net\bin\Release\net6.0\Snowflake.Net.dll
+C:\Users\Administrator\Desktop\mapOfIndustry30-2023-06-12\Snowflake.Net\bin\Release\net6.0\Snowflake.Net.pdb
+C:\Users\Administrator\Desktop\mapOfIndustry30-2023-06-12\Snowflake.Net\obj\Release\net6.0\Snowflake.Net.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\mapOfIndustry30-2023-06-12\Snowflake.Net\obj\Release\net6.0\Snowflake.Net.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Desktop\mapOfIndustry30-2023-06-12\Snowflake.Net\obj\Release\net6.0\Snowflake.Net.AssemblyInfoInputs.cache
+C:\Users\Administrator\Desktop\mapOfIndustry30-2023-06-12\Snowflake.Net\obj\Release\net6.0\Snowflake.Net.AssemblyInfo.cs
+C:\Users\Administrator\Desktop\mapOfIndustry30-2023-06-12\Snowflake.Net\obj\Release\net6.0\Snowflake.Net.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\mapOfIndustry30-2023-06-12\Snowflake.Net\obj\Release\net6.0\Snowflake.Net.dll
+C:\Users\Administrator\Desktop\mapOfIndustry30-2023-06-12\Snowflake.Net\obj\Release\net6.0\refint\Snowflake.Net.dll
+C:\Users\Administrator\Desktop\mapOfIndustry30-2023-06-12\Snowflake.Net\obj\Release\net6.0\Snowflake.Net.pdb
+C:\Users\Administrator\Desktop\mapOfIndustry30-2023-06-12\Snowflake.Net\obj\Release\net6.0\ref\Snowflake.Net.dll

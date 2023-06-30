@@ -1,0 +1,5 @@
+调用时间2023-06-12 14:06:40.下午	
+参数	
+[{"Name":"parameter","Value":{"ID":"","LandId":"3742","LandName":"测试添加1","CropsName":"玉米","PlantingArea":"1111.00","JobPopulation":"222","TotalPopulation":"333","TotalOutput":"444.00","TotaValue":"555.00","SoilType":"","WateringType":"","LandProperty":"","LeaseYear":"3","CropOutput":"2023","LastYearOutput":"170.00","CurrentYearOutput":"170.00","CropsSalesPrice":"123.50","EnterTime":"2023-06-12","Creater":""}}]调用时间2023-06-12 14:06:40.下午	
+返回值	
+{"Status":0,"Msg":""}

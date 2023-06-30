@@ -1,0 +1,23 @@
+{
+  "id": "3255358",
+  "name": "icon",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8361855",
+      "name": "信号",
+      "font_class": "xinhao",
+      "unicode": "e6cf",
+      "unicode_decimal": 59087
+    },
+    {
+      "icon_id": "18170248",
+      "name": "电池电量",
+      "font_class": "electricity-full",
+      "unicode": "e996",
+      "unicode_decimal": 59798
+    }
+  ]
+}

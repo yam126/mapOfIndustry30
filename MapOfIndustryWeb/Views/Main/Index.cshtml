@@ -1,0 +1,335 @@
+﻿<div class="page-body" id="main">
+    <el-row class="page-cont">
+        <el-col :span="24" class="page-cont">
+            <el-row class="page-cont">
+                <el-col :span="17" id="map-container" class="half-cont">
+                    <div class="tab-button-container">
+                        <div class="tab-container">
+                            <button @@click="mapSign('产业基地',0)" :class="mapTabClassIndex==0?'tab-click-button':'tab-normal-button'">产业基地</button>
+                            <button @@click="mapSign('种植面积',1)" :class="mapTabClassIndex==1?'tab-click-button':'tab-normal-button'">种植面积</button>
+                            <button @@click="mapSign('作物产量',2)" :class="mapTabClassIndex==2?'tab-click-button':'tab-normal-button'">作物产量</button>
+                            <button @@click="mapSign('人口数量',3)" :class="mapTabClassIndex==3?'tab-click-button':'tab-normal-button'">人口数量</button>
+                        </div>
+                        <a href="#" @@click="jumpDataPage" >
+                            <img class="tab-button-container-icon" style="border:0px" src="images/main/2_07.png" />
+                        </a>
+                    </div>
+                    <div v-show="districtItemIsShow" class="district-item-container">
+                        <!--区域名称-->
+                        <div class="district-name-container">
+                            <!-- 四个角的边框效果 -->
+                            <div class="border_corner border_corner_left_top"></div>
+                            <div class="border_corner border_corner_right_top"></div>
+                            <div class="border_corner border_corner_left_bottom"></div>
+                            <div class="border_corner border_corner_right_bottom"></div>
+                            <div class="district-name">
+                                {{regionDataItem.regionName}}
+                            </div>
+                        </div>
+                        <!--/区域名称-->
+                        <div @@click="districtItemHidden" class="district-close-button">
+                            X
+                        </div>
+                        <div class="district-item-content-line">
+                            <span class="white-font">产业基地:</span>{{regionDataItem.cropsName}}
+                        </div>
+                        <div class="district-item-content-line">
+                            <span class="white-font">土壤:</span>{{regionDataItem.soilType}}&nbsp;&nbsp;
+                            <span class="white-font">面积:</span>{{regionDataItem.plantingArea}}亩
+                        </div>
+                        <div class="district-item-content-line">
+                            <span class="white-font">去年产量(kg/亩):</span>{{regionDataItem.lastYearOutput}}
+                        </div>
+                        <div class="district-item-content-line">
+                            <span class="white-font">人口数量:</span>{{regionDataItem.totalPopulation}}
+                        </div>
+                        <div class="district-item-content-line">
+                            <span class="white-font">去年产值:</span>{{regionDataItem.totaValue}}
+                        </div>
+                        <div class="crops-statistics">
+                            <div class="crops-name">
+                                {{regionDataItem.cropsInfo1.cropsName}}种植(亩)
+                            </div>
+                            <div class="crops-statistics-number">
+                                {{regionDataItem.cropsInfo1.plantingArea}}
+                            </div>
+                        </div>
+                        <div class="crops-statistics">
+                            <div class="crops-name">
+                                {{regionDataItem.cropsInfo2.cropsName}}种植(亩)
+                            </div>
+                            <div class="crops-statistics-number">
+                                {{regionDataItem.cropsInfo2.plantingArea}}
+                            </div>
+                        </div>
+                        <div class="view-more">
+                            <a href="#">更多数据</a>
+                        </div>
+                    </div>
+                    <!--高德地图容器-->
+                    <div id="amap-container" class="amap-container">
+                    </div>
+                    <!--/高德地图容器-->
+                </el-col>
+                <el-col :span="7" style="height:100%" class="half-cont">
+                    <div id="data-container">
+                        <!--产值统计-->
+                        <div class="data-container-item">
+                            <div class="data-container-item-title-container">
+                                <div class="title-middle">
+                                    产值统计
+                                </div>
+                            </div>
+                            <div id="chartsIndustryStatistics" class="data-charts-container">
+                            </div>
+                        </div>
+                        <!--/产值统计-->
+                        <!--种植面积-->
+                        <div class="data-container-item">
+                            <div class="data-container-item-title-container">
+                                <div class="title-middle">
+                                    种植面积
+                                </div>
+                            </div>
+                            <div id="plantingAreaStatistics" class="data-charts-container">
+                            </div>
+                        </div>
+                        <!--/种植面积-->
+                        <!--总统计信息-->
+                        <div id="total-statistics-container">
+                            <!--总产量-->
+                            <div class="statistics-item">
+                                <img class="icon" src="~/images/main/2_20.png" />
+                                <div class="text-container">
+                                    <div class="title">
+                                        总产量
+                                    </div>
+                                    <div class="statistics-number">
+                                        {{totalStatisticsInfo.totalOutputValue}}
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/总产量-->
+                            <!--总产值-->
+                            <div class="statistics-item">
+                                <img class="icon" src="~/images/main/2_22.png" />
+                                <div class="text-container">
+                                    <div class="title">
+                                        总产值
+                                    </div>
+                                    <div class="statistics-number">
+                                        {{totalStatisticsInfo.totaValue}}
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/总产值-->
+                        </div>
+                        <!--/总统计信息-->
+                    </div>
+                </el-col>
+            </el-row>
+        </el-col>
+    </el-row>
+</div>
+@{
+    var regionId = (string)ViewData["regionId"];
+    regionId = System.Web.HttpUtility.HtmlDecode(regionId);
+}
+<script>
+    var v_rootDistrictId="@regionId";
+    var main = new Vue({
+        el: "#main",
+        data: {
+            proSwitch: true,
+            regionItem : null,
+            districtItemIsShow : false,
+            mapTabClassIndex:0,
+            mapTabClass:[
+               "tab-click-button",
+               "tab-normal-button",
+               "tab-normal-button",
+               "tab-normal-button"
+            ],
+            YearRange:12,
+            LandId:null,
+            totalStatisticsInfo:{
+                totalOutputValue:0,
+                totaValue:0
+            },
+            regionDataItem:{
+               regionName:'',
+               cropsName:'',
+               soilType:'',
+               plantingArea:'',
+               lastYearOutput:'',
+               totalPopulation:'',
+               totaValue:'',              
+               cropsInfo1:{
+                  cropsName:'',
+                  plantingArea:''
+               },
+               cropsInfo2:{
+                  cropsName:'',
+                  plantingArea:''
+               }
+            }
+        },
+        mounted: function () {
+            this.initMenu();
+            this.IndustryStatistics();
+            this.InitPlantingAreaStatistics();
+            this.GetStatisticsInfo();
+        },
+        methods: {
+            jumpDataPage(){
+                 //console.log("jumpDataPage");
+                 //console.log("v_rootDistrictId="+v_rootDistrictId);
+                 $.post('/DataManage?LandId=LandId_'+v_rootDistrictId, function (result) {
+                    $("#tab_1").html(result);
+                });
+            },
+            GetStatisticsInfo(){
+                var _that=this;
+                apiHelper.GetStatisticsInfo(
+                    v_rootDistrictId,
+                    function(response){
+                        //console.log("GetStatisticsInfo");
+                        //console.log(response);
+                        _that.totalStatisticsInfo.totalOutputValue=response.result.totalOutputValue;
+                        _that.totalStatisticsInfo.totaValue=response.result.totaValue;
+                    }
+                );
+            },
+            InitPlantingAreaStatistics(){
+                var _that=this;
+                apiHelper.GetPlantingAreaStatistics(
+                    v_rootDistrictId,
+                    function(response){
+                        //console.log("plantingAreaStatistics");
+                        //console.log(response);
+                        var regionNames=[];
+                        var staticsData=[];
+                        for(var i=0;i<response.result.length;i++){
+                            var itemData=response.result[i];
+                            regionNames.push(itemData.landName);
+                            staticsData.push(itemData.plantingAreaStatistics);
+                        }
+                        //console.log("regionNames");
+                        //console.log(regionNames);
+                        //console.log("staticsData");
+                        //console.log(staticsData);
+                        plantingAreaStatistics(
+                            "plantingAreaStatistics",
+                            regionNames,
+                            staticsData
+                        );
+                    }
+                );
+            },
+            IndustryStatistics(){
+                var _that=this;
+                _that.LandId=v_rootDistrictId;
+                apiHelper.GetOutputValueStatistics(
+                   _that.YearRange,
+                   _that.LandId,
+                   function(response){
+                       //console.log("chartsIndustryStatistics");
+                       //console.log(response);
+                       if(response.result==null||response.result.length<=0)
+                       {
+                           alert('产业数据为空无法统计');
+                       }
+                       else
+                       {
+                           var yearLabelData=[];
+                           var lineChartData=[];
+                           var histogramData=[];
+                           for(var i=0;i<response.result.length;i++){
+                               if(i%2==0) {
+                                  histogramData.push(response.result[i].totalOutputValue);
+                                  yearLabelData.push(response.result[i].statisticYear);
+                               }
+                               else 
+                                  lineChartData.push(response.result[i].totalOutputValue);
+                           }
+                           //console.log("yearLabelData");
+                           //console.log(yearLabelData);
+                           //console.log("lineChartData");
+                           //console.log(lineChartData);
+                           //console.log("histogramData");
+                           //console.log(histogramData);
+                           chartsIndustryStatistics(
+                               "chartsIndustryStatistics",
+                               yearLabelData, 
+                               histogramData, 
+                               lineChartData);
+                       }
+                   }
+                );
+            },
+            districtItemHidden(){
+               this.districtItemIsShow=false;
+            },
+            queryRegions(rootDistrictId,regionDatas){
+                var _that=this;
+                _that.regionItem=itemRegion;
+                for(var i=0;i<regionDatas.length;i++){
+                    var itemRegion=regionDatas[i];
+                    //console.log(itemRegion.name);
+                    if(parseInt(itemRegion.id)==rootDistrictId)
+                        _that.regionItem=itemRegion;
+                }
+            },
+            mapSign(text,index){
+               if(text=="产业基地")
+                  this.initMenu();
+               else
+                  mapRandomSign(text);
+               this.mapTabClassIndex=index;
+               //console.log(this.mapTabClass);
+            },
+            //高德地图地块儿鼠标经过事件
+            polygon_event(event,extData){
+               //console.log(event);//事件名称
+               //console.log(extData);//事件数据
+               if(event=="mouseover")
+               {
+                   this.districtItemIsShow=true;
+                   var regionTestDataItem=getTestDataById(extData.id);
+                   this.regionDataItem.regionName=extData.name;
+                   this.regionDataItem.cropsName=regionTestDataItem.CropsName;
+                   this.regionDataItem.soilType=regionTestDataItem.SoilType;
+                   this.regionDataItem.plantingArea=regionTestDataItem.PlantingArea;
+                   this.regionDataItem.lastYearOutput=regionTestDataItem.LastYearOutput;
+                   this.regionDataItem.totalPopulation=regionTestDataItem.TotalPopulation;
+                   this.regionDataItem.totaValue=regionTestDataItem.TotaValue;
+                   //console.log("regionTestDataItem");
+                   //console.log(regionTestDataItem);
+                   if(regionTestDataItem.CropsList!=null&&regionTestDataItem.CropsList.length>=2)
+                   {
+                       this.regionDataItem.cropsInfo1.cropsName=regionTestDataItem.CropsList[0].cropsName;
+                       this.regionDataItem.cropsInfo1.plantingArea=regionTestDataItem.CropsList[0].plantingArea;
+                       this.regionDataItem.cropsInfo2.cropsName=regionTestDataItem.CropsList[1].cropsName;
+                       this.regionDataItem.cropsInfo2.plantingArea=regionTestDataItem.CropsList[1].plantingArea;
+                   }
+               }
+               else if(event=="mouseout")
+                   this.districtItemIsShow=false;
+            },
+            initMenu() {
+                var _that=this;
+                $.getJSON("osc_region.json",function(data){
+                    //console.log("v_rootDistrictId"+v_rootDistrictId);
+                    _that.queryRegions(v_rootDistrictId,data.RECORDS);
+                    rootDistrictName=_that.regionItem.name;
+                    rootDistrictId=v_rootDistrictId;
+                    CreateAMap("amap-container",rootDistrictName,_that.polygon_event);
+                    //console.log("rootDistrictName="+rootDistrictName);
+                    //console.log("_that.regionItem"+_that.regionItem);
+                });
+            },
+            showAMapData(){
+            }
+        }
+    });
+</script>

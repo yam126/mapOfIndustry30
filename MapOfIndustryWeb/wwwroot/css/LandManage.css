@@ -1,0 +1,187 @@
+﻿.selectLevel {
+    width: 10%;
+    display: inline-block;
+}
+
+.landManageEditDialog {
+    width: 89vw;
+    height: 79vh;
+}
+
+    .landManageEditDialog .dialogDiv {
+        width: 98%;
+        height: 65vh;
+        margin-top: 0.2%;
+        margin-left: 1%;
+        border: 0px solid red;
+        float: left;
+    }
+
+        .landManageEditDialog .dialogDiv .inputDiv {
+            width: 98%;
+            height: 12vh;
+            margin-top: 0.6%;
+            margin-left: 1%;
+            border: 0px solid red;
+            float: left;
+        }
+
+            .landManageEditDialog .dialogDiv .inputDiv .txtLandId-Container {
+                width: 13vw;
+                height: 4.7vh;
+                margin-top: 0.5%;
+                margin-left: 1%;
+                border: 0px solid red;
+                float: left;
+            }
+
+            .landManageEditDialog .dialogDiv .inputDiv .txtLandName-Container {
+                width: 13vw;
+                height: 4.7vh;
+                margin-top: 0.5%;
+                margin-left: 1%;
+                border: 0px solid red;
+                float: left;
+            }
+
+            .landManageEditDialog .dialogDiv .inputDiv .txtLandParent-Container {
+                width: 13vw;
+                height: 4.7vh;
+                margin-top: 0.5%;
+                margin-left: 1%;
+                border: 0px solid red;
+                float: left;
+            }
+
+            .landManageEditDialog .dialogDiv .inputDiv .txtLandCityCode-Container {
+                width: 13vw;
+                height: 4.7vh;
+                margin-top: 0.5%;
+                margin-left: 1%;
+                border: 0px solid red;
+                float: left;
+            }
+
+            .landManageEditDialog .dialogDiv .inputDiv .txtLandAdcode-Container {
+                width: 13vw;
+                height: 4.7vh;
+                margin-top: 0.5%;
+                margin-left: 1%;
+                border: 0px solid red;
+                float: left;
+            }
+
+            .landManageEditDialog .dialogDiv .inputDiv .txtLandLevel-Container {
+                width: 13vw;
+                height: 4.7vh;
+                margin-top: 0.5%;
+                margin-left: 1%;
+                border: 0px solid red;
+                float: left;
+            }
+
+            .landManageEditDialog .dialogDiv .inputDiv .txtLandCenterLng-Container {
+                width: 13vw;
+                height: 4.7vh;
+                margin-top: 0.5%;
+                margin-left: 1%;
+                border: 0px solid red;
+                float: left;
+            }
+
+            .landManageEditDialog .dialogDiv .inputDiv .txtLandCenterLat-Container {
+                width: 13vw;
+                height: 4.7vh;
+                margin-top: 0.5%;
+                margin-left: 1%;
+                border: 0px solid red;
+                float: left;
+            }
+
+            .landManageEditDialog .dialogDiv .inputDiv .btnSaveData {
+                width: 11vw;
+                height: 4vh;
+                line-height: 4vh;
+                margin-top: 0.5%;
+                margin-left: 1%;
+                background-color: #5087c1;
+                color: #fff;
+                font-family: "Microsoft YaHei UI";
+                font-size: 2vh;
+                font-weight: 700;
+                text-align: center;
+                border-radius: 5px;
+                cursor: pointer;
+                float: left;
+            }
+
+            @media screen (max-width:1536) {
+                .landManageEditDialog .dialogDiv .inputDiv .btnSaveData {
+                    width: 11vw;
+                }
+            }
+
+            .landManageEditDialog .dialogDiv .inputDiv .ddlSelectRootLand {
+                width: 13vw;
+                height: 4.7vh;
+                margin-top: 0.5%;
+                margin-left: 1%;
+                border: 0px solid red;
+                float: left;
+            }
+
+            .landManageEditDialog .dialogDiv .inputDiv .btnSetRootLand {
+                width: 13vw;
+                height: 4vh;
+                line-height: 4vh;
+                margin-top: 0.5%;
+                margin-left: 1%;
+                background-color: #5087c1;
+                color: #fff;
+                font-family: "Microsoft YaHei UI";
+                font-size: 2vh;
+                font-weight: 700;
+                text-align: center;
+                border-radius: 5px;
+                cursor: pointer;
+                float: left;
+            }
+
+        .landManageEditDialog .dialogDiv .mapContainer {
+            width: 98%;
+            height: 52vh;
+            margin-top: 0.6%;
+            margin-left: 1%;
+            border: 0px solid red;
+            float: left;
+        }
+
+.polygonColorDialog {
+    width: 16vw;
+    height: 21vh;
+}
+
+    .polygonColorDialog .dialogDiv {
+        width: 98%;
+        height: 12vh;
+        margin-top: -8%;
+        margin-left: 1%;
+        border: 0px solid red;
+        float: left;
+    }
+
+        .polygonColorDialog .dialogDiv .itemColor {
+            width: 4.3vw;
+            height: 3vh;
+            line-height: 3vh;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1.3vh;
+            text-align: center;
+            font-family: 'Microsoft YaHei UI';
+            font-weight: 700;
+            margin-top: 2%;
+            margin-left: 1%;
+            border: 0px solid red;
+            float: left;
+        }

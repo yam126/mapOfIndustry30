@@ -1,0 +1,36 @@
+[
+  {
+    "status": "success",
+    "name": "focusimg01.jpeg",
+    "size": 124195,
+    "percentage": 100,
+    "uid": 1663754813906,
+    "raw": { "uid": 1663754813906 },
+    "url": "blob:http://192.168.1.23:5007/58a22605-6832-46df-8482-0ff8082593a5",
+    "response": {
+      "code": 0,
+      "msg": "",
+      "data": {
+        "src": "http://8.142.16.236:6060/images/cropsTraceFiles/20220921/d1a68a04-1c4d-401d-afe6-195d6bcad3f2.jpeg",
+        "title": "d1a68a04-1c4d-401d-afe6-195d6bcad3f2.jpeg"
+      }
+    }
+  },
+  {
+    "status": "success",
+    "name": "focusimg02.jpeg",
+    "size": 134756,
+    "percentage": 100,
+    "uid": 1663754817045,
+    "raw": { "uid": 1663754817045 },
+    "url": "blob:http://192.168.1.23:5007/43b8693b-c25e-4a00-b3e3-c6488143a21a",
+    "response": {
+      "code": 0,
+      "msg": "",
+      "data": {
+        "src": "http://8.142.16.236:6060/images/cropsTraceFiles/20220921/76f6d04c-4e20-40e2-8f35-85a360aa36eb.jpeg",
+        "title": "76f6d04c-4e20-40e2-8f35-85a360aa36eb.jpeg"
+      }
+    }
+  }
+]

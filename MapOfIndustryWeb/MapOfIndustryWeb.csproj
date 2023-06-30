@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>443ae47f-e418-46f9-858b-24227d7d0887</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\font\" />
+    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\lib\" />
+    <Folder Include="wwwroot\template\" />
+    <Folder Include="wwwroot\test\" />
+  </ItemGroup>
+
+</Project>

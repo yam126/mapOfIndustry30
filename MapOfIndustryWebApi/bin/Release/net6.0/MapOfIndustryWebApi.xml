@@ -1,0 +1,1655 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MapOfIndustryWebApi</name>
+    </assembly>
+    <members>
+        <member name="T:MapOfIndustryWebApi.AppSettingHelper">
+            <summary>
+            配置文件读取帮助类
+            </summary>
+        </member>
+        <member name="F:MapOfIndustryWebApi.AppSettingHelper._config">
+            <summary>
+            配置文件读取系统类
+            </summary>
+        </member>
+        <member name="M:MapOfIndustryWebApi.AppSettingHelper.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="configuration">配置信息</param>
+        </member>
+        <member name="M:MapOfIndustryWebApi.AppSettingHelper.ReadAppSettings(System.String[])">
+            <summary>
+            读取指定节点的字符串
+            </summary>
+            <param name="sessions">配置文件节点路径</param>
+            <returns>返回数据</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.AppSettingHelper.ReadAppSettings``1(System.String[])">
+            <summary>
+            读取实体信息
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="session"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Controllers.CompanyInfoController">
+            <summary>
+            公司信息
+            </summary>
+        </member>
+        <member name="F:MapOfIndustryWebApi.Controllers.CompanyInfoController.m_repository">
+            <summary>
+            数据库操作类
+            </summary>
+        </member>
+        <member name="F:MapOfIndustryWebApi.Controllers.CompanyInfoController.m_mapper">
+            <summary>
+            AutoMapper参数映射类
+            </summary>
+        </member>
+        <member name="F:MapOfIndustryWebApi.Controllers.CompanyInfoController.m_webHostEnvironment">
+            <summary>
+            获取网站路径
+            </summary>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.CompanyInfoController.#ctor(MapOfIndustryDataAccess.Data.IMOIRepository,AutoMapper.IMapper,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            重载构造函数
+            </summary>
+            <param name="repository">数据库操作类</param>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.CompanyInfoController.GetPage(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            分页查询
+            </summary>
+            <param name="pageIndex">当前页(默认从1开始)</param>
+            <param name="pageSize">每页记录数(默认每页10条)</param>
+            <param name="where">查询条件(SQL查询条件,可以为空,为空返回所有数据)</param>
+            <param name="SortField">排序字段(默认创建时间)</param>
+            <param name="SortMethod">排序方法[DESC|ASC(默认DESC)]</param>
+            <returns>返回查询结果</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.CompanyInfoController.GetCompanyInfoByRecordId(System.String)">
+            <summary>
+            读取单条公司信息
+            </summary>
+            <param name="RecordId">公司编号</param>
+            <returns>返回值</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.CompanyInfoController.GetCompanyInfoByLandId(System.String)">
+            <summary>
+            根据地块儿编号读取公司信息
+            </summary>
+            <param name="LandId">地块儿编号</param>
+            <returns>返回值</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.CompanyInfoController.UnionQuery(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            联合查询方法
+            </summary>
+            <param name="LandId">地块儿编号_必填</param>
+            <param name="CompanyType">公司分类_可选</param>
+            <param name="EnterpriseNature">公司性质_可选</param>
+            <param name="RegionalLevel">区域级别_可选</param>
+            <returns></returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.CompanyInfoController.GetCompanyInfoByCompanyType(System.String,System.String)">
+            <summary>
+            读取指定分类公司信息
+            </summary>
+            <param name="CompanyType">公司分类</param>
+            <returns>返回值</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.CompanyInfoController.GetCompanyInfo(System.String,System.String,System.String)">
+            <summary>
+            获得公司信息
+            </summary>
+            <param name="where">查询条件</param>
+            <param name="sortField">排序字段</param>
+            <param name="sortMethod">排序方法</param>
+            <returns></returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.CompanyInfoController.AddData(MapOfIndustryWebApi.Models.CompanyInfoParameter)">
+            <summary>
+            添加数据
+            </summary>
+            <param name="parameter">添加参数</param>
+            <returns>返回结果</returns>        
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.CompanyInfoController.ImportExcel(Microsoft.AspNetCore.Http.IFormCollection)">
+            <summary>
+            导入Excel文件
+            </summary>
+            <param name="formFile">上传的Excel文件</param>
+            <returns></returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.CompanyInfoController.ModifyData(System.String,MapOfIndustryWebApi.Models.CompanyInfoParameter)">
+            <summary>
+            修改数据
+            </summary>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.CompanyInfoController.DeleteData(System.String)">
+            <summary>
+            删除数据
+            </summary>
+            <param name="IDStr">数据编号字符串ID的形式[123-456-678]</param>
+            <returns>是否成功消息</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.CompanyInfoController.SaveData(System.String,MapOfIndustryWebApi.Models.CompanyInfoParameter,Snowflake.Net.IdWorker)">
+            <summary>
+            保存数据
+            </summary>
+            <param name="SaveMethod">[Add|Edit]</param>
+            <param name="parameter">参数</param>
+            <returns>返回结果</returns>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Controllers.CompanyInfoExcelController">
+            <summary>
+            公司信息导出Excel
+            </summary>
+        </member>
+        <member name="F:MapOfIndustryWebApi.Controllers.CompanyInfoExcelController.m_repository">
+            <summary>
+            数据库操作类
+            </summary>
+        </member>
+        <member name="F:MapOfIndustryWebApi.Controllers.CompanyInfoExcelController.m_mapper">
+            <summary>
+            AutoMapper参数映射类
+            </summary>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.CompanyInfoExcelController.#ctor(MapOfIndustryDataAccess.Data.IMOIRepository,AutoMapper.IMapper)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="repository">数据库操作类</param>
+            <param name="_mapper">AutoMapper参数映射类</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.CompanyInfoExcelController.ExportExcel(System.String,System.String)">
+            <summary>
+            导出Excel
+            </summary>
+            <param name="selectedIDStr">选择要导出的编号</param>
+            <param name="where">查询条件</param>
+            <returns></returns>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Controllers.MapLocalVerisonController">
+            <summary>
+            地图坐标数据编号
+            </summary>
+        </member>
+        <member name="F:MapOfIndustryWebApi.Controllers.MapLocalVerisonController.m_repository">
+            <summary>
+            数据库操作类
+            </summary>
+        </member>
+        <member name="F:MapOfIndustryWebApi.Controllers.MapLocalVerisonController.m_mapper">
+            <summary>
+            AutoMapper参数映射类
+            </summary>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapLocalVerisonController.#ctor(MapOfIndustryDataAccess.Data.IMOIRepository,AutoMapper.IMapper)">
+            <summary>
+            重载构造函数
+            </summary>
+            <param name="repository">数据库操作类</param>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapLocalVerisonController.GetNewMapVerison">
+            <summary>
+            获取最新版本
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Controllers.MapOfIndustrysController">
+            <summary>
+            产业一张图接口
+            </summary>
+        </member>
+        <member name="F:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.m_repository">
+            <summary>
+            数据库操作类
+            </summary>
+        </member>
+        <member name="F:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.m_mapper">
+            <summary>
+            AutoMapper参数映射类
+            </summary>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.#ctor(MapOfIndustryDataAccess.Data.IMOIRepository,AutoMapper.IMapper)">
+            <summary>
+            重载构造函数
+            </summary>
+            <param name="repository">数据库操作类</param>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.Add(mapOfIndustryWebApi.Models.Parameter.MassifGreenHouseVPParameter)">
+            <summary>
+            添加数据
+            </summary>
+            <param name="parameter">添加的参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.Modify(System.Int32,mapOfIndustryWebApi.Models.Parameter.MassifGreenHouseVPParameter)">
+            <summary>
+            修改数据
+            </summary>
+            <param name="ID">编号</param>
+            <param name="parameter">参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.GetPage(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            分页查询
+            </summary>
+            <param name="pageIndex">当前页(默认从1开始)</param>
+            <param name="pageSize">每页记录数(默认每页10条)</param>
+            <param name="where">查询条件(SQL查询条件,可以为空,为空返回所有数据)</param>
+            <param name="SortField">排序字段(默认创建时间)</param>
+            <param name="SortMethod">排序方法[DESC|ASC(默认DESC)]</param>
+            <returns>返回查询结果</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.GetLandCropsStatisticsAsync(System.Int32)">
+            <summary>
+            获得地块儿农作物统计信息
+            </summary>
+            <param name="landId">地块儿编号</param>
+            <returns>返回值</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.GetOSCRegionByLandIdRedis(System.Int32)">
+            <summary>
+            获得地块儿信息
+            </summary>
+            <param name="landId">地块儿编号</param>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.GetOSCRegionByLandId(System.Int32)">
+            <summary>
+            获得地块儿信息
+            </summary>
+            <param name="landId">地块儿编号</param>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.QueryOscRegion(System.Int32)">
+            <summary>
+            查询地块信息
+            </summary>
+            <param name="landId">地块编号</param>
+            <returns>返回值</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.GetStatisticsInfo(System.Int32)">
+            <summary>
+            返回统计信息
+            </summary>
+            <param name="LandId">地块编号</param>
+            <returns>统计信息</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.GetOutputValueStatistics(System.Int32,System.Int32)">
+            <summary>
+            获得产值统计
+            </summary>
+            <param name="YearRange">年份范围</param>
+            <param name="LandId">地块儿编号</param>
+            <returns>返回结果集</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.GetPlantingAreaStatistics(System.Int32)">
+            <summary>
+            获取种植面积统计
+            </summary>
+            <param name="RootLandId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.GetArray(System.String,System.String,System.String)">
+            <summary>
+            不分页查询数据
+            </summary>
+            <param name="QueryConditions">查询条件</param>
+            <param name="SortField">排序字段(默认创建时间)</param>
+            <param name="SortMethod">排序方法[DESC|ASC(默认DESC)]</param>
+            <returns>返回查询结果</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.GetAllGroup(System.Int32)">
+            <summary>
+            分组返回数据
+            </summary>
+            <returns>分组后的数据</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.GetCountDataOld(System.Int32,System.String)">
+            <summary>
+            获取到每年的种植面积和产量
+            </summary>
+            <param name="regionId"></param>
+            <param name="cropsName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.GetPlantingAreaStatisticsGroupCropsOld(System.Int32)">
+            <summary>
+            获取按农作物分组种植面积
+            </summary>
+            <param name="regionId">地块儿编号</param>
+            <returns>错误消息</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.GetPlantingAreaStatisticsGroupCrops(System.Int32)">
+            <summary>
+            获取按农作物分组种植面积
+            </summary>
+            <param name="regionId">地块儿编号</param>
+            <returns>错误消息</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.SearchOSCRegion(System.String)">
+            <summary>
+            地块搜索不分页
+            </summary>
+            <param name="SerchKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.GetCountData(System.Int32,System.String)">
+            <summary>
+            获取到每年的种植面积和产量
+            </summary>
+            <param name="regionId"></param>
+            <param name="cropsName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.GetPlantAreaOld(System.Int32,System.String)">
+            <summary>
+            获取总的种植面积
+            </summary>
+            <param name="regionId"></param>
+            <param name="cropsName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.GetPlantArea(System.Int32,System.String)">
+            <summary>
+            获取总的种植面积
+            </summary>
+            <param name="regionId">地块儿编号</param>
+            <param name="cropsName">农作物名称</param>
+            <returns>返回值</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.GetAveragePriceAsync(System.Int32)">
+            <summary>
+            获得平均价格数据
+            </summary>
+            <param name="LandId">地块编号</param>
+            <returns>返回数据</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.DeleteData(System.Int32)">
+            <summary>
+            删除数据
+            </summary>
+            <param name="ID">数据编号</param>
+            <returns>是否成功消息</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.SaveData(System.String,mapOfIndustryWebApi.Models.Parameter.MassifGreenHouseVPParameter)">
+            <summary>
+            保存数据
+            </summary>
+            <param name="SaveMethod">保存方式(Add|Edit)</param>
+            <param name="ID">编号</param>
+            <param name="parameter">添加参数</param>
+            <returns>0成功，非0失败</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.GetAllOscRegionRoot(System.String@)">
+            <summary>
+            获得全部省市数据
+            </summary>
+            <param name="message">错误消息</param>
+            <returns>所有省市数据</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.CarryCalculation(System.Decimal,System.Int32)">
+            <summary>
+            进位计算
+            </summary>
+            <param name="SourceNumber">原始数据</param>
+            <param name="digit">位数</param>
+            <returns></returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.ReadRedisMapLocationVerison(System.Int32,System.String@)">
+            <summary>
+            读取Redis地图缓存版本数据
+            </summary>
+            <param name="landId">地块儿编号</param>
+            <param name="message">错误消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.MapOfIndustrysController.SyncRedisMapLocationVerison(System.Int32,System.Collections.Generic.List{MapOfIndustryDataAccess.Models.MapLocationVerison},System.Boolean@,System.String@)">
+            <summary>
+            同步地图版本
+            </summary>
+            <param name="landId">地块儿编号</param>
+            <param name="databaseData">数据库数据</param>
+            <param name="isHaveNewVerison">是否有最新版本</param>
+            <param name="message">错误消息</param>
+            <returns>同步是否成功</returns>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Controllers.OscRegionController">
+            <summary>
+            地块信息控制器
+            </summary>
+        </member>
+        <member name="F:MapOfIndustryWebApi.Controllers.OscRegionController.m_repository">
+            <summary>
+            数据库操作类
+            </summary>
+        </member>
+        <member name="F:MapOfIndustryWebApi.Controllers.OscRegionController.m_mapper">
+            <summary>
+            AutoMapper参数映射类
+            </summary>
+        </member>
+        <member name="F:MapOfIndustryWebApi.Controllers.OscRegionController.m_webHostEnvironment">
+            <summary>
+            获取网站路径
+            </summary>
+        </member>
+        <member name="F:MapOfIndustryWebApi.Controllers.OscRegionController.m_level">
+            <summary>
+            地块儿级别对应字典
+            </summary>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.OscRegionController.#ctor(MapOfIndustryDataAccess.Data.IMOIRepository,AutoMapper.IMapper,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            地块儿信息控制器
+            </summary>
+            <param name="repository">数据库操作类</param>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.OscRegionController.GetAllRegionGisByRootLand(System.String)">
+            <summary>
+            根据根地块儿编号查看全部
+            </summary>
+            <param name="rootLandId">根地块儿编号</param>
+            <returns>所有范围数据</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.OscRegionController.OscRegionAutoComplate(System.Nullable{System.Int32},System.String,System.Int32,System.String,System.String)">
+            <summary>
+            省份自动完成
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.OscRegionController.OscRegionPage(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            地块儿分页
+            </summary>
+            <param name="where">查询条件</param>
+            <param name="level">级别</param>
+            <param name="pageIndex">当前页</param>
+            <param name="pageSize">每页记录数</param>
+            <param name="sortField">排序字段</param>
+            <param name="sortMethod">排序方法</param>
+            <returns></returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.OscRegionController.GetAllRegionLevel">
+            <summary>
+            获得所有地块儿级别
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.OscRegionController.GetRootLand">
+            <summary>
+            读取根地块儿
+            </summary>
+            <returns>返回读取的根地块儿数据</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.OscRegionController.GetRegionGISByLandId(System.String)">
+            <summary>
+            根据地块儿编号获取地块儿数据
+            </summary>
+            <param name="landId">地块儿编号</param>
+            <returns>返回值</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.OscRegionController.AddData(MapOfIndustryWebApi.Models.OscRegionItem,System.String)">
+            <summary>
+            添加数据
+            </summary>
+            <param name="parameter">添加参数</param>
+            <param name="UserName">用户名</param> 
+            <returns>返回结果</returns> 
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.OscRegionController.ImportExcel(Microsoft.AspNetCore.Http.IFormCollection)">
+            <summary>
+            导入Excel文件
+            </summary>
+            <param name="formFile">上传的Excel文件</param>
+            <returns></returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.OscRegionController.SaveRegionGisData(System.Collections.Generic.List{MapOfIndustryWebApi.Models.RegionGisParameter})">
+            <summary>
+            保存Gis范围数据
+            </summary>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.OscRegionController.ModifyData(System.String,System.String,MapOfIndustryWebApi.Models.OscRegionItem)">
+            <summary>
+            修改数据
+            </summary>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.OscRegionController.SetRootLand(System.String)">
+            <summary>
+            设置根地块儿
+            </summary>
+            <param name="landId">地块儿编号</param>
+            <returns>错误消息</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.OscRegionController.DeleteData(System.String)">
+            <summary>
+            删除数据
+            </summary>
+            <param name="IDStr">数据编号字符串ID的形式[123-456-678]</param>
+            <returns>是否成功消息</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.OscRegionController.SaveData(MapOfIndustryWebApi.Models.OscRegionItem,System.String,System.String)">
+            <summary>
+            保存数据
+            </summary>
+            <param name="parameter">参数</param>
+            <param name="SaveMethod">保存方式</param>
+            <param name="UserName">用户名</param>
+            <returns>返回结果</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Controllers.OscRegionController.ExportExcel(System.String,System.String,System.String)">
+            <summary>
+            导出Excel
+            </summary>
+            <param name="selectedIDStr">选择要导出的编号</param>
+            <param name="where">查询条件</param>
+            <param name="level">层级</param>
+            <returns></returns>
+        </member>
+        <member name="T:MapOfIndustryWebApi.CoreHttpContext">
+            <summary>
+            用于获得服务器绝对路径地址
+            </summary>
+        </member>
+        <member name="T:MapOfIndustryWebApi.StaticHostEnviromentExtensions">
+            <summary>
+            服务器绝对路径获取注册类
+            </summary>
+        </member>
+        <member name="M:MapOfIndustryWebApi.StaticHostEnviromentExtensions.UseStaticHostEnviroment(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            服务器绝对路径获取注册方法
+            </summary>
+            <param name="app">app</param>
+            <returns></returns>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Filter.CustomCorsActionFilter">
+            <summary>
+            跨域设置
+            </summary>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Filter.CustomCorsActionFilter.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+            Action 方法执行之后 Result 调用之前触发
+            </summary>
+            <param name="context">Action执行上下文</param>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Filter.CustomCorsActionFilter.OnResultExecuting(Microsoft.AspNetCore.Mvc.Filters.ResultExecutingContext)">
+            <summary>
+            Result方法调用之前执行
+            </summary>
+            <param name="context">Action执行上下文</param>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Filter.CustomCorsActionFilter.OnResultExecuted(Microsoft.AspNetCore.Mvc.Filters.ResultExecutedContext)">
+            <summary>
+            Result方法调用之后执行
+            </summary>
+            <param name="context">Action执行上下文</param>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Filter.IdentityServerFilter">
+            <summary>
+            IdentityServer验证过滤器
+            </summary>
+        </member>
+        <member name="F:MapOfIndustryWebApi.Filter.IdentityServerFilter.m_resultType">
+            <summary>
+            返回值类型
+            </summary>
+        </member>
+        <member name="F:MapOfIndustryWebApi.Filter.IdentityServerFilter.m_genericTypes">
+            <summary>
+            泛型类型
+            </summary>
+        </member>
+        <member name="F:MapOfIndustryWebApi.Filter.IdentityServerFilter.m_genericAssemblyString">
+            <summary>
+            泛型程序集
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Filter.IdentityServerFilter.resultType">
+            <summary>
+            返回值类型
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Filter.IdentityServerFilter.genericTypes">
+            <summary>
+            泛型类型
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Filter.IdentityServerFilter.genericAssemblyString">
+            <summary>
+            泛型程序集
+            </summary>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Filter.IdentityServerFilter.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            Action 方法执行之前触发
+            </summary>
+            <param name="context">Action执行上下文</param>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Filter.IdentityServerFilter.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+            Action 方法执行之后 Result 调用之前触发
+            </summary>
+            <param name="context">Action执行上下文</param>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Filter.IdentityServerFilter.OnResultExecuting(Microsoft.AspNetCore.Mvc.Filters.ResultExecutingContext)">
+            <summary>
+            Result方法调用之前执行
+            </summary>
+            <param name="context">Action执行上下文</param>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Filter.IdentityServerFilter.OnResultExecuted(Microsoft.AspNetCore.Mvc.Filters.ResultExecutedContext)">
+            <summary>
+            Result方法调用之后执行
+            </summary>
+            <param name="context">Action执行上下文</param>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Filter.IdentityServerFilter.CreateResult(System.Int32,System.String)">
+            <summary>
+            创建返回值Object
+            </summary>
+            <param name="Status">返回值状态</param>
+            <param name="Message">返回值消息</param>
+            <param name="ReturnData">返回数据</param>
+            <returns>创建后的返回值object</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Filter.IdentityServerFilter.CreateResultObject``1(System.Int32,System.String)">
+            <summary>
+            创建返回值Object
+            </summary>
+            <param name="Status">返回值状态</param>
+            <param name="Message">返回值消息</param>
+            <param name="ReturnData">返回数据</param>
+            <returns>创建后的返回值object</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Filter.IdentityServerFilter.RunGenericMethod(System.Int32,System.String)">
+            <summary>
+            执行泛型方法
+            </summary>
+            <param name="Status">返回值状态</param>
+            <param name="Message">返回值消息</param>
+            <returns>创建后的返回值object</returns>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Filter.LogFilter">
+            <summary>
+            日志记录过滤器(用于接口的日志记录)
+            </summary>
+        </member>
+        <member name="F:MapOfIndustryWebApi.Filter.LogFilter.m_logFilePath">
+            <summary>
+            日志记录文件夹路径
+            </summary>
+        </member>
+        <member name="F:MapOfIndustryWebApi.Filter.LogFilter.m_repository">
+            <summary>
+            数据库操作
+            </summary>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Filter.LogFilter.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            Action 方法执行之前触发
+            </summary>
+            <param name="context">Action执行上下文</param>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Filter.LogFilter.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+            Action 方法执行之后 Result 调用之前触发
+            </summary>
+            <param name="context">Action执行上下文</param>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Filter.LogFilter.OnResultExecuting(Microsoft.AspNetCore.Mvc.Filters.ResultExecutingContext)">
+            <summary>
+            Result方法调用之前执行
+            </summary>
+            <param name="context">Action执行上下文</param>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Filter.LogFilter.OnResultExecuted(Microsoft.AspNetCore.Mvc.Filters.ResultExecutedContext)">
+            <summary>
+            Result方法调用之后执行
+            </summary>
+            <param name="context">Action执行上下文</param>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Filter.LogFilter.GetAbsolutelyLogPath">
+            <summary>
+            获取日志文件夹绝对路径
+            </summary>
+            <returns>日志文件夹绝对路径</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Filter.LogFilter.WriteLog(System.String,System.String,System.String)">
+            <summary>
+            写入日志方法
+            </summary>
+            <param name="ControllerName">控制器名</param>
+            <param name="ActionMethodName">Action名称</param>
+            <param name="LogContent">日志内容</param>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Filter.SqlInjectionFilter">
+            <summary>
+            对指定参数进行SQL注入验证
+            </summary>
+        </member>
+        <member name="F:MapOfIndustryWebApi.Filter.SqlInjectionFilter.m_verifyParameterNames">
+            <summary>
+            要过滤的参数名称集合[参数1,参数2]
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Filter.SqlInjectionFilter.VerifyParameterNames">
+            <summary>
+            要验证的参数名称集合[参数1,参数2]
+            </summary>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Filter.SqlInjectionFilter.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            Action 方法执行之前触发
+            </summary>
+            <param name="context">Action执行上下文</param>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Filter.SqlInjectionFilter.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+            Action 方法执行之后 Result 调用之前触发
+            </summary>
+            <param name="context">Action执行上下文</param>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Filter.SqlInjectionFilter.OnResultExecuting(Microsoft.AspNetCore.Mvc.Filters.ResultExecutingContext)">
+            <summary>
+            Result方法调用之前执行
+            </summary>
+            <param name="context">Action执行上下文</param>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Filter.SqlInjectionFilter.OnResultExecuted(Microsoft.AspNetCore.Mvc.Filters.ResultExecutedContext)">
+            <summary>
+            Result方法调用之后执行
+            </summary>
+            <param name="context">Action执行上下文</param>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Filter.SqlInjectionFilter.FilteSQLStr(System.Object)">
+            <summary>
+            过滤不安全的字符串
+            </summary>
+            <param name="Str">要过滤的值</param>
+            <returns>返回结果</returns>
+        </member>
+        <member name="M:MapOfIndustryWebApi.Filter.SqlInjectionFilter.IsNumeric(System.Object)">
+            <summary>
+            判断object是否数字
+            </summary>
+            <param name="AObject">要判断的Object</param>
+            <returns>是否数字</returns>       
+        </member>
+        <member name="T:MapOfIndustryWebApi.MappingProfile">
+            <summary>
+            实现参数到数据库实体类的自动映射
+            </summary>
+        </member>
+        <member name="M:MapOfIndustryWebApi.MappingProfile.#ctor">
+            <summary>
+            构造函数(用于添加需要映射的类对应关系)
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.RecordId">
+            <summary>
+            雪花ID
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.CompanyName">
+            <summary>
+            公司名称
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.EnterpriseType">
+            <summary>
+            企业类型
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.RegisteredCapital">
+            <summary>
+            注册资本
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.FoundedTime">
+            <summary>
+            成立时间
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.TownShip">
+            <summary>
+            所属乡镇
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.Industry">
+            <summary>
+            所属行业
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.RegionalLevel">
+            <summary>
+            区域级别
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.EnterpriseNature">
+            <summary>
+            企业性质
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.EmployeesNum">
+            <summary>
+            员工人数
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.Contacts">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.ContactPhone">
+            <summary>
+            联系电话
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.EnterpriseAddress">
+            <summary>
+            企业地址
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.EnterpriseIntroduction">
+             <summary>
+            企业简介
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.FocusImages">
+             <summary>
+            焦点图地址Json
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.CurrentYearSales">
+             <summary>
+            本年度销售额度
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.CompanyType">
+             <summary>
+            公司类别[A类、B类、C类根据销售本年度销售额度判断A类销售额度大于800万、B类销售额度在500到800万之间、C类在200到500万之间]
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.Lng">
+             <summary>
+            地图经度
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.Lat">
+             <summary>
+            地图纬度
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.videoUrl">
+             <summary>
+            视频地址
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.Backup01">
+             <summary>
+            备用字段01
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.Backup02">
+             <summary>
+            备用字段02
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.Backup03">
+             <summary>
+            备用字段03
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.Backup04">
+             <summary>
+            备用字段04
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.Backup05">
+             <summary>
+            备用字段05
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.Backup06">
+             <summary>
+            备用字段06
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.Backup07">
+             <summary>
+            备用字段07
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.Backup08">
+             <summary>
+            备用字段08
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.Backup09">
+             <summary>
+            备用字段09
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.Created">
+             <summary>
+            添加人
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.CreatedTime">
+             <summary>
+            添加时间
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.Modifier">
+             <summary>
+            修改人
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CompanyInfoParameter.ModifiedTime">
+             <summary>
+            修改时间
+             </summary>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Models.CropsPlantingAreaStatisticsResult">
+            <summary>
+            农作物种植面积统计结果
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CropsPlantingAreaStatisticsResult.CropsName">
+            <summary>
+            农作物名称
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CropsPlantingAreaStatisticsResult.PlantingAreaCount">
+            <summary>
+            种植面积统计
+            </summary>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Models.GroupResult">
+            <summary>
+            分组返回值
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.GroupResult.LandId">
+            <summary>
+            地块编号
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.GroupResult.LandName">
+            <summary>
+            地块名称
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.GroupResult.JobPopulation">
+             <summary>
+            务工人口数量
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.GroupResult.TotalPopulation">
+             <summary>
+            总人口数量
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.GroupResult.TotalOutput">
+             <summary>
+            总产量
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.GroupResult.TotaValue">
+             <summary>
+            总产值_农作物的总产值
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.GroupResult.CropsList">
+            <summary>
+            农作物列表
+            </summary>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Models.CropsInfo">
+            <summary>
+            农作物信息
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CropsInfo.CropsName">
+            <summary>
+            农作物名称
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CropsInfo.PlantingArea">
+             <summary>
+            农作物的种植面积_单位亩
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CropsInfo.SoilType">
+             <summary>
+            土壤类型
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CropsInfo.WateringType">
+             <summary>
+            灌溉类型
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CropsInfo.LandProperty">
+             <summary>
+            土地属性_租赁或者购买
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CropsInfo.LeaseYear">
+             <summary>
+            土地租赁年限
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CropsInfo.CropOutput">
+             <summary>
+            同一作物种植年限
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CropsInfo.LastYearOutput">
+             <summary>
+            上一年度作物产量
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CropsInfo.CurrentYearOutput">
+             <summary>
+            本年度作物产量
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.CropsInfo.CropsSalesPrice">
+             <summary>
+            农作物售价_单位公斤
+             </summary>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Models.MapLocationVerisonParameter">
+            <summary>
+            地图边界版本号
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.MapLocationVerisonParameter.Id">
+             <summary>
+            自增编号
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.MapLocationVerisonParameter.MapLocalVerison">
+             <summary>
+            地图边界版本号
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.MapLocationVerisonParameter.Created">
+             <summary>
+            创建人
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.MapLocationVerisonParameter.CreatedTime">
+             <summary>
+            创建时间
+             </summary>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Models.OscRegionItem">
+            <summary>
+            城市列表信息
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegionItem.id">
+            <summary>
+            编号
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegionItem.name">
+             <summary>
+             地块儿名字 
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegionItem.parent_id">
+            <summary>
+            上级ID
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegionItem.citycode">
+            <summary>
+            区号
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegionItem.adcode">
+            <summary>
+            城市编码
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegionItem.center">
+            <summary>
+            经纬度
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegionItem.level">
+            <summary>
+            地区层级
+            </summary>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Models.OscRegion">
+            <summary>
+            城市列表信息
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegion.id">
+            <summary>
+            编号
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegion.name">
+             <summary>
+             城市名字 
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegion.parent_id">
+            <summary>
+            上级ID
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegion.citycode">
+            <summary>
+            区号
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegion.adcode">
+            <summary>
+            城市编码
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegion.center">
+            <summary>
+            经纬度
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegion.level">
+            <summary>
+            地区显示
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegion.created">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegion.CreatedTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegion.Modifier">
+             <summary>
+            修改人
+             </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegion.ModifiedTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Models.OscRegionNew">
+            <summary>
+            地块儿视图
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegionNew.id">
+            <summary>
+            编号
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegionNew.regionName">
+             <summary>
+             城市名字 
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegionNew.parent_id">
+            <summary>
+            上级ID
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegionNew.citycode">
+            <summary>
+            区号
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegionNew.adcode">
+            <summary>
+            城市编码
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegionNew.center">
+            <summary>
+            经纬度
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegionNew.level">
+            <summary>
+            地区显示
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegionNew.GPSLocations">
+            <summary>
+            GPS位置范围数据
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegionNew.StatisticalInfo">
+            <summary>
+            统计信息
+            </summary>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Models.OscRegionRoot">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegionRoot.Record">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Models.OscRegionLevelOption">
+            <summary>
+            地块儿级别
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegionLevelOption.Key">
+            <summary>
+            地块级别键
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OscRegionLevelOption.Value">
+            <summary>
+            地块级别值
+            </summary>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Models.RegionGisParameter">
+            <summary>
+            地块儿GIS范围坐标参数类
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.RegionGisParameter.landId">
+            <summary>
+            地儿编号
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.RegionGisParameter.GPSLocations">
+            <summary>
+            GPS范围坐标文本字符串
+            </summary>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Models.Result.Result">
+            <summary>
+            普通添加修改返回值
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.Result.Result.Status">
+            <summary>
+            状态（0正确，非0错误）
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.Result.Result.Msg">
+            <summary>
+            错误提示信息
+            </summary>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Models.Result.EntityResult`1">
+            <summary>
+            带数据返回
+            </summary>
+            <typeparam name="T">返回数据类型</typeparam>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.Result.EntityResult`1.Status">
+            <summary>
+            状态（0正确，非0错误）
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.Result.EntityResult`1.Msg">
+            <summary>
+            错误提示信息
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.Result.EntityResult`1.Result">
+            <summary>
+            返回数据
+            </summary>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Models.Result.ArrayResult`1">
+            <summary>
+            返回数组
+            </summary>
+            <typeparam name="T">要返回的数组类型</typeparam>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.Result.ArrayResult`1.Status">
+            <summary>
+            状态（0正确，非0错误）
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.Result.ArrayResult`1.Msg">
+            <summary>
+            错误提示信息
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.Result.ArrayResult`1.Result">
+            <summary>
+            返回的数组
+            </summary>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Models.Result.ListResult`1">
+            <summary>
+            List返回值
+            </summary>
+            <typeparam name="T">返回的数据类型</typeparam>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.Result.ListResult`1.Status">
+            <summary>
+            状态（0正确，非0错误）
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.Result.ListResult`1.Msg">
+            <summary>
+            错误提示信息
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.Result.ListResult`1.Result">
+            <summary>
+            返回的List
+            </summary>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Models.Result.PageResult`1">
+            <summary>
+            分页返回值
+            </summary>
+            <typeparam name="T">返回的数据类型</typeparam>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.Result.PageResult`1.Status">
+            <summary>
+            状态（0正确，非0错误）
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.Result.PageResult`1.Msg">
+            <summary>
+            错误提示信息
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.Result.PageResult`1.PageCount">
+            <summary>
+            页面记录数
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.Result.PageResult`1.RecordCount">
+            <summary>
+            总记录数
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.Result.PageResult`1.Result">
+            <summary>
+            分页的每页数据
+            </summary>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Models.Result.AveragePrice">
+            <summary>
+            平均价格
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.Result.AveragePrice.CropsName">
+            <summary>
+            农作物名称
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.Result.AveragePrice.YearsData">
+            <summary>
+            年份数据
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.Result.AveragePrice.PriceData">
+            <summary>
+            价格数据
+            </summary>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Models.OutputValueStatisticsResult">
+            <summary>
+            产值统计数据
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OutputValueStatisticsResult.TotalOutputValue">
+            <summary>
+            总产值
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.OutputValueStatisticsResult.StatisticYear">
+            <summary>
+            统计年份
+            </summary>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Models.TotalStatisticsInfo">
+            <summary>
+            统计信息
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.TotalStatisticsInfo.TotalOutputValue">
+            <summary>
+            总产量
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.TotalStatisticsInfo.TotaValue">
+            <summary>
+            总产值
+            </summary>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Models.PlantingAreaStatisticsResult">
+            <summary>
+            种植面积统计
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.PlantingAreaStatisticsResult.LandName">
+            <summary>
+            地块儿名称
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.PlantingAreaStatisticsResult.PlantingAreaStatistics">
+            <summary>
+            种植面积统计
+            </summary>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Models.landStatistics">
+            <summary>
+            地块儿统计
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.landStatistics.landId">
+            <summary>
+            地块儿编号
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.landStatistics.landName">
+            <summary>
+            地块儿名称
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.landStatistics.jobPopulation">
+            <summary>
+            务工人口
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.landStatistics.totalPopulation">
+            <summary>
+            总人口
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.landStatistics.totalOutput">
+            <summary>
+            总产量
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.landStatistics.totaValue">
+            <summary>
+            总产值
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.landStatistics.cropsList">
+            <summary>
+            农作物列表
+            </summary>
+        </member>
+        <member name="T:MapOfIndustryWebApi.Models.landCropsStatistics">
+            <summary>
+            地块儿统计值
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.landCropsStatistics.cropsName">
+            <summary>
+            农作物名称
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.landCropsStatistics.plantingArea">
+            <summary>
+            种植面积
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.landCropsStatistics.soilType">
+            <summary>
+            土地属性
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.landCropsStatistics.wateringType">
+            <summary>
+            灌溉类型
+            </summary>
+        </member>
+        <member name="P:MapOfIndustryWebApi.Models.landCropsStatistics.landProperty">
+            <summary>
+            土地属性
+            </summary>
+        </member>
+        <member name="T:mapOfIndustryWebApi.Models.Parameter.MassifGreenHouseVPParameter">
+            <summary>
+            地块儿和温室大棚接口参数
+            </summary>
+        </member>
+        <member name="P:mapOfIndustryWebApi.Models.Parameter.MassifGreenHouseVPParameter.ID">
+            <summary>
+            数据库自增编号
+            </summary>
+        </member>
+        <member name="P:mapOfIndustryWebApi.Models.Parameter.MassifGreenHouseVPParameter.LandId">
+             <summary>
+            地块编号_1条地块对应多条数据
+             </summary>
+        </member>
+        <member name="P:mapOfIndustryWebApi.Models.Parameter.MassifGreenHouseVPParameter.LandName">
+            <summary>
+            地块名称
+            </summary>
+        </member>
+        <member name="P:mapOfIndustryWebApi.Models.Parameter.MassifGreenHouseVPParameter.CropsName">
+             <summary>
+            农作物名称
+             </summary>
+        </member>
+        <member name="P:mapOfIndustryWebApi.Models.Parameter.MassifGreenHouseVPParameter.PlantingArea">
+             <summary>
+            农作物的种植面积_单位亩
+             </summary>
+        </member>
+        <member name="P:mapOfIndustryWebApi.Models.Parameter.MassifGreenHouseVPParameter.JobPopulation">
+             <summary>
+            务工人口数量
+             </summary>
+        </member>
+        <member name="P:mapOfIndustryWebApi.Models.Parameter.MassifGreenHouseVPParameter.TotalPopulation">
+             <summary>
+            总人口数量
+             </summary>
+        </member>
+        <member name="P:mapOfIndustryWebApi.Models.Parameter.MassifGreenHouseVPParameter.TotalOutput">
+             <summary>
+            总产量
+             </summary>
+        </member>
+        <member name="P:mapOfIndustryWebApi.Models.Parameter.MassifGreenHouseVPParameter.TotaValue">
+             <summary>
+            总产值_农作物的总产值
+             </summary>
+        </member>
+        <member name="P:mapOfIndustryWebApi.Models.Parameter.MassifGreenHouseVPParameter.SoilType">
+             <summary>
+            土壤类型
+             </summary>
+        </member>
+        <member name="P:mapOfIndustryWebApi.Models.Parameter.MassifGreenHouseVPParameter.WateringType">
+             <summary>
+            灌溉类型
+             </summary>
+        </member>
+        <member name="P:mapOfIndustryWebApi.Models.Parameter.MassifGreenHouseVPParameter.LandProperty">
+             <summary>
+            土地属性_租赁或者购买
+             </summary>
+        </member>
+        <member name="P:mapOfIndustryWebApi.Models.Parameter.MassifGreenHouseVPParameter.LeaseYear">
+             <summary>
+            土地租赁年限
+             </summary>
+        </member>
+        <member name="P:mapOfIndustryWebApi.Models.Parameter.MassifGreenHouseVPParameter.CropOutput">
+             <summary>
+            同一作物种植年限
+             </summary>
+        </member>
+        <member name="P:mapOfIndustryWebApi.Models.Parameter.MassifGreenHouseVPParameter.LastYearOutput">
+             <summary>
+            上一年度作物产量
+             </summary>
+        </member>
+        <member name="P:mapOfIndustryWebApi.Models.Parameter.MassifGreenHouseVPParameter.CurrentYearOutput">
+             <summary>
+            本年度作物产量
+             </summary>
+        </member>
+        <member name="P:mapOfIndustryWebApi.Models.Parameter.MassifGreenHouseVPParameter.CropsSalesPrice">
+             <summary>
+            农作物售价_单位公斤
+             </summary>
+        </member>
+        <member name="P:mapOfIndustryWebApi.Models.Parameter.MassifGreenHouseVPParameter.EnterTime">
+             <summary>
+            录入时间_录入数据的时间_用户可编辑
+             </summary>
+        </member>
+        <member name="P:mapOfIndustryWebApi.Models.Parameter.MassifGreenHouseVPParameter.Creater">
+             <summary>
+            添加人
+             </summary>
+        </member>
+        <member name="T:mapOfIndustryWebApi.Models.Parameter.ActionParameter">
+            <summary>
+            Action方法参数类
+            </summary>
+        </member>
+        <member name="P:mapOfIndustryWebApi.Models.Parameter.ActionParameter.Name">
+            <summary>
+            参数名
+            </summary>
+        </member>
+        <member name="P:mapOfIndustryWebApi.Models.Parameter.ActionParameter.Value">
+            <summary>
+            参数值
+            </summary>
+        </member>
+    </members>
+</doc>

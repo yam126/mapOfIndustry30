@@ -1,0 +1,243 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>智慧农业系统</title>
+    <link href="~/css/login.css" rel="stylesheet" />
+    <link href="~/lib/element-ui/theme-chalk/index.css" rel="stylesheet" />
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/lib/vue/vue.js"></script>
+    <script src="~/js/apiHelper.js"></script>
+    <script type="text/javascript" src="~/lib/element-ui/index.js"></script>
+    <script src="~/lib/axios/axios.js"></script>
+    <script src="~/js/cookieHelper.js"></script>
+    @*<script src="~/js/request.js"></script>*@
+    <script src="~/js/login.js"></script>
+    <style>
+       
+        input {
+            color: black !important;
+            box-sizing: border-box !important;
+            border-width: 0 !important;
+            background-color:#fff !important;
+            border-radius:5px !important;
+        }
+        .login-yzm .el-input input {
+            border-width: 0 !important;
+            cursor: pointer;
+            background-color:transparent !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="login" class="login-bg">
+        <div class="logo">
+            <div class="header_logo" style="">
+                <img src="~/images/login/login_logo.png" />
+            </div>
+        </div>
+        @*logo结束*@
+        @*title开始*@
+        <!--<div class="title">
+            <div class="header_logo" style="color:#07B7F1;font-size:0.7rem;">-->
+                @*<img src="~/images/login/title.png" />*@
+                <!--深思大脑
+            </div>
+        </div>-->
+        @*title结束*@
+
+        <div class="login-box">
+            <div class="login-box-bg">
+                <div style="width:100%">
+                    <div class="login-input">
+                        <el-input name="txtName" id="txtName" placeholder="请输入用户名" v-model="loginName" autocomplete="off" type="text" class="username" tabindex="0">
+                    </div>
+                </div>
+                <div style="width:100%">
+                    <div class="login-input">
+                        <el-input name="txtPwd" id="txtPwd" v-model="loginPwd" placeholder="请输入密码" type="password" class="userpwd">
+                    </div>
+                </div>
+                <div style="width:100%;">
+                    <div class="login-inputcode">
+                        <el-input name="txtVerifyCode" id="txtVerifyCode" v-model="code" type="text" placeholder="验证码" class="usercode">
+                            &nbsp;&nbsp;
+
+                            <el-input type="hidden" id="yzm" value="">
+
+
+                                @*<img id="codeImg" alt="刷新验证码！" src="/Login/VerificationCode" onclick="this.src=this.src+'?'" style="margin-top:2px;height:51px;" />*@
+                                @*<input name="txtVerifyCode" id="txtVerifyCode" type="text" placeholder="验证码" class="usercode">&nbsp;&nbsp;<span style="padding-top:12px;cursor:pointer;" id="verifyCode" onclick="getVerifyCode();"></span>*@
+                    </div>
+                    <div class="login-yzm" @@click="yzm">
+                        <el-input style="border-width:0 !important" readonly="readonly" type="text" id="yzphoto" value="">
+                    </div>
+                </div>
+                <div style="width:100%;">
+                    <div class="login-input login-btn">
+                        <el-button value="登录" lay-filter="login" style="width:100%;height:50px;font-size:14px;" type="primary" id="btnLogin" readonly @@click="login">登录</el-button>
+
+                        <span id="mes" style="color:red; text-align:center;font-size:14px">
+                        </span>
+                        <span id="Loading" style="display: none" class='panel-loading'><font color='#000'>加载中...</font></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var login = new Vue({
+        el: "#login",
+        data: {
+            loginName: '',
+            loginPwd: '',
+            regionId:3135,
+            code: '',
+            newcode: '',
+            client_id: 'pcweb',
+            client_secret: '123453',
+            grant_type:'password',
+            userinfo:null
+        },
+        mounted: function () {
+            if(this.getToken()){
+               var gotoUrl = '/NewHome/NewHome?regionId='+this.regionId;
+               console.log("gotoUrl="+gotoUrl);
+               self.location = gotoUrl;
+               return false;
+            }
+            this.yzm();
+        },
+        methods: {
+            /*yzm() {
+                console.log("运行了验证码")
+                var codeChars = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+                    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+                    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
+                var code = "";
+                for (var i = 0; i < 4; i++) {
+                    var charNum = Math.floor(Math.random() * 52);
+                    code += codeChars[charNum];
+                }
+                document.getElementById("yzphoto").value = code;
+                //document.getElementById("yzm").value = code;
+                this.nowcode = code;
+            },*/
+            yzm() {
+                var codeChars = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
+                var code = "";
+                for (var i = 0; i < 4; i++) {
+                    var charNum = Math.floor(Math.random() * 10);
+                    //console.log(charNum)
+                    code += codeChars[charNum];
+                }
+                document.getElementById("yzphoto").value = code;
+                this.nowcode = code;
+            },
+            clearCookie(){
+                var exp = new Date();
+                exp.setTime(exp.getTime() - 10);
+                document.cookie = "token=" + escape('echo') + ";expires=" + exp.toGMTString() + ";path=/";
+                window.localStorage.removeItem(this.userName+'modules');
+            },
+            login() {
+                $("#mes").html("");
+                if ($.trim(this.loginName) == "") {
+                    $("#mes").html("请输入用户名");
+                    return false;
+                }
+                if ($.trim(this.loginPwd) == "") {
+                    $("#mes").html("请输入密码");
+                    return false;
+                }
+                if ($.trim(this.code) == "") {
+                    $("#mes").html("请输入验证码");
+                    return false;
+                }
+                if ($.trim(this.code.toUpperCase()) != this.nowcode.toUpperCase()) {
+                    $("#mes").html("请重新刷新/输入验证码");
+                    return false;
+                }
+                axform();
+                var _that=this;
+                //_that.clearCookie();
+                axlogin('api/user/login', `username=${this.loginName}&password=${this.loginPwd}&client_id=${this.client_id}&client_secret=${this.client_secret}&grant_type=${this.grant_type}`)
+                    .then(response => {
+                        console.log('axlogin response')
+                        console.log(response);
+                        console.log("response.access_token");
+                        console.log(response.access_token);
+                        //_that.setCookie(response.access_token);
+                        _that.setCookie(response.access_token, response.userInfo);
+                        _that.setCookieWriteName(_that.loginName);
+                        //console.log(document.cookie);
+                        //console.log(document.cookie);
+                        //if(this.userinfo.Level>3){
+                        //   alert('用户权限不足');
+                        //   return false;
+                        //}
+                        window.location = "/NewHome/NewHome?regionId="+_that.regionId;
+                        _that.getToken();
+                    }).catch(error => {
+                        console.log(error)
+                        $("#mes").html("账号或密码不正确");
+                    });
+                return false;
+            },
+            setCookieWriteName(value){
+                var strsec = this.getsec("h12");
+                var exp = new Date();
+                exp.setTime(exp.getTime() + strsec * 1);
+                document.cookie = "loginUserName=" + escape(value) + ";expires=" + exp.toGMTString() + ";path=/";
+            },
+            //存储token
+            setCookie(token,userinfo) {
+                var strsec = this.getsec("h12");
+                var exp = new Date();
+                exp.setTime(exp.getTime() + strsec * 1);
+                document.cookie = "token=" + escape(token) + ";expires=" + exp.toGMTString() + ";path=/";
+                var strings = escape(token).split(".");//通过split()方法将token转为字符串数组
+                //取strings[1]数组中的第二个字符进行解析
+                //this.userinfo = JSON.parse(decodeURIComponent(escape(window.atob(strings[1].replace(/-/g, "+").replace(/_/g, "/")))));
+                this.userinfo = userinfo;
+                //然后可以拿到解析后的数据，可以console.log()打印下，
+                console.log(this.userinfo.Account, 'Account');
+                console.log(this.userinfo.CompanyId, 'CompanyId');
+                console.log(this.userinfo.Level, 'Level');
+                document.cookie = "account=" + this.userinfo.Account + ";expires=" + exp.toGMTString() + ";path=/";
+                document.cookie = "companyId=" + this.userinfo.CompanyId + ";expires=" + exp.toGMTString() + ";path=/";
+                document.cookie = "level=" + this.userinfo.Level + ";expires=" + exp.toGMTString() + ";path=/";
+            },
+            getToken(){
+                var token=apiHelper.getCookie("token");
+                var result=true;
+                console.log("token="+token);
+                console.log("typeof(token)="+typeof(token));
+                if(token==null||token=="")
+                    result=false;
+                else
+                    apiHelper.token=token;
+                return result;
+            },
+            getsec(str) {
+                //alert(str);
+                var str1 = str.substring(1, str.length) * 1;
+                var str2 = str.substring(0, 1);
+                if (str2 == "s") {
+                    return str1 * 1000;
+                } else if (str2 == "h") {
+                    return str1 * 60 * 60 * 1000;
+                } else if (str2 == "d") {
+                    return str1 * 24 * 60 * 60 * 1000;
+
+                }
+            }
+        }
+    });
+</script>

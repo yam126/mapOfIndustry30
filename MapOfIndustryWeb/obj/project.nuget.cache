@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "S0hjC0Q3a+Qb5kKreqaqMduDGLm4cMRC7KSL0JkrL2PTC0ldPsCj+aUZs08SY0oGRDu/cqr0GDx5Dh1RI9ZU5g==",
+  "success": true,
+  "projectFilePath": "D:\\tianzheng\\mapOfIndustry30\\MapOfIndustryWeb\\MapOfIndustryWeb.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\yms12\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.14.0\\microsoft.visualstudio.azure.containers.tools.targets.1.14.0.nupkg.sha512"
+  ],
+  "logs": []
+}

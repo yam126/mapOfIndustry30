@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      //"applicationUrl": "http://localhost:38143",
+      "applicationUrl": "http://localhost:38763",
+      //"applicationUrl": "http://192.168.253.1:38763",
+      "sslPort": 44356
+    }
+  },
+  "profiles": {
+    "MapOfIndustryWebApi": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "api-doc/moi",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      //"applicationUrl": "https://localhost:7172;http://localhost:5172",
+      "applicationUrl": "http://localhost:5872",
+      //"applicationUrl": "https://192.168.253.1:7872;http://192.168.253.1:5872",
+      "dotnetRunMessages": true
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
+      "publishAllPorts": true,
+      "useSSL": true
+    }
+  }
+}

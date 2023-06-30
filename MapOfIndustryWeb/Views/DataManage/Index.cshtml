@@ -1,0 +1,630 @@
+﻿@{
+    var regionId = (string)ViewData["LandId"];
+    regionId = System.Web.HttpUtility.HtmlDecode(regionId);
+    
+}
+@{
+    Layout = "~/Views/Shared/_AdminTemplate.cshtml";
+}
+@section Head {}
+@section PageBody {
+<el-row style="width:98%;margin:0 auto;" class="page-cont search-container">
+    <el-col :span="24" class="page-cont">
+        <div class="alarm-header">
+            <el-button icon="el-icon-caret-left" @@click="gotoNewHome" type="success" round>返回首页</el-button>
+            <div class="site-header-input">
+                <el-input v-model="searchWhere" placeholder="请输入地块名称或农作物名称" stlye="width:300px"></el-input>
+                <input type="hidden" id="landId" value="@regionId" />
+            </div>
+            <el-button class="el-button-sm" @@click="search">搜索</el-button>
+            <el-button class="el-button-sm" @@click="showAddDataDialog">添加</el-button>
+            <el-button class="el-button-sm el-button--danger" @@click="deleteData">删除</el-button>
+        </div>
+    </el-col>
+</el-row>
+<el-row style="width:98%;margin:0 auto;overflow:hidden;height:70vh;" class="page-cont search-result-container">
+    <el-col :span="24" class="page-cont">
+        <el-table :data="pageData"
+                  tooltip-effect="dark"
+                  class="el-datatable"
+                  :row-style="elTableRowSelectedStyle"
+                  @@row-click="elTableRowClick"
+                  height="90%">
+            <el-table-column prop="landId" label="地块编号" align="center"></el-table-column>
+            <el-table-column prop="landName" label="地块名称" align="center"></el-table-column>
+            <el-table-column prop="cropsName" label="农作物名称" align="center"></el-table-column>
+            <el-table-column prop="plantingArea" :formatter="formatFloat" label="农作物的种植面积(亩)" align="center"></el-table-column>
+            <el-table-column prop="jobPopulation" :formatter="formatFloat" label="务工人口数量" align="center"></el-table-column>
+            <el-table-column prop="totalPopulation" :formatter="formatFloat" label="总人口数量" align="center"></el-table-column>
+            <el-table-column prop="totalOutput" :formatter="formatFloat" label="总产量(吨)" align="center"></el-table-column>
+            <el-table-column prop="totaValue" :formatter="formatFloat" label="总产值(元)" align="center"></el-table-column>
+            <el-table-column prop="soilType" label="土壤类型" align="center"></el-table-column>
+            <el-table-column prop="wateringType" label="灌溉类型" align="center"></el-table-column>
+            <el-table-column prop="landProperty" label="土地属性" align="center"></el-table-column>
+            <el-table-column prop="leaseYear" label="土地租赁年限" align="center"></el-table-column>
+            <el-table-column prop="cropOutput" label="同一作物种植年限" align="center"></el-table-column>
+            <el-table-column prop="lastYearOutput" :formatter="formatFloat" label="上一年度作物产量(吨)" align="center"></el-table-column>
+            <el-table-column prop="currentYearOutput" :formatter="formatFloat" label="本年度作物产量(吨)" align="center"></el-table-column>
+            <el-table-column prop="cropsSalesPrice" :formatter="formatFloat" label="农作物售价(元)" align="center"></el-table-column>
+            <el-table-column prop="enterTime" :formatter="formatDate" label="录入时间" align="center"></el-table-column>
+            <el-table-column prop="creater" label="添加人" align="center"></el-table-column>
+        </el-table>
+    </el-col>
+</el-row>
+<el-row class="page-cont search-page-container">
+    <el-pagination class="el-pagination-center"
+                   :total="recordCount"
+                   :page-sizes="[10, 15, 20]"
+                   :page-size="pageSize"
+                   :page-count="pageCount"
+                   :current-page="pageIndex"
+                   @@current-change="changePage"
+                   @@size-change="changePageSize"
+                   layout="total, sizes, prev, pager, next, jumper">
+    </el-pagination>
+</el-row>
+<el-dialog :model="editData" :visible.sync="dialogEditVisible" title="编辑地块信息">
+    <div class='editDialog'>
+        <el-form ref="editForm" class="elForm">
+            <div style="display:none" class="line-container">
+                <el-input v-model='editData.landId' :readonly="true" placeholder="地块编号">
+                    <template slot="prepend">地块编号</template>
+                </el-input>
+            </div>
+            <div class="line-container">
+                @*<el-input v-model='editData.landName' :readonly="landReadOnly" placeholder="地块名称">
+                    <template slot="prepend">地块名称</template>
+                    </el-input>*@
+                <div style="float:left;height: 4vh;width: 17%;line-height: 4vh;" class="el-input-group__prepend">地块名称</div>
+                <el-select style="width:82%;float:left"
+                           v-model="editData.landName"
+                           filterable
+                           remote
+                           clearable
+                           placeholder="地块名称"
+                           :loading="loading"
+                           :remote-method="loadingLandList"
+                           @@change="landchange">
+                    <el-option v-for="item in landSelectedOptions"
+                               :key="item.id"
+                               :value="item.id+'|'+item.name"
+                               :lable="item.id+'|'+item.name"></el-option>
+                </el-select>
+            </div>
+            <div class="line-container">
+                <el-input v-model='editData.cropsName' placeholder="农作物名称">
+                    <template slot="prepend">农作物名称</template>
+                </el-input>
+            </div>
+            <div class="line-container">
+                <el-input v-model='editData.plantingArea' :readonly="false" placeholder="农作物的种植面积(亩)">
+                    <template slot="prepend">农作物的种植面积(亩)</template>
+                </el-input>
+            </div>
+            <div class="line-container">
+                <el-input v-model='editData.jobPopulation' placeholder="务工人口数量">
+                    <template slot="prepend">务工人口数量</template>
+                </el-input>
+            </div>
+            <div class="line-container">
+                <el-input v-model='editData.totalPopulation' placeholder="总人口数量">
+                    <template slot="prepend">总人口数量</template>
+                </el-input>
+            </div>
+            <div class="line-container">
+                <el-input v-model='editData.totalOutput' placeholder="总产量(吨)">
+                    <template slot="prepend">总产量(吨)</template>
+                </el-input>
+            </div>
+            <div class="line-container">
+                <el-input v-model='editData.totaValue' placeholder="总产值(元)">
+                    <template slot="prepend">总产值(元)</template>
+                </el-input>
+            </div>
+            <div class="line-container">
+                <el-input v-model='editData.wateringType' placeholder="灌溉类型">
+                    <template slot="prepend">灌溉类型</template>
+                </el-input>
+            </div>
+            <div class="line-container">
+                <el-input v-model='editData.soilType' placeholder="土壤类型">
+                    <template slot="prepend">土壤类型</template>
+                </el-input>
+            </div>
+            <div class="line-container">
+                <el-input v-model='editData.landProperty' placeholder="土地属性">
+                    <template slot="prepend">土地属性</template>
+                </el-input>
+            </div>
+            <div class="line-container">
+                <el-input v-model='editData.leaseYear' placeholder="土地租赁年限">
+                    <template slot="prepend">土地租赁年限</template>
+                </el-input>
+            </div>
+            <div class="line-container">
+                <el-input v-model='editData.cropOutput' placeholder="同一作物种植年限">
+                    <template slot="prepend">同一作物种植年限</template>
+                </el-input>
+            </div>
+            <div class="line-container">
+                <el-input v-model='editData.lastYearOutput' placeholder="上一年度作物产量">
+                    <template slot="prepend">上一年度作物产量(吨)</template>
+                </el-input>
+            </div>
+            <div class="line-container">
+                <el-input v-model='editData.currentYearOutput' placeholder="本年度作物产量">
+                    <template slot="prepend">本年度作物产量(吨)</template>
+                </el-input>
+            </div>
+            <div class="line-container">
+                <el-input v-model='editData.cropsSalesPrice' placeholder="农作物售价(元)">
+                    <template slot="prepend">农作物售价(元)</template>
+                </el-input>
+            </div>
+            <div class="line-container">
+                <el-date-picker v-model='editData.enterTime' type='date' value-format="yyyy-MM-dd" placeholder="录入时间"></el-date-picker>
+            </div>
+        </el-form>
+    </div>
+    <div v-if="userInfo.Level<3" class='editDialog-button-container'>
+        <el-button type="success" @@click="saveData" round>保存数据</el-button>
+        <el-button type="danger" @@click="clearEditDialogData" round>清空数据</el-button>
+    </div>
+</el-dialog>
+ }
+@{
+    string CurrentPage=(string)ViewData["CurrentPage"];
+    string LandId = (string)ViewData["LandId"];
+}
+@section VueScript{
+<script>
+    var vLandId = "@LandId";
+    var main = new Vue({
+        el: "#dataManage-main",
+        data: {
+            screenWidth: null,
+            screenHeight: null,
+            userName:"",
+            CurrentPage:'@CurrentPage',
+            menuTemplate:'',
+            timestr: "",
+            datestr: "",
+            searchWhere: '',
+            editData: new MassifGreenHouseVP(),
+            landReadOnly: true,
+            pageData: [],
+            recordCount: 0,
+            pageCount: 0,
+            pageSize: 10,
+            pageIndex: 1,
+            saveAction: '',
+            loading:false,
+            landSelectedOptions:[
+                {
+                    id:'',
+                    name:''
+                }
+            ],
+            elTableSelectedRowId: -1,
+            dialogEditVisible: false,
+            sortField: 'ID',
+            sortMethod: 'desc',
+            userInfo: {
+                Account: '',
+                CompanyId: '',
+                Level: ''
+            },
+            currentModelsId:1,
+            menuModels:[],
+            hideMenus:[],
+            timeHandle:null
+        },
+        mounted: function() {
+            //console.log("vLandId");
+            //console.log(vLandId);
+            //console.log("CurrentPage");
+            //console.log(this.CurrentPage);
+            this.screenWidth = document.body.clientWidth;
+            this.screenHeight = document.body.clientHeight;
+            window.onresize = () => {
+                return (() => {
+                    this.screenWidth = document.body.clientWidth;
+                    this.screenHeight = document.body.clientHeight;
+                    this.elTableScroll();
+                })();
+            };
+            if(!this.getToken()){
+                window.location = "/Login/Index";
+                return false;
+            }
+            this.initModules();
+            this.replaceGotoMenu(this.CurrentPage);
+            //if(!this.getToken()){
+            //   window.location = "/Login/Index";
+            //   return false;
+            //}
+            //if(vLandId!="")
+            //   this.searchWhere=vLandId;
+            this.getLoginAccountUserInfo();
+            //console.log("this.userInfo.Level="+this.userInfo.Level);
+            if(this.userInfo.Level<3){
+                $(".editDialog-button-container").hide();
+            }else{
+                $(".editDialog-button-container").show();
+            }
+            this.userName=cookieHelper.get("loginUserName");
+            //console.log("this.userName");
+            //console.log(this.userName);
+            this.getPageData();
+            this.showDateTimeClock();
+        },
+        methods: {
+            //#region 初始化页面模块
+            initModules() {
+                //this.clearCookie();
+                var _that=this;
+                var modules=window.localStorage[_that.userName+'modules'];
+                window.localStorage.removeItem(this.userName+'modules');
+                modules=null;
+                if(modules==null||modules.length<=0||typeof(modules)=='undefined')
+                {
+                    /*apiHelper.getModules(
+                        function(response){
+                            //console.log("getModules");
+                            //console.log(response);
+                            var modulesResult=response.data.result;
+                            if(response.data.status==0){
+                                if(modulesResult!=null&&modulesResult.length>0&&typeof(modulesResult)!='undefined')
+                                {
+                                    _that.menuModels=modulesResult;
+                                    _that.fillMenuModelsArray();
+                                    window.localStorage.setItem(_that.userName+'modules',JSON.stringify(_that.menuModels));
+                                }
+                                else
+                                {
+                                    _that.readLocalModules();
+                                    _that.fillMenuModelsArray();
+                                }
+                            }
+                        }
+                    );*/
+                    _that.readLocalModules();
+                    _that.fillMenuModelsArray();
+                }
+                else
+                {
+                    _that.menuModels=JSON.parse(modules);
+                    _that.fillMenuModelsArray();
+                }
+            },
+            readLocalModules(){
+                var _that=this;
+                $.getJSON(
+                    "/MainMenuModels.json",
+                    function(jsonData){
+                        console.log("readLocalModules");
+                        console.log(jsonData);
+                        _that.menuModels=jsonData.menuModels;
+                        _that.readLocalHideMenus();
+                    }
+                );
+            },
+            fillMenuModelsArray(){
+                var _that=this;
+                console.log("fillMenuModelsArray");
+                console.log(_that.menuModels);
+                if(_that.menuModels==null||typeof(_that.menuModels)=="undefined"||_that.menuModels.length<5)
+                    return false;
+                for(var i=5;i<_that.menuModels.length;i++){
+                    if(_that.currentModelsId==_that.menuModels[i].id){
+                        _that.menuModels[i].uri="#";
+                    }
+                    _that.hideMenus.push(_that.menuModels[i]);
+                }
+            },
+            readLocalHideMenus(){
+                var _that=this;
+                $.getJSON(
+                    "/HideMenus.json",
+                    function(jsonData){
+                        console.log("readLocalHideMenus");
+                        console.log(jsonData);
+                        _that.hideMenus=jsonData.hideMenus;
+                    }
+                );
+            },
+            //#endregion
+            //el-table 动态计算高度为了显示滚动条
+            elTableScroll() {
+                this.$nextTick(function() {
+                    if ($(".el-table__body-wrapper").length > 0 && $(".el-table__header-wrapper").length > 0) {
+                        $(".el-table__body-wrapper").each(function(index,element){
+                            var parentElement = $(element).parent().parent();
+                            var headerHeight = $(element).prev()[0].offsetHeight;
+                            var parentHeight = parentElement[0].offsetHeight;
+                            var elBodyHeight = parentHeight - headerHeight;
+                            $(element).css("height", elBodyHeight + "px");
+                            //console.log("headerHeight:" + headerHeight);
+                            //console.log("parentHeight:" + parentHeight);
+                            //console.log("elBodyHeight:" + elBodyHeight);
+                            //console.log("parentElement");
+                            //console.log(parentElement);
+                        });
+                    }
+                });
+            },
+            replaceGotoMenu(currentMenu){
+                var resultHtml='';
+                if(this.menuTemplate=='')
+                   this.menuTemplate=$(".goto-page-menu").html();
+                resultHtml=this.menuTemplate;
+                //console.log("resultHtml="+resultHtml);
+                switch(currentMenu)
+                {
+                    case 'NewHome':
+                        resultHtml=resultHtml.replace('CurrentMenu','产业信息管理');
+                        //console.log("resultHtml="+resultHtml);
+                        $(".goto-page-menu").html(resultHtml);
+                        break;
+                   case 'CompanyMaster':
+                        resultHtml=resultHtml.replace('CurrentMenu','公司信息管理');
+                        //console.log("resultHtml="+resultHtml);
+                        $(".goto-page-menu").html(resultHtml);
+                   break;
+               }
+            },
+            showMoreMenu(){
+                if ($(".pop-more-maste-menu").css("display") == "none")
+                    $(".pop-more-maste-menu").show();
+            },
+            hideMoreMenu(){
+                if ($(".pop-more-maste-menu").css("display") != "none")
+                    $(".pop-more-maste-menu").hide();
+            },
+            landchange(value){
+                this.editData.landId=value.split('|')[0];
+                this.editData.landName=value.split('|')[1];
+            },
+            loadingLandList(searchKey){
+                var _that=this;
+                _that.loading=true;
+                //console.log("searchKey="+searchKey);
+                apiHelper.SearchOSCRegion(
+                    searchKey,
+                    function(response){
+                        _that.loading=false;
+                        _that.landSelectedOptions=response.data.result;
+                    });
+            },
+            gotoNewHome() {
+                window.location = "/NewHome/NewHome?regionId=@LandId";
+            },
+            search() {
+                this.getPageData();
+            },
+            showDateTimeClock() {
+                    var _that = this;
+                    var nowDate = new Date();
+                    var hours = _that.fixLeadingZero(nowDate.getHours(), 2);
+                    var minutes = _that.fixLeadingZero(nowDate.getMinutes(), 2);
+                    var seconds = _that.fixLeadingZero(nowDate.getSeconds(), 2);
+                    var month = _that.fixLeadingZero(nowDate.getMonth() + 1, 2);
+                    var day = _that.fixLeadingZero(nowDate.getDate(), 2);
+                    if(_that.timeHandle!=null)
+                       window.clearInterval(_that.timeHandle);
+                    _that.timestr = hours + ":" + minutes + ":" + seconds;
+                    _that.datestr = nowDate.getFullYear() + "/" + month + "/" + day;
+                    _that.timeHandle=window.setInterval(function() {
+                        _that.showDateTimeClock();
+                    }, 1000);
+            },
+            fixLeadingZero(value, fixLength) {
+                var str = value.toString();
+                if (str.length < fixLength) {
+                    var len = fixLength - str.length;
+                    var tempStr = "";
+                    for (var i = 0; i < len; i++)
+                        tempStr += "0";
+                    str = tempStr + str;
+                }
+                return str;
+            },
+            clearEditDialogData() {
+                this.saveAction = "Add";
+                this.landReadOnly = false;
+                this.editData = new MassifGreenHouseVP();
+                this.editData.enterTime = moment(new Date(data)).format("YYYY-MM-DD");
+            },
+            deleteData() {
+                var _that = this;
+                if(this.getToken()==false){
+                    return false;
+                }
+                if (this.editData.id == "") {
+                    alert('请先点击选择一条删除');
+                    return false;
+                }
+                if (confirm("确定要删除选中的数据?")) {
+                    apiHelper.delete(this.editData.id,
+                        function(response) {
+                            _that.getPageData();
+                        });
+                }
+            },
+            elTableRowSelectedStyle({ row, rowIndex }) {
+                //console.log(row);
+                if (this.elTableSelectedRowId == row.id) {
+                    return {
+                        "background-image": "linear-gradient(rgba(212, 81, 167, 0.69), rgba(0, 138, 255, 0.09), rgba(203, 38, 208, 0.53))",
+                        "color": "#f4e9e9"
+                    };
+                }
+            },
+            replaceDataCnWeek(data) {
+                if (data != null && data.replace) {
+                    for (var i = 0; i < cnWeeks.length; i++)
+                        data = data.replace("/" + cnWeeks[i], "");
+                }
+                return data;
+            },
+            formatDate(row, column) {
+                var data = row[column.property];
+                var result;
+                if (data != "" && data != undefined && data != null) {
+                    data = this.replaceDataCnWeek(data);
+                    result = moment(new Date(data)).format("YYYY-MM-DD");
+                }
+                else
+                    result = data;
+                return result;
+            },
+            formatFloat(row, column) {
+                var data = row[column.property];
+                var result;
+                if (data != "" && data != undefined && data != null) {
+                    result = parseFloat(data).toFixed(2);
+                }
+                else
+                    result = data;
+                return result;
+            },
+            saveData() {
+                var _that = this;
+                switch (this.saveAction) {
+                    case "Edit":
+                         if(this.editData.landId==''){
+                            alert('请选择或输入地块儿');
+                            return false;
+                         }
+                         if(this.editData.id==''){
+                            alert('数据编号不能为空');
+                            return false;
+                         }
+                        apiHelper.edit(
+                            this.editData.id,
+                            this.editData,
+                            function(response) {
+                                _that.dialogEditVisible = false;
+                            }
+                        );
+                        break;
+                    case "Add":
+                         if(this.editData.landId==''){
+                            alert('请选择或输入地块儿');
+                            return false;
+                         }
+                        this.editData.enterTime = moment(this.editData.enterTime).format("YYYY-MM-DD");
+                        this.editData.plantingArea=parseFloat(this.editData.plantingArea).toFixed(2);
+                        this.editData.totalOutput=parseFloat(this.editData.totalOutput).toFixed(2);
+                        this.editData.totaValue=parseFloat(this.editData.totaValue).toFixed(2);
+                        this.editData.lastYearOutput=parseFloat(this.editData.lastYearOutput).toFixed(2);
+                        this.editData.currentYearOutput=parseFloat(this.editData.currentYearOutput).toFixed(2);
+                        this.editData.cropsSalesPrice=parseFloat(this.editData.cropsSalesPrice).toFixed(2);
+                        if(this.editData)
+                        apiHelper.addData(
+                            this.editData,
+                            function(response) {
+                                _that.pageIndex = 1;
+                                console.log("刷新页面数据");
+                                _that.dialogEditVisible = false;
+                                _that.getPageData();
+                            }
+                        );
+                        break;
+                }
+            },
+            elTableRowClick(row) {
+                //console.log(row);
+                this.elTableSelectedRowId = row.id;
+                this.editData = row;
+                //console.log("row.enterTime=" + row.enterTime);
+                row.enterTime = this.replaceDataCnWeek(row.enterTime);
+                this.editData.plantingArea=parseFloat(this.editData.plantingArea).toFixed(2);
+                this.editData.totalOutput=parseFloat(this.editData.totalOutput).toFixed(2);
+                this.editData.totaValue=parseFloat(this.editData.totaValue).toFixed(2);
+                this.editData.lastYearOutput=parseFloat(this.editData.lastYearOutput).toFixed(2);
+                this.editData.currentYearOutput=parseFloat(this.editData.currentYearOutput).toFixed(2);
+                this.editData.cropsSalesPrice=parseFloat(this.editData.cropsSalesPrice).toFixed(2);
+                this.editData.enterTime = moment(new Date(row.enterTime)).format("YYYY-MM-DD");
+                //console.log(this.editData.enterTime);
+                this.saveAction = "Edit";
+                this.dialogEditVisible = true;
+            },
+            showAddDataDialog() {
+                if(this.getToken()==false){
+                    return false;
+                }
+                this.saveAction = "Add";
+                this.landReadOnly = false;
+                this.editData = new MassifGreenHouseVP();
+                this.editData.enterTime = moment(new Date()).format("YYYY-MM-DD");
+                this.dialogEditVisible = true;
+            },
+            changePageSize(pageSize) {
+                this.pageIndex = 1;
+                this.pageSize = pageSize;
+                this.getPageData();
+            },
+            changePage(pageIndex) {
+                this.pageIndex = pageIndex;
+                this.getPageData();
+            },
+            getPageData() {
+                var _that = this;
+                apiHelper.queryPage({
+                    where: _that.searchWhere,
+                    pageIndex: _that.pageIndex,
+                    pageSize: _that.pageSize,
+                    sortField: _that.sortField,
+                    sortMethod: _that.sortMethod
+                }, function(response) {
+                    if (response.status == 0) {
+                        _that.recordCount = response.recordCount;
+                        _that.pageCount = response.pageCount;
+                        _that.pageData = response.result;
+                        //console.log("_that.pageData");
+                        //console.log(_that.pageData);
+                        //console.log("_that.recordCount=" + _that.recordCount);
+                        //console.log("_that.pageCount=" + _that.pageCount);
+                        //console.log(_that.pageData);
+                    }
+                });
+            },
+            getLoginAccountUserInfo() {
+                this.userInfo.Account = apiHelper.getCookie("account");
+                this.userInfo.CompanyId = apiHelper.getCookie("companyId");
+                this.userInfo.Level = apiHelper.getCookie("level");
+                this.userName = this.userInfo.Account;
+            },
+            getToken() {
+                this.getLoginAccountUserInfo();
+                var token = apiHelper.getCookie("token");
+                var level=apiHelper.getCookie("level");
+                var result = true;
+                if (this.userInfo.Account == null) {
+                    result = false;
+                }
+                else {
+                    apiHelper.token = token;
+                    apiHelper.level = level;
+                    //console.log("apiHelper.level="+apiHelper.level);
+                    if(apiHelper.level>3){
+                        alert('用户权限不足');
+                        result=false;
+                    }
+                }
+                return result;
+            },
+            //退出登录，取消cookie有效时间
+            exitLogin() {
+                //console.log(123)
+                var exp = new Date();
+                exp.setTime(exp.getTime() - 10);
+                document.cookie = "token=" + escape('echo') + ";expires=" + exp.toGMTString() + ";path=/";
+                window.localStorage.removeItem(this.userName+'modules');
+                window.location = "/Login/Index";
+            }
+        }
+    });
+</script>
+}

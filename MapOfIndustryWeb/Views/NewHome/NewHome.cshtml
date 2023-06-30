@@ -1,0 +1,2178 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>产业信息管理系统</title>
+    <link rel="stylesheet" href="~/css/NewHome.css" />
+    <link rel="stylesheet" href="~/css/datamanage.css" />
+    <link rel="stylesheet" href="~/lib/element-ui/theme-chalk/index.css" />
+    <link rel="stylesheet" href="~/css/detailPage.css" />
+    <link rel="stylesheet" href="~/css/AveragePrice.css" />
+    <link href="~/css/swiper.min.css" rel="stylesheet" />
+    <script src="~/js/jquery.min.js">
+        import { time } from "console";
+    </script>
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/lib/vue/vue.js"></script>
+    <script type="text/javascript" src="~/lib/element-ui/index.js"></script>
+    <script src="~/js/echarts.min.js"></script>
+    <script src="~/lib/axios/axios.js"></script>
+    <script src="~/js/request.js"></script>
+    <script src="~/js/GPStransform.js"></script>
+    <script src="~/lib/linq/linq.js"></script>
+    <script src="~/js/echarts-collections.js"></script>
+    <script src="~/js/json.js"></script>
+    <script src="~/js/apiHelper.js"></script>
+    <script src="~/js/testData.js"></script>
+    <script src="~/lib/axios/axios.js"></script>
+    <script src="~/lib/moment/moment.js"></script>
+    <script src="~/js/cookieHelper.js"></script>
+    <script src="~/js/DateDiffMethod.js"></script>
+    <script src="~/js/osc_region_new.js"></script>
+    <script src="~/js/ezuikit.js"></script>
+    <link href="~/css/index.css" rel="stylesheet" />
+    
+    
+    <script type="text/javascript" src="~/js/swiper.min.js"></script>
+    <script type="text/javascript">
+        window._AMapSecurityConfig = {
+            securityJsCode: 'acca991ccaf8f2bb97df91a7bf547a24',
+        }
+    </script>
+    <script type="text/javascript" src="~/lib/amap/loader.js"></script>
+    @*<script type="text/javascript" src="~/js/AMapLoader.js"></script>*@
+    <script type="text/javascript" src="~/lib/echarts/echarts.min.js"></script>
+    <script type="text/javascript" src="~/js/echarts-collections.js"></script>
+    <script type="text/javascript" src="~/js/sort.js"></script>
+    <script type="text/javascript" src="~/js/menu.js"></script>
+    <script type="text/javascript" src="~/js/localStorageHelper.js"></script>
+    <script type="text/javascript" src="~/js/TianDiTuMapLoader.js"></script>
+    <script type="text/javascript" src="http://api.tianditu.gov.cn/api?v=4.0&tk=2a7c617cd0353e40d0fee73327920948"></script>
+    <style type="text/css">
+        #PlantAreaProgress .el-progress-bar .el-progress-bar__outer {
+            background-color: #3a2c2c87;
+        }
+
+        #PlantAreaProgress .el-progress-bar .el-progress-bar__inner {
+            background: linear-gradient(88deg, #0539e9, #159afb);
+        }
+
+        #CountDataDetailProgress .el-progress-bar .el-progress-bar__outer {
+            background-color: #504702;
+        }
+
+        #CountDataDetailProgress .el-progress-bar .el-progress-bar__inner {
+            background: linear-gradient(88deg, #afa325, #f6fb15);
+        }
+
+        #videoCameraButton {
+            width:49%;
+            height:4.6vh;
+            border:0px solid red;
+            float:left;
+        }
+
+        #videoCameraButton .label {
+            width: 14%;
+            height: 4.6vh;
+            line-height: 4.6vh;
+            font-family: 'Microsoft YaHei UI';
+            font-size: 0.7vw;
+            color: #fff;
+            text-align: center;
+            margin-left: 10%;
+            border: 0px solid red;
+            float: left;
+        }
+
+        #videoCameraButton .button {
+            width: 74%;
+            height: 3.7vh;
+            line-height: 3.7vh;
+            margin-left: 2%;
+            margin-top: 0.5%;
+            background-color: #00C3F0;
+            border-radius: 5px;
+            color: #00175D;
+            font-family: "Microsoft YaHei UI";
+            font-size: 0.7vw;
+            text-align: center;
+            cursor: pointer;
+            float: left;
+        }
+
+        [v-cloak] {
+            display:none;
+        }
+
+        .tdt-label {
+            background: transparent;
+            line-height: 29px;
+            padding: 0 10px;
+            border:0px;
+            box-shadow: 0px 0px 0px #9990;
+            /*-moz-box-shadow: 1px 1px 4px #999;
+            -webkit-box-shadow: 1px 1px 4px #999;
+            box-shadow: 1px 1px 4px #999;*/
+        }
+    </style>
+</head>
+<body>
+    <div style="margin-top:0.6%;" id="app" v-cloak >
+        <el-container>
+            <el-header>
+                <div class="logo">
+                    <div id="titleLeft">
+                        <div class="time-container">
+                            <div class="time-text">
+                                {{timestr}}
+                            </div>
+                            <div class="date-text">
+                                {{datestr}}
+                            </div>
+                        </div>
+                        <div v-if="menuModels!=null&&menuModels.length>0" :class="menuModels[0].id==currentModelsId?'title_nav_click':'title_nav_normal'">
+                            <a :href="menuModels[0].id==currentModelsId?'#':menuModels[0].uri" target="_self">{{menuModels[0].name}}</a>
+                        </div>
+                        <div v-if="menuModels!=null&&menuModels.length>0" :class="menuModels[1].id==currentModelsId?'title_nav_click':'title_nav_normal'">
+                            <a :href="menuModels[1].id==currentModelsId?'#':menuModels[1].uri" target="_self">{{menuModels[1].name}}</a>
+                        </div>
+                        <div v-if="menuModels!=null&&menuModels.length>0" :class="menuModels[2].id==currentModelsId?'title_nav_click':'title_nav_normal'">
+                            <a :href="menuModels[2].id==currentModelsId?'#':menuModels[2].uri" target="_self">{{menuModels[2].name}}</a>
+                        </div>
+                    </div>
+                    <div id="homeTitle">
+                        <div class="centerTitle"></div>
+                    </div>
+                    <div id="titleRight">
+                        <div v-if="menuModels!=null&&menuModels.length>0" :class="menuModels[3].id==currentModelsId?'title_nav_click':'title_nav_normal'">
+                            <a :href="menuModels[3].id==currentModelsId?'#':menuModels[3].uri" target="_self">{{menuModels[3].name}}</a>
+                        </div>
+                        <div v-if="menuModels!=null&&menuModels.length>0" :class="menuModels[4].id==currentModelsId?'title_nav_click':'title_nav_normal'">
+                            <a :href="menuModels[4].id==currentModelsId?'#':menuModels[4].uri" target="_self">{{menuModels[4].name}}</a>
+                        </div>
+                        <div @@mouseover="showMoreMenu" id="more-menu" class="title_nav_normal">
+                            更多管理&#9660;
+                            <div v-if="hideMenus!=null&&hideMenus.length>0" @@mouseout="hideMoreMenu" class="pop-more-maste-menu">
+                                <div v-for="(item,index) in hideMenus" class="menu-item">
+                                    <a :href="item.uri" target="_self">
+                                       {{item.name}}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-container">
+                            <img src="~/images/newhome/account.png" />
+                            <div :title="userName" class="content">
+                                {{userName}}
+                            </div>
+                            <div class="arrow">
+                                &#9660;
+                            </div>
+                            <!--弹出菜单-->
+                            <div class="pop-menu">
+                                <div @@click="exitLogin" class="pop-menu-item">
+                                    退出
+                                </div>
+                            </div>
+                            <!--/弹出菜单-->
+                        </div>
+                    </div>
+                </div>
+            </el-header>
+            <el-container class="elContainer">
+                <div class="left-container">
+                    <!--种植统计-->
+                    <div style="height:32%" class="content-container">
+                        <div class="title-container">
+                            <div class="title-text">
+                                种植统计(亩)
+                            </div>
+                            <botton @@click="gotoPlantAreaStatistics" class="btnViewDetail">
+                                详情&nbsp;&gt;
+                            </botton>
+                        </div>
+                        <div class="middle-container">
+                            <div class="title-crops">{{currentCropsName}}</div>
+                            <!--统计进度层-->
+                            <div class="statistics-panel">
+                                <!--统计行-->
+                                <div v-for="(item,index) in yearCountDataItem" :key="index" class="line-container">
+                                    <div style="color: #00F0FF;" class="area-text">
+                                        {{item.regionName}}
+                                    </div>
+                                    <!--进度条-->
+                                    <div style="width:38%" class="progress-container">
+                                        <!--color设置前景色-->
+                                        <el-progress type="line" :show-text="false" :color="'#409eff'" :percentage="item.sowAreaPercentage" :stroke-width="13"></el-progress>
+                                    </div>
+                                    <!--/进度条-->
+                                    <div style="color: #FFFFFF;" class="area-text">
+                                        {{item.sowArea}}
+                                    </div>
+                                </div>
+                                <!--/统计行-->
+                            </div>
+                            <!--/统计进度层-->
+                            <!--年份切换-->
+                            <div class="year-container">
+                                <a @@click="previousYearCountData" href="#">&lt;</a>
+                                &nbsp;&nbsp;{{currentYearNumber}}&nbsp;&nbsp;
+                                <a @@click="nextYearCountData" href="#">&gt;</a>
+                            </div>
+                            <!--/年份切换-->
+                        </div>
+                        <!--底部层-->
+                        <div class="bottom-container"></div>
+                        <!--/底部层-->
+                    </div>
+                    <!--/种植统计-->
+                    <!--产量统计-->
+                    <div style="height:32%;margin-top:5%;" class="content-container">
+                        <div class="title-container">
+                            <div class="title-text">
+                                产量统计(吨)
+                            </div>
+                            <botton @@click="gotoCountDataStatistics" class="btnViewDetail">
+                                详情&nbsp;&gt;
+                            </botton>
+                        </div>
+                        <div class="middle-container">
+                            <div class="title-crops">{{currentCropsName}}</div>
+                            <!--统计进度层-->
+                            <div id="outputStatistics" class="statistics-panel">
+                                <!--统计行-->
+                                <div v-for="(item,index) in yieldCountDataItem" :key="index" class="line-container">
+                                    <div style="color: #00F0FF;" class="area-text">
+                                        {{item.regionName}}
+                                    </div>
+                                    <!--进度条-->
+                                    <div style="width:38%" class="progress-container">
+                                        <!--color设置前景色-->
+                                        <el-progress type="line" :show-text="false" :color="'#FFC501'" :percentage="item.yieldPercentage" :stroke-width="13"></el-progress>
+                                    </div>
+                                    <!--/进度条-->
+                                    <div style="color: #FFFFFF;" class="area-text">
+                                        {{item.yield}}
+                                    </div>
+                                </div>
+                                <!--/统计行-->
+                            </div>
+                            <!--/统计进度层-->
+                            <!--年份切换-->
+                            <div class="year-container">
+                                <a @@click="previousYieldCountData" href="#">&lt;</a>
+                                &nbsp;&nbsp;{{currentYieldYearNumber}}&nbsp;&nbsp;
+                                <a @@click="nextYieldCountData" href="#">&gt;</a>
+                            </div>
+                            <!--/年份切换-->
+                        </div>
+                        <!--底部层-->
+                        <div class="bottom-container"></div>
+                        <!--/底部层-->
+                    </div>
+                    <!--/产量统计-->
+                    <!--平均价格-->
+                    <div style="height:33.5%;margin-top: 4.5%;" class="content-container">
+                        <div class="title-container">
+                            <div class="title-text">
+                                价格走势(元)
+                            </div>
+                            <botton @@click="gotoAveragePrice" class="btnViewDetail">
+                                详情&nbsp;&gt;
+                            </botton>
+                        </div>
+                        <div class="middle-container">
+                            <div ref="AverageStatistics" id="AverageStatistics" style="width:91%;height:99%;margin:0 auto;margin-top:0.3%;"></div>
+                        </div>
+                        <!--底部层-->
+                        <div class="bottom-container"></div>
+                        <!--/底部层-->
+                    </div>
+                    <!--/平均价格-->
+                </div>
+                <div id="center-container" class="middle-container mcontainer">
+                    <div id="amap-container"></div>
+                    <!--控制层-->
+                    <div class="control-container">
+                        <div @@click="showlandDropdownlist" class="land-selected">
+                            {{currentRegionName}}&nbsp;&or;
+                        </div>
+                        <img class="btnEdit" @@click="gotoDataManage" src="/images/newhome/01_18.png" />
+                    </div>
+                    <!--/控制层-->
+                    <!--地块下拉列表-->
+                    <div v-if="landDropdownlistIsDisplay" class="land-dropdownlist">
+                        <div v-for="(item, index) in regionList" :key="index" @@click="changeRegion(item.id,item.name)" class="land-item">
+                            {{item.name}}
+                        </div>
+                    </div>
+                    <!--/地块下拉列表-->
+                    <!--地图浮动框-->
+                    <div v-show="districtItemIsShow" class="district-item-container">
+                        <!--区域名称-->
+                        <div class="district-name-container">
+                            <!-- 四个角的边框效果 -->
+                            <div class="border_corner border_corner_left_top"></div>
+                            <div class="border_corner border_corner_right_top"></div>
+                            <div class="border_corner border_corner_left_bottom"></div>
+                            <div class="border_corner border_corner_right_bottom"></div>
+                            <div class="district-name">
+                                {{regionDataItem.regionName}}
+                            </div>
+                        </div>
+                        <!--/区域名称-->
+                        <div @@click.stop="closeLandPopDialog" class="district-close-button">
+                            X
+                        </div>
+                        <div class="district-item-content-line">
+                            <span class="white-font">产业基地:</span>{{regionDataItem.cropsName}}
+                        </div>
+                        <div class="district-item-content-line">
+                            <span class="white-font">土壤:</span>{{regionDataItem.soilType}}&nbsp;&nbsp;
+                            <span class="white-font">面积:</span>{{regionDataItem.plantingArea}}亩
+                        </div>
+                        <div class="district-item-content-line">
+                            <span class="white-font">去年产量(kg/亩):</span>{{regionDataItem.lastYearOutput}}
+                        </div>
+                        <div class="district-item-content-line">
+                            <span class="white-font">人口数量:</span>{{regionDataItem.totalPopulation}}
+                        </div>
+                        <div class="district-item-content-line">
+                            <span class="white-font">去年产值:</span>{{regionDataItem.totaValue}}
+                        </div>
+                        <div class="crops-statistics">
+                            <div class="crops-name">
+                                {{regionDataItem.cropsInfo1.cropsName}}种植(亩)
+                            </div>
+                            <div class="crops-statistics-number">
+                                {{regionDataItem.cropsInfo1.plantingArea}}
+                            </div>
+                        </div>
+                        <div class="crops-statistics">
+                            <div class="crops-name">
+                                {{regionDataItem.cropsInfo2.cropsName}}种植(亩)
+                            </div>
+                            <div class="crops-statistics-number">
+                                {{regionDataItem.cropsInfo2.plantingArea}}
+                            </div>
+                        </div>
+                        <div style="display:none" class="view-more">
+                            <a href="#">更多数据</a>
+                        </div>
+                    </div>
+                    <!--/地图浮动框-->
+                    <!--农作物选择层-->
+                    <div class="crops-selected-list">
+                        <div @@click="changeCurrentCrops(0)" :class="currenChoseIndex==0?'crops-item-click':'crops-item-normal'">
+                            <img src="~/images/newhome/crops-01.png" />
+                            <div class="info-container">
+                                <div class="crops-text">
+                                    玉米
+                                </div>
+                                <div class="crops-statistics-number">
+                                    <a href="#" :title="cropsPlantAreaData[0]">
+                                        {{cropsPlantAreaData[0]}}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        @*<div class="crops-selected-line"></div>
+                        <div @@click="changeCurrentCrops(1)" :class="currentCropsIndex==1?'crops-item-click':'crops-item-normal'">
+                            <img src="~/images/newhome/crops-02.png" />
+                            <div class="info-container">
+                                <div class="crops-text">
+                                    谷子
+                                </div>
+                                <div class="crops-statistics-number">
+                                    <a href="#" :title="cropsPlantAreaData[1]">
+                                        {{cropsPlantAreaData[1]}}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="crops-selected-line"></div>
+                        <div @@click="changeCurrentCrops(2)" :class="currentCropsIndex==2?'crops-item-click':'crops-item-normal'">
+                            <img src="~/images/newhome/crops-03.png" />
+                            <div class="info-container">
+                                <div class="crops-text">
+                                    大豆
+                                </div>
+                                <div class="crops-statistics-number">
+                                    <a href="#" :title="cropsPlantAreaData[2]">
+                                        {{cropsPlantAreaData[2]}}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>*@
+                        <div class="crops-selected-line"></div>
+                        <div @@click="changeCurrentCrops(3)" :class="currenChoseIndex==3?'crops-item-click':'crops-item-normal'">
+                            <img src="~/images/newhome/crops-04.png" />
+                            <div class="info-container">
+                                <div class="crops-text">
+                                    重点企业(家)
+                                </div>
+                                <div class="crops-statistics-number">
+                                    <a href="#" :title="companyCount">
+                                        {{companyCount}}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="crops-selected-line"></div>
+                        <div @@click="changeCurrentCrops(4)" :class="currenChoseIndex==4?'crops-item-click':'crops-item-normal'">
+                            <img style="width:2vw;" src="~/images/newhome/crops-05.png" />
+                            <div class="info-container">
+                                <div class="crops-text">
+                                    合作社(家)
+                                </div>
+                                <div class="crops-statistics-number">
+                                    <a href="#" :title="coopCount">
+                                        {{coopCount}}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/农作物选择层-->
+                    <div class="types-selected-list" v-show="isShow == true">
+                        <div :class="currenTypesIndex==1?'types-item-click types-item-normol':'types-item-normol'" @@click="currentTypeFunc(1)">A类</div>
+                        <div :class="currenTypesIndex==2?'types-item-click types-item-normol':'types-item-normol'" @@click="currentTypeFunc(2)">B类</div>
+                        <div :class="currenTypesIndex==3?'types-item-click types-item-normol':'types-item-normol'" @@click="currentTypeFunc(3)">C类</div>
+                    </div>
+                     <div class="types-selected-list" v-show="HZSisShow == true">
+                        <div :class="currentLevelIndex==5?'types-item-click types-item-normol':'types-item-normol'" @@click="currentLevelFunc(5)">国家级</div>
+                        <div :class="currentLevelIndex==1?'types-item-click types-item-normol':'types-item-normol'" @@click="currentLevelFunc(1)">省级</div>
+                        <div :class="currentLevelIndex==2?'types-item-click types-item-normol':'types-item-normol'" @@click="currentLevelFunc(2)">市级</div>
+                        <div :class="currentLevelIndex==3?'types-item-click types-item-normol':'types-item-normol'" @@click="currentLevelFunc(3)">县级</div>
+                        <div :class="currentLevelIndex==4?'types-item-click types-item-normol':'types-item-normol'" @@click="currentLevelFunc(4)">乡级</div>
+                    </div>
+                </div>
+                <div id="detail-container" style="display:none" class="middle-container">
+                </div>
+                <div class="right-container">
+                    <!--当前物侯期-->
+                    <div style="height:32%" class="content-container">
+                        <div class="title-container">
+                            <div class="title-text">
+                                当前物候期
+                            </div>
+                        </div>
+                        <div class="middle-container">
+                            <div style="margin-left: 5%;" class="title-crops">{{currentCropsName}}</div>
+                            <!--农作物层-->
+                            <div class="statistics-panel">
+                                <div style="display:none" @@click="previousGrowCycles" class="arrow-container">
+                                    &lt;
+                                </div>
+                                <img v-if="growCyclesImage==''?false:true" :src="growCyclesImage" />
+                                <div style="display:none" @@click="nextGrowCycles" class="arrow-container">
+                                    &gt;
+                                </div>
+                            </div>
+                            <!--/农作物层-->
+                            <!--侯期-->
+                            <div class="year-container">
+                                {{growCyclesName}}
+                            </div>
+                            <!--/侯期-->
+                        </div>
+                        <!--底部层-->
+                        <div class="bottom-container"></div>
+                        <!--/底部层-->
+                    </div>
+                    <!--/当前物侯期-->
+                    <!--作物种植面积-->
+                    <div style="height: 67.5%;margin-top: 5.3%;" class="content-container">
+                        <div style="height: 13%;" class="title-container">
+                            <div style="width: 65%;font-size: 1.9vh;margin-top: 7%;" class="title-text">
+                                晋中作物种植面积(亩)
+                            </div>
+                        </div>
+                        <div class="middle-container" style="height: 83.7%;">
+                            <!--农作物按钮列表-->
+                            <div class="crops-button-container">
+                                <div @@click="changeCurrentCrops(0)" :class="currentCropsIndex==0?'crops-button-click':'crops-button-normal'">
+                                    玉米
+                                </div>
+                                <div @@click="changeCurrentCrops(1)" :class="currentCropsIndex==1?'crops-button-click':'crops-button-normal'">
+                                    谷子
+                                </div>
+                                <div @@click="changeCurrentCrops(2)" :class="currentCropsIndex==2?'crops-button-click':'crops-button-normal'">
+                                    大豆
+                                </div>
+                            </div>
+                            <!--/农作物按钮列表-->
+                            <!--总统计-->
+                            <div class="total-statistics">
+                                <img src="~/images/newhome/total-statistics.png" />
+                                <span class="total-title">总计:</span>
+                                <span v-if="plantAreaStatisticsData!=null&&typeof(plantAreaStatisticsData)!='undefiend'" class="total-number">{{plantAreaStatisticsData.countArea}}</span>
+                                <span v-if="plantAreaStatisticsData==null&&typeof(plantAreaStatisticsData)=='undefiend'" class="total-number">0</span>
+                            </div>
+                            <!--/总统计-->
+                            <!--统计进度层-->
+                            <div id="plantingArea" class="statistics-panel" style="height: 77%;">
+                                <!--统计行-->
+                                <div v-for="(item,index) in plantAreaStatisticsDataPage" :key="index" class="line-container">
+                                    <div style="color: #FFFFFF;" class="area-text">
+                                        {{item.regionName}}
+                                    </div>
+                                    <!--进度条-->
+                                    <div class="progress-container">
+                                        <!--color设置前景色-->
+                                        <el-progress type="line" :show-text="false" :color="'#0CFAEB'" :percentage="item.sowAreaPercentage" :stroke-width="5"></el-progress>
+                                    </div>
+                                    <!--/进度条-->
+                                    <div style="color: #FFFFFF;width:42%" class="area-text">
+                                        {{item.sowArea}}
+                                    </div>
+                                </div>
+                                <!--/统计行-->
+                            </div>
+                            <!--/统计进度层-->
+                        </div>
+                        <!--底部层-->
+                        <div class="bottom-container" style="height:3%;"></div>
+                        <!--/底部层-->
+                    </div>
+                    <!--/产量统计-->
+                </div>
+            </el-container>
+        </el-container>
+        <el-dialog :visible.sync="qiyeInfoVisible" :close-on-click-modal="false"  width="70%" top="10vh">
+            <div class="dialog-div" >
+                <div class="title">
+                    {{qiyeForm.companyName}}
+                </div>
+                <el-col :span="24" class="qiyeinfo_top">
+                    <el-col :span="7" class="page-heit">
+                        <el-col :span="24" class="qiye-img-box swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide" v-for="item in qiyeForm.imageList">
+                                    <img class="qiye-img" :src="item" />
+                                </div>
+                            </div>
+                            @**@
+                        </el-col>
+                        @*<el-col :span="24" class="qiye-video-btn-box">
+                            <div class="qiye-video-btn" @@click="openVideoHtml">视频监控</div>
+                        </el-col>*@
+                    </el-col>
+                    <el-col :span="17" class="page-heit">
+                        <el-form :model="qiyeForm" class="inline"> 
+                            <el-form-item class="sty-w" label="经营范围:" :label-width="formLabelWidth" style="width:49%;float:left"> 
+                                  <el-input v-model="qiyeForm.backup03"   :disabled="true" autocomplete="off" ></el-input>
+                            </el-form-item>
+                            <el-form-item class="sty-w" label="年收入(万):" :label-width="formLabelWidth" style="width:49%;float:left"> 
+                                  <el-input v-model="qiyeForm.currentYearSales"  :disabled="true"  autocomplete="off" ></el-input>
+                            </el-form-item>
+                            <el-form-item class="sty-w" label="所属类别:" :label-width="formLabelWidth" style="width:49%;float:left"> 
+                                  <el-input v-model="qiyeForm.enterpriseType"  :disabled="true"  autocomplete="off" ></el-input>
+                            </el-form-item>
+                            <el-form-item class="sty-w" label="所属级别:" :label-width="formLabelWidth" style="width:49%;float:left"> 
+                                  <el-input v-model="qiyeForm.regionalLevel"  :disabled="true"  autocomplete="off" ></el-input>
+                            </el-form-item>
+                            <el-form-item class="sty-w" label="所属乡镇:" :label-width="formLabelWidth" style="width:49%;float:left"> 
+                                  <el-input v-model="qiyeForm.townShip"  :disabled="true"  autocomplete="off" ></el-input>
+                            </el-form-item>
+                            <el-form-item class="sty-w" label="联系人:" :label-width="formLabelWidth" style="width:49%;float:left"> 
+                                  <el-input v-model="qiyeForm.contacts"  :disabled="true"  autocomplete="off" ></el-input>
+                            </el-form-item>                         
+                            @*<el-form-item class="sty-w" label="经营范围:" :label-width="formLabelWidth" style="width:49%;display:inline-block"> 
+                                  <el-input v-model="qiyeForm.backup03"   :disabled="true" autocomplete="off" ></el-input>
+                            </el-form-item>*@                          
+                            <el-form-item class="sty-w" label="联系电话:" :label-width="formLabelWidth" style="width:49%;float:left"> 
+                                  <el-input v-model="qiyeForm.contactPhone"   :disabled="true" autocomplete="off" ></el-input>
+                            </el-form-item>
+                            <div id="videoCameraButton">
+                                  <div class="label">视频监控:</div>
+                                  <div @@click="openVideoHtml" class="button">点击查看</div>
+                            </div>
+                        </el-form>
+                    </el-col>
+                </el-col>
+                <el-col :span="24" class="qiyeinfo_top intro-box">
+                    <div v-show="gotoGreenHousePageIsShow" class="btnGotoGreenHousePage">
+                        <a :href="gotoGreenHousePageUrl" target="_blank">{{gotoGreenHousePageText}}&gt;</a>
+                    </div>
+                    <el-col :span="24" class="intro-title">企业介绍</el-col>
+                    <el-col :span="24" class="intro-cont">{{qiyeForm.enterpriseIntroduction}}</el-col>
+                </el-col>
+            </div>
+        </el-dialog>
+
+        <el-dialog :title="qiyeForm.companyName" :visible.sync="qiyeInfoVideoVisible" :close-on-click-modal="false"  width="70%" top="10vh">
+            <div class="dialog-div" >
+              <div class="video-div">
+                  
+                  <el-col :span="6" class="page-heit">
+                      <div class="video-list" style="">
+                          <div v-for="item in videoList" @@click="clickVideo(item)" :class="currentVideo == item ?'video-item-click':'video-item'">{{item}}</div>
+                      </div>
+                  </el-col>
+                  <el-col :span="18" class="page-heit">
+                      <video v-show="item==currentVideo" v-for="(item,index) in videoList" :id="ki(index)" style="height: 100%;width: 100%;" poster="" playsInline webkit-playsinline controls autoplay muted>
+                        <source
+               
+                        :src="item"
+                
+                        type="application/x-mpegURL" />
+                     </video>
+                     @*<div id="myPlayer1"></div>*@
+                  </el-col>
+                  
+              </div>
+            </div>
+        </el-dialog>
+    </div>
+</body>
+</html>
+@{
+    var regionId = (string)ViewData["regionId"];
+    regionId = System.Web.HttpUtility.HtmlDecode(regionId);
+}
+<script>
+    //var v_rootDistrictId = "@regionId";
+    //var rootDistrictId = 3135;
+    var v_rootDistrictId = "";
+    var rootDistrictId = 0;
+    var globalRegions = [];
+    var globalAllRegions = [];
+    var app = new Vue({
+        el: "#app",
+        data: {
+            //v_rootDistrictId:"@regionId",
+            //rootDistrictId:3135,
+            //loadRootDistrictId:3135,
+            v_rootDistrictId:"",
+            rootDistrictId:0,
+            loadRootDistrictId:0,
+            landDropdownlistIsDisplay:false,
+            userName:"",
+            timestr: "",
+            datestr: "",
+            activeIndex: '1',
+            regions: [],
+            currentRegionName: "",
+            districtItemIsShow: false,
+            regionItem: null,
+            currentCropsName: "玉米",
+            currentCropsIndex: 0,
+            currentYearNumber:null,
+            currentYieldYearNumber:null,
+            yearCurrentIndex: 0,
+            yearCruuentPage: 1,
+            yearPageCount: 0,
+            yearPageSize: 5,
+            yearCountData: null,
+            yearCountDataItem: [],
+            yearIntervalTime:null,
+            yearIntervalItemTime:null,
+            yieldCurrentIndex:0,
+            yieldCruuentPage:1,
+            yieldPageCount:0,
+            yieldPageSize:5,
+            yieldCountData:null,
+            yieldCountDataItem:[],
+            yieldIntervalTime:null,
+            yieldIntervalItemTime:null,
+            plantAreaStatisticsData:{
+                countArea:'0'
+            },
+            plantAreaStatisticsPageCurrent:1,
+            plantAreaStatisticsPageCount:0,
+            plantAreaStatisticsPageSize:11,
+            plantAreaStatisticsDataPage:[],
+            plantAreaStatisticsDataTime:null,
+            mapCropsPlantAreaData:[],
+            cropsPlantAreaData:[],
+            plantGrowthCycle:[],//生长周期
+            cropsImage:'/images/newhome/crops-01.png',
+            growCyclesImage:'',
+            growCyclesName:'',
+            growCyclesIndex:-1,
+            regionList:[],
+            currentDetailPage:'',
+            gotoGreenHousePageUrl: "http://localhost:15798/",
+            gotoGreenHousePageText:"智慧大棚管理系统",
+            gotoGreenHousePageIsShow:false,
+            regionDataItem: {
+                regionName: '',
+                cropsName: '',
+                soilType: '',
+                plantingArea: '',
+                lastYearOutput: '',
+                totalPopulation: '',
+                totaValue: '',
+                cropsInfo1: {
+                    cropsName: '',
+                    plantingArea: ''
+                },
+                cropsInfo2: {
+                    cropsName: '',
+                    plantingArea: ''
+                }
+            },
+            currenChoseIndex:0,
+            isShow:false,
+            currenTypesIndex:0,
+            qiyeInfoVisible:false,
+            qiyeForm:{
+                companyName:'',
+                currentYearSales:'',
+                enterpriseType:'',
+                regionalLevel:'',
+                townShip:'',
+                contacts:'',
+                contactPhone:'',
+                enterpriseIntroduction:'',
+                images:'images/newhome/2.jpg',
+                videoUrl:'',
+                imageList:[]
+            },
+            formLabelWidth:"120px",
+            qiyeInfoVideoVisible:false,
+            companyCount:0,
+            coopCount:0,
+            HZSisShow:false,
+            currentLevelIndex:0,
+            videoList:[],
+            currentVideo:'',
+            player:null,
+            currentModelsId:1,//当前模块编号
+            menuModels:[],
+            hideMenus:[],
+            timeHandle:null,
+            AMap:null,
+            RootLand:null//根地块儿
+        },
+        beforeMount:function(){
+            this.initModules();
+        },
+        mounted: function() {
+            var _that=this;
+            if(!this.getToken()){
+               window.location = "/Login/Index";
+               return false;
+            }
+            //mapRootDistrictId=this.v_rootDistrictId;           
+            this.initModules();
+            this.showDateTimeClock();
+            //先获取根地块儿才能做后续操作
+            this.ReadRootLand(function(){
+                 _that.InitOscRegionList();
+                 _that.InitPage(true);
+            });
+            //this.InitPlantGrowthCycleNew();
+            this.userName=cookieHelper.get("loginUserName");
+            //console.log("this.userName");
+            //console.log(this.userName);
+            $('.types-item-normol').click(function(){
+                //console.log("----------------点击类型，进入方法")
+                $(".types-item-normol").removeClass("types-item-click");
+                $(this).addClass("types-item-click")
+            })
+        },
+        methods: {
+            //读取根地块儿
+            ReadRootLand(callback){
+                var _that=this;
+                apiHelper.GetRootLand(
+                    function(response){
+                        console.log("ReadRootLand");
+                        console.log(response);
+                        if(response.data.status==0){
+                            _that.RootLand=response.data.result;
+                            if(_that.RootLand==null||_that.RootLand.id==null)
+                            {
+                                alert('没有获取到根地块儿，请先在后台设置根地块儿');
+                                return false;
+                            }
+                            v_rootDistrictId=_that.RootLand.id;
+                            rootDistrictId=_that.RootLand.id;
+                            mapRootDistrictId=_that.RootLand.id;
+                            _that.v_rootDistrictId=_that.RootLand.id;
+                            _that.rootDistrictId=_that.RootLand.id;
+                            _that.loadRootDistrictId=_that.RootLand.id;
+                            if(callback!=null&&_that.RootLand!=null)
+                               callback();
+                            else
+                               alert('没有获取到根地块儿，请先在后台设置根地块儿');
+                        }
+                        else
+                        {
+                            alert('读取根地块儿报错,原因['+response.data.msg+']');
+                        }
+                    }
+                );
+            },
+            ki(index){
+                return "myPlayer_"+index
+            },
+            openVideoHtml(){
+                this.qiyeInfoVideoVisible=true;
+                this.$nextTick(()=>{
+                    for(var i = 0;i<this.videoList.length;i++){
+                        this.player = new EZUIPlayer('myPlayer_'+i);
+                        this.player.on('error', function () {
+                            //console.log('error');
+                        });
+                        this.player.on('play', function () {
+                            //console.log('play');
+                        });
+                        this.player.on('pause', function () {
+                            //console.log('pause');
+                        });
+                    }
+                    
+                })
+                
+            },
+            //choseTypesItem(index){
+            //    //console.log("----------------点击类型，进入方法2")
+            //    //console.log(e)
+            //},
+            clearCookie(){
+                var exp = new Date();
+                exp.setTime(exp.getTime() - 10);
+                document.cookie = "token=" + escape('echo') + ";expires=" + exp.toGMTString() + ";path=/";
+                window.localStorage.removeItem(this.userName+'modules');
+            },
+            //#region 初始化页面模块
+            initModules() {
+                //this.clearCookie();
+                var _that=this;
+                var modules=window.localStorage[_that.userName+'modules'];
+                window.localStorage.removeItem(this.userName+'modules');
+                modules=null;
+                if(modules==null||modules.length<=0||typeof(modules)=='undefined')
+                {
+                    /*apiHelper.getModules(
+                        function(response){
+                            //console.log("getModules");
+                            //console.log(response);
+                            var modulesResult=response.data.result;
+                            if(response.data.status==0){
+                                if(modulesResult!=null&&modulesResult.length>0&&typeof(modulesResult)!='undefined')
+                                {
+                                    _that.menuModels=modulesResult;
+                                    _that.fillMenuModelsArray();
+                                    window.localStorage.setItem(_that.userName+'modules',JSON.stringify(_that.menuModels));
+                                }
+                                else
+                                {
+                                    _that.readLocalModules();
+                                    _that.fillMenuModelsArray();
+                                }
+                            }
+                        }
+                    );*/
+                    _that.readLocalModules();
+                    _that.fillMenuModelsArray();
+                }
+                else
+                {
+                    _that.menuModels=JSON.parse(modules);
+                    _that.fillMenuModelsArray();
+                }
+            },
+            readLocalModules(){
+                var _that=this;
+                $.getJSON(
+                    "/MainMenuModels.json",
+                    function(jsonData){
+                        console.log("readLocalModules");
+                        console.log(jsonData);
+                        _that.menuModels=jsonData.menuModels;
+                        _that.readLocalHideMenus();
+                    }
+                );
+            },
+            fillMenuModelsArray(){
+                var _that=this;
+                console.log("fillMenuModelsArray");
+                console.log(_that.menuModels);
+                if(_that.menuModels==null||typeof(_that.menuModels)=="undefined"||_that.menuModels.length<5)
+                    return false;
+                for(var i=5;i<_that.menuModels.length;i++){
+                    if(_that.currentModelsId==_that.menuModels[i].id){
+                        _that.menuModels[i].uri="#";
+                    }
+                    _that.hideMenus.push(_that.menuModels[i]);
+                }
+            },
+            readLocalHideMenus(){
+                var _that=this;
+                $.getJSON(
+                    "/HideMenus.json",
+                    function(jsonData){
+                        console.log("readLocalHideMenus");
+                        console.log(jsonData);
+                        _that.hideMenus=jsonData.hideMenus;
+                    }
+                );
+            },
+            //#endregion
+            currentTypeFunc(index){
+                this.currenTypesIndex = index;
+                //this.InitPage(true);
+                this.InitMapPlantArea(null);
+            },
+            currentLevelFunc(index){
+                this.currentLevelIndex = index;
+                //this.InitPage(true);
+                this.InitMapPlantArea(null);
+            },
+            clickVideo(item){
+                this.currentVideo = item; 
+                
+            },
+            closeLandPopDialog(){
+                var _that=this;
+                console.log("closeLandPopDialog");
+                this.$nextTick(()=>{
+                    $(".district-item-container").hide();
+                    _that.districtItemIsShow = false;
+                });               
+                //console.log(event);
+                //event.stopPropagation();
+                //event.cancelBubble=true; 
+            },
+            showMoreMenu(){
+                if ($(".pop-more-maste-menu").css("display") == "none")
+                    $(".pop-more-maste-menu").show();
+            },
+            hideMoreMenu(){
+                if ($(".pop-more-maste-menu").css("display") != "none")
+                    $(".pop-more-maste-menu").hide();
+            },
+            //#region 获取农作物候期
+            InitPlantGrowthCycleNew(){
+                var _that=this;
+                console.log("InitPlantGrowthCycleNew");
+                apiHelper.QueryGrowCyclesCropsNew(
+                    _that.currentCropsName,
+                    function(response){
+                        if(response.data.status==0){
+                           console.log(response.data.result);
+                        }else{
+                            alert('获取候期数据的农作物主数据出错,原因['+response.data.msg+']');
+                        }
+                    }
+                );
+            },
+            //#endregion
+            //初始化生长周期
+            InitPlantGrowthCycle(){
+                var _that=this;
+                apiHelper.QueryGrowCycles(
+                    _that.currentCropsName,
+                    function(response){
+                        _that.growCyclesIndex=-1;
+                        //console.log("InitPlantGrowthCycle");
+                        //console.log(response);
+                        _that.plantGrowthCycle=response.data.result;
+                        //var diffStartTime=DateDiff("day","2022-06-27","2022-06-27");
+                        //console.log("diffStartTime="+diffStartTime);
+                        //var diffEndTime=DateDiff("day","2022-07-14","2022-06-27");
+                        //console.log("diffEndTime="+diffEndTime);
+                        _that.getCurrentPlantGrowthCycle();
+                    }
+                );
+            },
+            getCurrentPlantGrowthCycle(){
+                var _that=this;
+                var dateTimeNow=new Date();
+                var dateStr='';
+                var growthCycle=_that.plantGrowthCycle;
+                dateStr=dateTimeNow.getFullYear()+'-';
+                dateStr+=_that.fixLeadingZero(dateTimeNow.getMonth()+1,2)+'-';
+                dateStr+=_that.fixLeadingZero(dateTimeNow.getDate(),2);
+                if(growthCycle==null||(growthCycle.length==null||growthCycle.length<=0)){
+                    _that.growCyclesName="无数据";
+                    _that.growCyclesImage="";
+                   return false;
+                }
+                for(var i=0;i<growthCycle.length;i++){
+                    var startTime=growthCycle[i].startTime;
+                    var endTime=growthCycle[i].endTime;
+                    if(DateDiff("day",startTime,dateStr)<=0&&DateDiff("day",endTime,dateStr)>=0){
+                        _that.growCyclesIndex=i;
+                        _that.growCyclesName=growthCycle[i].name;
+                        _that.growCyclesImage="http://8.142.16.236:6010"+growthCycle[i].image;
+                        break;
+                    }
+                }
+                if(_that.growCyclesIndex==-1)
+                {
+                    _that.growCyclesName="无数据";
+                    _that.growCyclesImage="";
+                }
+            },
+            previousGrowCycles(){
+                var _that=this;
+                var growthCycle=_that.plantGrowthCycle;
+                var index=_that.growCyclesIndex;
+                if(growthCycle==null||(growthCycle.length==null||growthCycle.length<=0))
+                   return false;
+                _that.growCyclesIndex-=1;
+                index-=1;
+                if(index<=0){
+                    _that.growCyclesIndex=0;
+                    index=0;
+                }
+                //console.log("previousGrowCycles");
+                //console.log("growthCycle");
+                //console.log(growthCycle);
+                //console.log("index");
+                //console.log(index);
+                _that.growCyclesName=growthCycle[index].name;
+                _that.growCyclesImage="http://8.142.16.236:6010"+growthCycle[index].image;
+            },
+            nextGrowCycles(){
+                var _that=this;
+                var growthCycle=_that.plantGrowthCycle;
+                var index=_that.growCyclesIndex;
+                if(growthCycle==null||(growthCycle.length==null||growthCycle.length<=0))
+                   return false;
+                _that.growCyclesIndex+=1;
+                index+=1;
+                if(index>growthCycle.length){
+                    _that.growCyclesIndex=growthCycle.length-1;
+                    index=growthCycle.length-1;
+                }
+                //console.log("nextGrowCycles");
+                //console.log("growthCycle");
+                //console.log(growthCycle);
+                //console.log("index");
+                //console.log(index);
+                _that.growCyclesName=growthCycle[index].name;
+                _that.growCyclesImage="http://8.142.16.236:6010"+growthCycle[index].image;
+            },
+            gotoPlantAreaStatistics(){
+                switch(this.currentCropsName)
+                {
+                    case "玉米":
+                       cropsType=0;
+                       break;
+                    case "谷子":
+                       cropsType=1;
+                       break;
+                    case "大豆":
+                       cropsType=2;
+                       break;
+                }
+                this.currentDetailPage='gotoPlantAreaStatistics';
+                $.post("/PlantAreaStatisticsDetail/PlantAreaDetail?landId="+this.rootDistrictId+"&cropsType="+cropsType,function(result){
+                    //console.log(result);
+                    $("#center-container").hide();
+                    $("#detail-container").html(result);
+                    $("#detail-container").show();
+                });
+            },
+            gotoCountDataStatistics(){
+                var cropsType=0;
+                switch(this.currentCropsName)
+                {
+                    case "玉米":
+                       cropsType=0;
+                       break;
+                    case "谷子":
+                       cropsType=1;
+                       break;
+                    case "大豆":
+                       cropsType=2;
+                       break;
+                }
+                this.currentDetailPage='gotoCountDataStatistics';
+                $.post("/CountDataStatisticsDetail/CountDataDetail?landId="+this.rootDistrictId+"&cropsType="+cropsType,function(result){
+                    //console.log(result);
+                    $("#center-container").hide();
+                    $("#detail-container").html(result);
+                    $("#detail-container").show();
+                });
+            },
+            gotoAveragePrice(){
+                $.post("/AveragePrice/AveragePrice?landId="+this.rootDistrictId,function(result){
+                    //console.log(result);
+                    $("#center-container").hide();
+                    $("#detail-container").html(result);
+                    $("#detail-container").show();
+                });
+            },
+            showMapCropsPlantingAreaStatistics(){
+                var _that=this;
+                _that.cropsPlantAreaData=[];
+                apiHelper.GetPlantingAreaStatisticsGroupCrops(
+                    rootDistrictId,
+                    function(response){
+                        if (response.data.status == 0)
+                            //console.log("showMapCropsPlantingAreaStatistics");
+                            //console.log(response);
+                            _that.mapCropsPlantAreaData=response.data.result;
+                            _that.cropsPlantAreaData.push(_that.getMapCropsPlantingArea("玉米"));
+                            _that.cropsPlantAreaData.push(_that.getMapCropsPlantingArea("谷子"));
+                            _that.cropsPlantAreaData.push(_that.getMapCropsPlantingArea("大豆"));
+                    }
+                );
+                apiHelper.getCompanyInfoByLandId(
+                    rootDistrictId,
+                    function(response){
+                        if (response.data.status == 0)
+                        {
+                            //console.log("------------------------------------------------------获取所有企业")
+                            //console.log(response);
+                            _that.companyCount = response.result.filter(m=>m.enterpriseNature=="加工企业").length
+                            _that.coopCount = response.result.filter(m=>m.enterpriseNature=="合作社").length
+                        }
+                    }
+                );
+
+            },
+            getMapCropsPlantingArea(cropsName){
+               var StatisticsData=this.mapCropsPlantAreaData;
+               var result=0;
+               //console.log("getMapCropsPlantingArea");
+               //console.log("cropsName");
+               //console.log(cropsName);
+               //console.log("StatisticsData");
+               //console.log(StatisticsData);
+               if(StatisticsData==null||StatisticsData.length<=0)
+                  return result;
+               for(var i=0;i<StatisticsData.length;i++){
+                   if(StatisticsData[i].cropsName==cropsName)
+                      result=StatisticsData[i].plantingAreaCount;
+               }
+               return result;
+            },
+            showPlantAreaStatisticsData(){
+                var _that=this;
+                _that.plantAreaStatisticsDataTime=window.setTimeout(function(){
+                    //console.log("showPlantAreaStatisticsData");
+                    var pageData=_that.plantAreaStatisticsData.regionAreas;
+                    var curPage=_that.plantAreaStatisticsPageCurrent;
+                    //console.log("pageData");
+                    //console.log(pageData);
+                    //console.log("curPage");
+                    //console.log(curPage);
+                    _that.plantAreaStatisticsDataPage=[];
+                    if (curPage>_that.plantAreaStatisticsPageCount){
+                        _that.plantAreaStatisticsPageCurrent=1;
+                        curPage=1;
+                        //console.log("_that.plantAreaStatisticsPageCurrent");
+                        //console.log(_that.plantAreaStatisticsPageCurrent);
+                    }
+                    if (pageData != null && pageData.length > 0&&_that.plantAreaStatisticsPageCount<=0) {
+                        if ((pageData.length % _that.plantAreaStatisticsPageSize) == 0)
+                            _that.plantAreaStatisticsPageCount = parseInt(pageData.length / _that.plantAreaStatisticsPageSize);
+                        else
+                           _that.plantAreaStatisticsPageCount = parseInt(pageData.length / _that.plantAreaStatisticsPageSize) + 1;
+                    }
+                    //console.log("_that.plantAreaStatisticsPageCount");
+                    //console.log(_that.plantAreaStatisticsPageCount);
+                    if(pageData.length<=1){
+                        _that.plantAreaStatisticsPageCurrent=1;
+                        _that.plantAreaStatisticsDataPage.push(pageData[0]);
+                        return false;
+                    }
+                    if (curPage <=_that.plantAreaStatisticsPageCount) {
+                        var startIndex = (curPage - 1) * _that.plantAreaStatisticsPageSize + 1;
+                        var endIndex = curPage * _that.plantAreaStatisticsPageSize;
+                        //console.log("yearstartIndex"+startIndex);
+                        //console.log("yeardendIndex"+endIndex);
+                        for (var i = startIndex; i < endIndex; i++) {
+                            if (i < pageData.length)
+                                _that.plantAreaStatisticsDataPage.push(pageData[i]);
+                        }
+                        _that.plantAreaStatisticsPageCurrent+=1;
+                    }
+                    //console.log("_that.plantAreaStatisticsDataPage");
+                    //console.log(_that.plantAreaStatisticsDataPage);
+                    _that.showPlantAreaStatisticsData();
+                },3000);
+            },
+            hiddenLandDropdownlist(){
+                this.landDropdownlistIsDisplay=false;
+            },
+            showlandDropdownlist(){
+                if(!this.landDropdownlistIsDisplay)
+                   this.landDropdownlistIsDisplay=true;
+                else
+                   this.landDropdownlistIsDisplay=false;
+            },
+            gotoDataManage(){
+                //console.log("gotoDataManage");
+                window.location = "/DataManage/Index?LandId="+rootDistrictId;
+            },
+            //玉米-重点企业-合作社点击切换事件
+            changeCurrentCrops(cropsIndex) {
+                var _that=this;
+                console.log("changeCurrentCrops");
+                console.log("cropsIndex="+cropsIndex);
+                if(_that.plantAreaStatisticsDataTime!=null)
+                   window.clearTimeout(_that.plantAreaStatisticsDataTime);
+                switch(cropsIndex)
+                {
+                    case 0:
+                      _that.cropsImage='/images/newhome/crops-01.png';
+                      _that.currentCropsName="玉米";
+                      _that.currentCropsIndex = cropsIndex;
+                      this.currenChoseIndex = cropsIndex;
+                      this.widthChangesmall();
+                      this.InitPage(true);                     
+                      this.isShow = false;
+                      this.HZSisShow = false;
+                      $(".tdt-right").css("right", "28vw");
+                      break;
+                    case 1:
+                      _that.cropsImage='/images/newhome/crops-02.png';
+                      _that.currentCropsName="谷子";
+                      _that.currentCropsIndex = cropsIndex;
+                      break;
+                    case 2:
+                      _that.cropsImage='/images/newhome/crops-03.png';
+                      _that.currentCropsName="大豆";
+                      _that.currentCropsIndex = cropsIndex;
+                      break;
+                    case 3:
+                      _that.cropsImage='/images/newhome/crops-04.png';
+                      _that.currentCropsName="玉米";
+                      this.currenChoseIndex = cropsIndex;
+                      this.currenTypesIndex = 0;
+                      this.widthChangebig();
+                      this.isShow = true;
+                      this.HZSisShow = false;
+                      this.InitMapPlantArea(null);
+                      //this.InitMapPlantArea(this.AMap);
+                      break;
+                    case 4:
+                      _that.cropsImage='/images/newhome/crops-04.png';
+                      _that.currentCropsName="玉米";
+                      this.currenChoseIndex = cropsIndex
+                      this.currentLevelIndex = 0;
+                      this.widthChangebig();
+                      this.isShow = false;
+                      this.HZSisShow = true;
+                      this.InitMapPlantArea(null);
+                      //this.InitMapPlantArea(this.AMap);
+                      break;
+                }
+                               
+                if($("#center-container").css("display")=="none")
+                {
+                    switch(this.currentDetailPage)
+                    {
+                        case "gotoPlantAreaStatistics":
+                           this.gotoPlantAreaStatistics();
+                           break;
+                        case "gotoCountDataStatistics":
+                           this.gotoCountDataStatistics();
+                           break;
+                    }
+                }
+            },
+            widthChangebig(){
+                $('.right-container').animate({ 'width': '0'});
+                //$('.right-container').css({overflow:"hidden"});
+                $('.left-container').animate({ 'width': '0','overflow':'hidden'});
+                $(".left-container").css("overflow","hidden");
+                
+                //$('.togglebar img').attr('src', '/images/machine/showbar.png');
+                //$('.togglebar').removeClass('showbar');
+                $('.mcontainer').animate({ 'width': '68.1%' })
+                $('.crops-selected-list').animate({'left':'36%'})
+
+            },
+            widthChangesmall(){
+                $('.left-container').animate({ 'width': '13.6%','overflow':'visible'});
+                $('.right-container').animate({'width': '13.6%','overflow':'visible' });
+                $('.mcontainer').animate({ 'width': '41%' })
+                $('.crops-selected-list').animate({'left':'26%'})
+            },
+            //切换省份
+            changeRegion(regionId, regionName) {
+                rootDistrictId = regionId;
+                this.rootDistrictId=regionId;
+                this.v_rootDistrictId=regionId;
+                this.currentRegionName = regionName;
+                this.landDropdownlistIsDisplay=false;
+                this.districtItemIsShow = false;
+                console.log("this.currentCropsIndex="+this.currenChoseIndex);
+                //#region 天地图
+                this.changeCurrentCrops(this.currenChoseIndex);
+                this.showMapCropsPlantingAreaStatistics();
+                //#endregion
+                this.InitPage(true);
+                this.currenTypesIndex = 0;
+            },
+            showDateTimeClock() {
+                var _that = this;
+                var nowDate = new Date();
+                var hours = _that.fixLeadingZero(nowDate.getHours(), 2);
+                var minutes = _that.fixLeadingZero(nowDate.getMinutes(), 2);
+                var seconds = _that.fixLeadingZero(nowDate.getSeconds(), 2);
+                var month = _that.fixLeadingZero(nowDate.getMonth() + 1, 2);
+                var day = _that.fixLeadingZero(nowDate.getDate(), 2);
+                if(_that.timeHandle!=null)
+                   window.clearInterval(_that.timeHandle);
+                _that.timestr = hours + ":" + minutes + ":" + seconds;
+                _that.datestr = nowDate.getFullYear() + "/" + month + "/" + day;
+                _that.timeHandle=window.setInterval(function() {
+                    _that.showDateTimeClock();
+                }, 1000);
+            },
+            fixLeadingZero(value, fixLength) {
+                var str = value.toString();
+                if (str.length < fixLength) {
+                    var len = fixLength - str.length;
+                    var tempStr = "";
+                    for (var i = 0; i < len; i++)
+                        tempStr += "0";
+                    str = tempStr + str;
+                }
+                return str;
+            },
+            //高德地图地块儿鼠标经过事件
+            polygon_event(event, extData) {
+                //console.log("event");
+                //console.log(event);//事件名称
+                //console.log("extData");//事件数据
+                //console.log(extData);//事件数据
+                var _that=this;
+                //console.log(_that.regionDataItem);
+                if (event == "mouseover"||event=="mousedown"||event=="click") {
+                    apiHelper.GetLandCropsStatisticsAsync(
+                        extData.id,
+                        function(response){
+                            if(response.data.status==0)
+                            {
+                                var resultData = response.data.result;
+                                //console.log("resultData");
+                                //console.log(resultData);
+                                _that.regionDataItem.regionName = resultData.landName;
+                                var cropsIndex=-1;
+                                var tempCropsList=[];
+                                for(var i=0;i<resultData.cropsList.length;i++){
+                                    if(_that.currentCropsName==resultData.cropsList[i].cropsName)
+                                       cropsIndex=i;
+                                    else
+                                       tempCropsList.push(resultData.cropsList[i]);
+                                }
+                                _that.regionDataItem.cropsName = resultData.cropsList[cropsIndex].cropsName;
+                                _that.regionDataItem.soilType = resultData.cropsList[cropsIndex].soilType;
+                                _that.regionDataItem.plantingArea = resultData.cropsList[cropsIndex].plantingArea;
+                                _that.regionDataItem.lastYearOutput = resultData.cropsList[cropsIndex].lastYearOutput;
+                                _that.regionDataItem.totalPopulation = resultData.totalPopulation;
+                                _that.regionDataItem.totaValue = resultData.totaValue;
+                                if($(".district-item-container").css("display")=="none")
+                                   _that.districtItemIsShow = true;                                    
+                                if (resultData.cropsList != null && resultData.cropsList.length >= 2) {
+                                    var cropsInfo=null;
+                                    cropsInfo=tempCropsList[0];
+                                    if(cropsInfo!=null&&typeof(cropsInfo)!="undefined")
+                                    {
+                                        _that.regionDataItem.cropsInfo1.cropsName = cropsInfo.cropsName;
+                                        _that.regionDataItem.cropsInfo1.plantingArea = cropsInfo.plantingArea;
+                                    }
+                                    cropsInfo=tempCropsList[1];
+                                    if(cropsInfo!=null&&typeof(cropsInfo)!="undefined")
+                                    {
+                                        _that.regionDataItem.cropsInfo2.cropsName = cropsInfo.cropsName;
+                                        _that.regionDataItem.cropsInfo2.plantingArea = cropsInfo.plantingArea;
+                                    }
+                                }
+                            }
+                        }
+                    );
+                }
+                //else if (event == "mouseout")
+                //{
+                //    this.districtItemIsShow = false;
+                //}
+            },
+            //图标点击事件
+            maker_event(exData){
+                //console.log("--------------11图标点击事件")
+                //console.log(exData)
+                var _that=this;
+                this.qiyeInfoVisible = true;
+                if(exData.companyName.indexOf("大地数字")!=-1||exData.companyName.indexOf("农业科创中心")!=-1||exData.companyName.indexOf("田益农业")!=-1)
+                {                 
+                    if(exData.companyName.indexOf("大地数字")!=-1)
+                    {
+                        _that.gotoGreenHousePageUrl="http://8.142.16.236:6006/";
+                        _that.gotoGreenHousePageText='智慧大田管理系统';
+                        _that.gotoGreenHousePageIsShow=true;
+                        //console.log("_that.gotoGreenHousePageUrl");
+                        //console.log(_that.gotoGreenHousePageUrl);
+                        //$(".btnGotoGreenHousePage").show();
+                    }
+                    else if(exData.companyName.indexOf("农业科创中心")!=-1)
+                    {
+                        _that.gotoGreenHousePageUrl="http://8.142.16.236:6009/";
+                        _that.gotoGreenHousePageText='智慧大棚管理系统';
+                        _that.gotoGreenHousePageIsShow=true;
+                        //console.log("_that.gotoGreenHousePageUrl");
+                        //console.log(_that.gotoGreenHousePageUrl);
+                        apiHelper.setCookie("industryCompanyId","11",1440);
+                        //$(".btnGotoGreenHousePage").show();
+                    }
+                    else if(exData.companyName.indexOf("田益农业")!=-1)
+                    {
+                        _that.gotoGreenHousePageUrl="http://8.142.16.236:6009/";
+                        _that.gotoGreenHousePageText='智慧大棚管理系统';
+                        _that.gotoGreenHousePageIsShow=true;
+                        //console.log("_that.gotoGreenHousePageUrl");
+                        //console.log(_that.gotoGreenHousePageUrl);
+                        apiHelper.setCookie("industryCompanyId","10",1440);
+                    }
+                }
+                else
+                {
+                   _that.gotoGreenHousePageIsShow=false;
+                }
+                this.qiyeForm.companyName = exData.companyName;
+                this.qiyeForm.contactPhone = exData.contactPhone;
+                this.qiyeForm.contacts = exData.contacts;
+                var currentYearSales=parseFloat(exData.currentYearSales)/10000;
+                currentYearSales=currentYearSales.toFixed(2);
+                //console.log("currentYearSales="+currentYearSales);
+                this.qiyeForm.currentYearSales = currentYearSales;
+                this.qiyeForm.enterpriseIntroduction = exData.enterpriseIntroduction;
+                this.qiyeForm.enterpriseType = exData.enterpriseType;
+                this.qiyeForm.regionalLevel = exData.regionalLevel;
+                this.qiyeForm.townShip = exData.townShip;
+                this.qiyeForm.videoUrl = exData.videoUrl;
+                this.qiyeForm.backup03 = exData.backup03;
+                var imgList = JSON.parse(exData.focusImages);
+                this.qiyeForm.imageList = [];
+                for(var i=0;i<imgList.length;i++){
+                    this.qiyeForm.imageList.push(imgList[i].response.data.src)
+                }
+                this.qiyeForm.images = imgList[0].response.data.src;
+                var videoLists = JSON.parse(exData.videoUrl)
+                //console.log(videoLists)
+                this.videoList = []
+                for(var i=0;i<videoLists.length;i++){
+                    this.videoList.push(videoLists[i].videoUrl)
+                }
+                if(videoLists.length>0) this.currentVideo = videoLists[0].videoUrl
+                
+                this.$nextTick(()=>{
+                    var mySwiper99 = new Swiper('.swiper-container', {
+                        direction: 'horizontal', // 平行切换选项
+                        loop: false, // 循环模式选项
+                        speed: 300,
+                        autoplay: {
+                            delay: 3000
+                        },
+                        // 如果需要分页器
+                        pagination: {
+                            el: '.swiper-pagination',
+                        },
+                    })
+                    mySwiper99.el.onmouseover = function () { //鼠标放上暂停轮播
+                        mySwiper99.autoplay.stop();
+                    }
+                    mySwiper99.el.onmouseleave = function () {
+                        mySwiper99.autoplay.start();
+                    }
+                })
+                
+            },
+            queryRegions(rootDistrictId, regionDatas) {
+                var _that = this;
+                _that.regionItem = itemRegion;
+                for (var i = 0; i < regionDatas.length; i++) {
+                    var itemRegion = regionDatas[i];
+                    //console.log(itemRegion.name);
+                    if (parseInt(itemRegion.id) == rootDistrictId)
+                        _that.regionItem = itemRegion;
+                }
+            },
+            queryChildRegions(rootDistrictId, regionDatas) {
+                var _that = this;
+                apiHelper.GetOSCRegionByLandId(rootDistrictId, function(response) {
+                    if(_that.regions==null||_that.regions.length<=0)
+                    {
+                        for (var i = 0; i < response.data.result.length; i++) {
+                            var itemRegion = response.data.result[i];
+                            if (parseInt(itemRegion.parent_id) == rootDistrictId) {
+                                //console.log(itemRegion.regionName);
+                                _that.regions.push(itemRegion);
+                            }
+                        }
+                    }
+                });
+            },
+            InitECharts() {
+                var _that=this;
+                apiHelper.GetAveragePriceStatistics(
+                    _that.v_rootDistrictId,
+                    function(response) {
+                        if (response.data.status == 0) {
+                            var copsName = new Array();
+                            var yearsData = new Array();
+                            var cropsYearData = new Array();
+                            var result = response.data.result;
+                            //console.log("GetAveragePriceStatisticsResult");
+                            //console.log(result);
+                            if (result != null && result.length > 0) {
+                                for (var i = 0; i < result.length; i++) {
+                                    copsName.push(result[i].cropsName);
+                                    var yearsItemData = new Array();
+                                    var priceData = new Array();
+                                    for (var y = 0; y < result[i].yearsData.length; y++) {
+                                        if(yearsData.indexOf(result[i].yearsData[y])==-1)
+                                            yearsData.push(result[i].yearsData[y]);
+                                    }
+                                    for (var j = 0; j < result[i].priceData.length; j++) {
+                                        priceData.push(result[i].priceData[j]);
+                                        yearsItemData.push(result[i].priceData[j]);
+                                    }
+                                    var cropsYearItemData = {
+                                        cropsName: result[i].cropsName,
+                                        yearsData: priceData
+                                    };
+                                    cropsYearData.push(cropsYearItemData);
+                                }
+                                //console.log("GetAveragePriceStatisticsCopsName");
+                                //console.log(copsName);                              
+                                //console.log("GetAveragePriceStatisticsYearsData");
+                                //console.log(yearsData);
+                                //console.log("GetAveragePriceStatisticsCropsYearData");
+                                //console.log(cropsYearData);
+                                $(document).ready(function(){
+                                    var chartDom=document.getElementById("AverageStatistics");
+                                    //console.log("chartDom");
+                                    //console.log(chartDom);
+                                    averagePrice(chartDom, copsName, yearsData, cropsYearData);
+                                });
+                            }
+                        }
+                    });
+            },
+            InitOscRegionList(){
+                var _that=this;
+                apiHelper.QueryOscRegion(rootDistrictId,function(response){
+                    _that.regionList=response.data.result;
+                });
+            },
+            InitMapPlantArea(AMap){
+                var _that=this;
+                //console.log("--------重新加载地图");
+                //console.log("_that.currenChoseIndex="+_that.currenChoseIndex);
+                //console.log("_that.currentLevelIndex="+_that.currentLevelIndex);
+                if(_that.currenChoseIndex == 0){
+                    apiHelper.GetPlantAreaStatistics(
+                        _that.rootDistrictId,
+                        _that.currentCropsName,
+                        function(response){
+                           if(response.data.status==0){
+                              //地图绘制种植面积
+                              //drawPlantArea(_that.cropsImage,response.data.result,AMap);
+                              //drawPlantArea(_that.cropsImage,response.data.result,AMap);
+                              console.log("GetPlantAreaStatistics");
+                              console.log(response);
+                              //#region 数据库同步地块种植面积
+                              //allRegions来自缓存的所有地块信息
+                              //allStatisticsData来自数据库的种植面积统计
+                              var allStatisticsData=response.data.result.regionAreas;
+                              if (allRegions != null &&
+                                  typeof (allRegions) != "undefined" &&
+                                  allRegions, length != null &&
+                                  typeof (allRegions.length) != "undefined" &&
+                                  allRegions.length > 0)
+                                  {
+                                      for(var i=0;i<allRegions.length;i++){
+                                          var statisticsData=_that.findRegionData(allRegions[i].id,allStatisticsData);
+                                          if(statisticsData!=null){
+                                              allRegions[i].statisticalInfo.totaValue=statisticsData.sowArea;
+                                          }
+                                      }
+                                  }
+                              //#endregion
+                              //高德初始化地图
+                              //drawPlantArea(_that.cropsImage,response.data.result,AMap);                             
+                              drawLandPolygon(_that.rootDistrictId,_that.polygon_event);
+                              drawLandPlantArea(_that.cropsImage,false);
+                           }
+                        }
+                    );
+                    _that.showMapCropsPlantingAreaStatistics();
+                }else if(_that.currenChoseIndex == 3 ){
+                    if(_that.currenTypesIndex == 0){
+                        var type = '';
+                        var UnionQuery = {
+                            CompanyType :'',
+                            EnterpriseNature:'加工企业',
+                            RegionalLevel:''
+                        }
+                        apiHelper.companyInfoUnionQuery(
+                            _that.rootDistrictId,
+                            UnionQuery,
+                            function(response){
+                                //console.log("-----------------获取企业")
+                                //console.log(response)
+                                //drawMakers(AMap,3,response.result)
+                                drawMakers(_that.rootDistrictId,3,response.result,_that.polygon_event,_that.maker_event);
+                            }
+                        )
+                    }else{
+                        var type = _that.currenTypesIndex==1?'A':_that.currenTypesIndex==2?'B':'C';
+                        var UnionQuery = {
+                            CompanyType :type,
+                            EnterpriseNature:'加工企业',
+                            RegionalLevel:''
+                        }
+                        apiHelper.companyInfoUnionQuery(
+                            _that.rootDistrictId,
+                            UnionQuery,
+                            function(response){
+                                //console.log("-----------------获取企业")
+                                //console.log(response)
+                                //drawMakers(AMap,3,response.result);
+                                drawMakers(_that.rootDistrictId,3,response.result,_that.polygon_event,_that.maker_event);
+                            }
+                        )
+                    }
+                }if( _that.currenChoseIndex == 4){
+                    if(_that.currentLevelIndex == 0){
+                        var type = '';
+                        var UnionQuery = {
+                            CompanyType :'',
+                            EnterpriseNature:'合作社',
+                            RegionalLevel:''
+                        }
+                        apiHelper.companyInfoUnionQuery(
+                            _that.rootDistrictId,
+                            UnionQuery,
+                            function(response){
+                                //console.log("-----------------获取企业")
+                                //console.log(response)
+                                //drawMakers(AMap,4,response.result)
+                                drawMakers(_that.rootDistrictId,4,response.result,_that.polygon_event,_that.maker_event);
+                            }
+                        )
+                    }else{
+                        var level = "";
+                        switch(_that.currentLevelIndex)
+                        {
+                            case 1:
+                             level="省级";
+                             break;
+                            case 2:
+                             level="市级";
+                             break;
+                            case 3:
+                             level="县级";
+                             break;
+                            case 4:
+                             level="乡级";
+                             break;
+                            case 5:
+                             level="国家级";
+                             break;
+                        }
+                        //_that.currentLevelIndex==1?'省级':_that.currentLevelIndex==2?'市级':_that.currentLevelIndex==3?'县级':_that.currentLevelIndex==4?'乡级':_that.currentLevelIndex==5?'国家级';
+                        var UnionQuery = {
+                            CompanyType :'',
+                            EnterpriseNature:'合作社',
+                            RegionalLevel:level
+                        };
+                        //console.log("level="+level);
+                        apiHelper.companyInfoUnionQuery(
+                            _that.rootDistrictId,
+                            UnionQuery,
+                            function(response){
+                                //console.log("-----------------获取企业")
+                                //console.log(response)
+                                //drawMakers(AMap,4,response.result)
+                                drawMakers(_that.rootDistrictId,4,response.result,_that.polygon_event,_that.maker_event);
+                            }
+                        )
+                    }
+                }               
+            },
+            findRegionData(regionid,allData)
+            {
+                var result=null;
+                for(var i=0;i<allData.length;i++){
+                    if(allData[i].id==regionid)
+                       result=allData[i];
+                }
+                return result;
+            },
+            InitPage(initAMap) {
+                var _that = this;
+                console.log("_that.v_rootDistrictId");
+                console.log(_that.v_rootDistrictId);
+                if (_that.v_rootDistrictId == '') {
+                    _that.v_rootDistrictId = _that.rootDistrictId;
+                }
+                else{
+                    _that.rootDistrictId=_that.v_rootDistrictId;
+                }
+                //console.log("initAMap="+initAMap);
+                window.clearTimeout(_that.yieldIntervalItemTime);
+                window.clearTimeout(_that.yieldIntervalTime);
+                window.clearTimeout(_that.yearIntervalItemTime);
+                window.clearTimeout(_that.yearIntervalTime);
+                _that.yearCurrentIndex=0;
+                _that.yearCruuentPage=1;
+                _that.yieldCurrentIndex=0;
+                _that.yieldCruuentPage=1;
+                //console.log("_that.regions");
+                //console.log(_that.regions);
+                //apiHelper.GetOSCRegionByLandId(
+                //初始化读取数据
+                /*loadOSCRegion(
+                    _that.rootDistrictId,
+                    function(response) {
+                        if (response.data.status != 0){
+                            return false;
+                        }
+                        //console.log("response");
+                        //console.log(response);
+                        globalAllRegions = response.data.result;
+                        _that.queryRegions(rootDistrictId, response.data.result);
+                        //_that.queryChildRegions(rootDistrictId, response.data.result);
+                        _that.regions=response.data.result;
+                        globalRegions = _that.regions;
+                        //console.log("_that.regions");
+                        //console.log(_that.regions);
+                        //console.log("v_rootDistrictId" + _that.v_rootDistrictId);
+                        _that.queryRegions(_that.v_rootDistrictId, response.data.result);
+                        rootDistrictName = _that.regionItem.regionName;
+                        _that.currentRegionName = rootDistrictName;
+                        _that.rootDistrictId = _that.v_rootDistrictId;
+                        _that.showMapCropsPlantingAreaStatistics();
+                        if(_that.currentCropsName !="谷子" && _that.currentCropsName!= "大豆"){
+                        if(initAMap){
+                           var AMap=CreateAMapByApiData(
+                               "amap-container",
+                               _that.regions,
+                               _that.cropsImage,
+                               _that.polygon_event,
+                               _that.maker_event,
+                               function(AMap){
+                                    _that.InitMapPlantArea(AMap);
+                               }
+                           );
+                        }    
+                        }
+                                           
+                        if(_that.regions[0].id!=3135)
+                           _that.regions.unshift({id:3135,regionName:'寿阳县'});
+                        //console.log("rootDistrictName=" + rootDistrictName);
+                        //console.log("_that.regionItem");
+                        //console.log(_that.regionItem);
+                        _that.InitYearCountData();
+                        _that.InitPlantAreaStatistics();
+                        _that.InitPlantGrowthCycle();
+                });*/
+                console.log("rootDistrictId="+rootDistrictId);
+                loadOSCRegionLocalStorage(
+                    //_that.rootDistrictId,
+                    rootDistrictId,
+                    _that.v_rootDistrictId,
+                    localStorageHelper,
+                    apiHelper,
+                    function(response) {
+                        globalAllRegions = response;
+                        _that.queryRegions(rootDistrictId, response);
+                        _that.regions = response;
+                        globalRegions = _that.regions;
+                        //console.log("_that.regions");
+                        //console.log(_that.regions);
+                        _that.queryRegions(_that.v_rootDistrictId, response);
+                        rootDistrictName = _that.regionItem==null?'':_that.regionItem.regionName;
+                        _that.currentRegionName = rootDistrictName;
+                        _that.rootDistrictId = _that.v_rootDistrictId;
+                        _that.showMapCropsPlantingAreaStatistics();
+                        if(_that.currentCropsName !="谷子" && _that.currentCropsName!= "大豆"){
+                            if(initAMap){
+                               //var AMap=CreateAMapByApiData(
+                               //    "amap-container",
+                               //    _that.regions,
+                               //    _that.cropsImage,
+                               //    _that.polygon_event,
+                               //    _that.maker_event,
+                               //    function(AMap){
+                               //         _that.InitMapPlantArea(AMap);
+                               //         _that.AMap=AMap;
+                               //    }
+                               //);
+                               //#region 天地图初始化
+                               var AMap=InitMapLoader(
+                                   "amap-container",
+                                   _that.regions,
+                                   function(AMap){
+                                       _that.InitMapPlantArea(AMap);
+                                   });
+                                //#endregion
+                            }    
+                        }
+                        if(_that.regions[0].id!=_that.RootLand.id)
+                           _that.regions.unshift({id:_that.RootLand.id,regionName:_that.RootLand.name});
+                        _that.InitYearCountData();
+                        _that.InitPlantAreaStatistics();
+                        _that.InitPlantGrowthCycle();
+                    }
+                );
+            },
+            ShowYearCountData(showData, curPage) {
+                var _that = this;
+                //console.log("ShowYearCountData");
+                //console.log("showData");
+                //console.log(showData);
+                _that.yearCruuentPage = curPage;
+                _that.yearCountDataItem = [];
+                //console.log("curPage"+curPage);
+                if(showData==null||showData.length==0)
+                   return false;
+                if(showData.length<=1){
+                    _that.yearCountDataItem.push(showData[0]);
+                    return false;
+                }
+                if (curPage <=_that.yearPageCount) {
+                    var startIndex = (curPage - 1) * _that.yearPageSize + 1;
+                    var endIndex = curPage * _that.yearPageSize;
+                    //console.log("yearstartIndex"+startIndex);
+                    //console.log("yeardendIndex"+endIndex);
+                    for (var i = startIndex; i < endIndex; i++) {
+                        if (i < showData.length)
+                            _that.yearCountDataItem.push(showData[i]);
+                    }
+                }
+                //console.log(_that.yearCountDataItem);
+            },
+            ShowYieldCountData(showData, curPage) {
+                var _that = this;
+                //console.log("ShowYieldCountData");
+                //console.log("showData");
+                //console.log(showData);
+                _that.yieldCruuentPage = curPage;
+                _that.yieldCountDataItem = [];
+                if(showData==null||showData.length==0)
+                   return false;
+                if(showData.length<=1){
+                    _that.yieldCountDataItem.push(showData[0]);
+                    return false;
+                }
+                if (curPage <=_that.yieldPageCount) {
+                    var startIndex = (curPage - 1) * _that.yieldPageSize + 1;
+                    var endIndex = curPage * _that.yieldPageSize;
+                    //console.log("yieldstartIndex"+startIndex);
+                    //console.log("yieldendIndex"+endIndex);
+                    for (var i = startIndex; i < endIndex; i++) {
+                        if (i < showData.length)
+                            _that.yieldCountDataItem.push(showData[i]);
+                    }
+                }
+                //console.log(_that.yieldCountDataItem);
+            },
+            previousYieldCountData(){
+                var _that = this;
+                window.clearTimeout(_that.yieldIntervalItemTime);
+                window.clearTimeout(_that.yieldIntervalTime);
+                _that.yieldCurrentIndex -= 1;
+                //alert(_that.yieldCurrentIndex);
+                if(_that.yieldCurrentIndex<0)
+                   _that.yieldCurrentIndex=0;
+                if (_that.yieldCurrentIndex >= 0)
+                {
+                    _that.yieldCruuentPage = 1;
+                   var index = _that.yieldCurrentIndex;
+                    _that.currentYieldYearNumber = _that.yieldCountData[index].year;
+                    _that.showYieldCountDataItemIntervalClick();
+                }
+            },
+            previousYearCountData(){
+                var _that = this;
+                window.clearTimeout(_that.yearIntervalItemTime);
+                window.clearTimeout(_that.yearIntervalTime);
+                _that.yearCurrentIndex -= 1;
+                //alert(_that.yearCurrentIndex);
+                if(_that.yearCurrentIndex<0)
+                   _that.yearCurrentIndex=0;
+                if (_that.yearCurrentIndex >= 0)
+                {
+                    _that.yearCruuentPage = 1;                    
+                   var index = _that.yearCurrentIndex;
+                    _that.currentYearNumber = _that.yearCountData[index].year;
+                    _that.showYearCountDataItemIntervalClick();
+                }
+            },
+            nextYieldCountData() {
+                var _that = this;
+                window.clearTimeout(_that.yieldIntervalItemTime);
+                window.clearTimeout(_that.yieldIntervalTime);
+                //alert("next");
+                if (_that.yieldCurrentIndex<_that.yieldCountData.length)
+                {
+                    _that.yieldCruuentPage = 1;
+                    _that.yieldCurrentIndex += 1;
+                    var index = _that.yieldCurrentIndex;
+                    _that.currentYieldYearNumber = _that.yieldCountData[index].year;
+                    _that.showYieldCountDataItemIntervalClick();
+                }
+            },
+            nextYearCountData() {
+                var _that = this;
+                window.clearTimeout(_that.yearIntervalItemTime);
+                window.clearTimeout(_that.yearIntervalTime);
+                //alert("next");
+                if (_that.yearCurrentIndex<_that.yearCountData.length)
+                {
+                    _that.yearCruuentPage = 1;
+                    _that.yearCurrentIndex += 1;
+                    var index = _that.yearCurrentIndex;
+                    _that.currentYearNumber = _that.yearCountData[index].year;
+                    _that.showYearCountDataItemIntervalClick();
+                }
+            },
+            showYearCountDataItemIntervalClick(){
+                var _that = this;
+                var indexYear=_that.yearCurrentIndex;
+                var sowDatas = _that.yearCountData[indexYear].sowDatas;
+                //console.log(_that.yearCurrentIndex);
+                _that.currentYearNumber = _that.yearCountData[indexYear].year;
+                window.clearTimeout(_that.yearIntervalTime);
+                _that.yearIntervalItemTime = window.setTimeout(function() {
+                    var curPage = _that.yearCruuentPage;
+                    if (sowDatas != null && sowDatas.length > 0) {
+                        if ((sowDatas.length % _that.yearPageSize) == 0)
+                            _that.yearPageCount = parseInt(sowDatas.length / _that.yearPageSize);
+                        else
+                            _that.yearPageCount = parseInt(sowDatas.length / _that.yearPageSize) + 1;
+                    }
+                    //console.log("curPage");
+                    //console.log(curPage);
+                    //console.log("_that.yearPageCount");
+                    //console.log(_that.yearPageCount);
+                    if (curPage <= _that.yearPageCount) {
+                        _that.ShowYearCountData(sowDatas, curPage);
+                        _that.yearCruuentPage =_that.yearCruuentPage+1;
+                        _that.showYearCountDataItemIntervalClick();
+                    } else {
+                        window.clearTimeout(_that.yearIntervalItemTime);
+                    }
+                },2000);
+            },
+            showYieldCountDataItemIntervalClick(){
+                var _that = this;
+                var indexYear=_that.yieldCurrentIndex;
+                var sowDatas = _that.yieldCountData[indexYear].sowDatas;
+                _that.currentYieldYearNumber = _that.yieldCountData[indexYear].year;
+                window.clearTimeout(_that.yieldIntervalTime);
+                _that.yieldIntervalItemTime = window.setTimeout(function() {
+                    var curPage = _that.yieldCruuentPage;
+                    if (sowDatas != null && sowDatas.length > 0) {
+                        if ((sowDatas.length % _that.yieldPageSize) == 0)
+                            _that.yieldPageCount = parseInt(sowDatas.length / _that.yieldPageSize);
+                        else
+                            _that.yieldPageCount = parseInt(sowDatas.length / _that.yieldPageSize) + 1;
+                    }
+                    if (curPage <= _that.yieldPageCount) {
+                        _that.ShowYieldCountData(sowDatas, curPage);
+                        _that.yieldCruuentPage =_that.yieldCruuentPage+1;
+                        _that.showYieldCountDataItemIntervalClick();
+                    } else {
+                        window.clearTimeout(_that.yieldIntervalItemTime);
+                    }
+                },2000);
+            },
+            showYearCountDataItemInterval(){
+                var _that = this;
+                var indexYear=_that.yearCurrentIndex;
+                var sowDatas =null;
+                if(_that.yearCountData[indexYear]==null)
+                  return false;
+                sowDatas=_that.yearCountData[indexYear].sowDatas;
+                _that.currentYearNumber = _that.yearCountData[indexYear].year;
+                window.clearTimeout(_that.yearIntervalTime);
+                _that.yearIntervalItemTime = window.setTimeout(function() {
+                    var curPage = _that.yearCruuentPage;
+                    if (sowDatas != null && sowDatas.length > 0) {
+                        if ((sowDatas.length % _that.yearPageSize) == 0)
+                            _that.yearPageCount = parseInt(sowDatas.length / _that.yearPageSize);
+                        else
+                            _that.yearPageCount = parseInt(sowDatas.length / _that.yearPageSize) + 1;
+                    }
+                    if (curPage <= _that.yearPageCount) {
+                        _that.ShowYearCountData(sowDatas, curPage);
+                        _that.yearCruuentPage =_that.yearCruuentPage+1;
+                        _that.showYearCountDataItemInterval();
+                    } else {
+                        window.clearTimeout(_that.yearIntervalItemTime);
+                        _that.showYearCountDataInterval();
+                    }
+                },2000);
+            },
+            showYieldCountDataItemInterval(){
+                var _that = this;
+                var indexYear=_that.yieldCurrentIndex;
+                var sowDatas = null;
+                if(_that.yieldCountData[indexYear]==null||_that.yieldCountData[indexYear].sowDatas==null)
+                   return false;
+                sowDatas=_that.yieldCountData[indexYear].sowDatas;
+                _that.currentYieldYearNumber = _that.yieldCountData[indexYear].year;
+                window.clearTimeout(_that.yieldIntervalTime);
+                _that.yieldIntervalItemTime = window.setTimeout(function() {
+                    var curPage = _that.yieldCruuentPage;
+                    if (sowDatas != null && sowDatas.length > 0) {
+                        if ((sowDatas.length % _that.yieldPageSize) == 0)
+                            _that.yieldPageCount = parseInt(sowDatas.length / _that.yieldPageSize);
+                        else
+                            _that.yieldPageCount = parseInt(sowDatas.length / _that.yieldPageSize) + 1;
+                    }
+                    if (curPage <= _that.yieldPageCount) {
+                        _that.ShowYieldCountData(sowDatas, curPage);
+                        _that.yieldCruuentPage =_that.yieldCruuentPage+1;
+                        _that.showYieldCountDataItemInterval();
+                    } else {
+                        window.clearTimeout(_that.yieldIntervalItemTime);
+                        _that.showYieldCountDataInterval();
+                    }
+                },2000);
+            },
+            showYearCountDataInterval() {
+                var _that = this;
+                _that.yearCruuentPage = 1;
+                _that.yearIntervalTime = window.setTimeout(function() {
+                    if (_that.yearCurrentIndex < _that.yearCountData.length) {
+                        var index = _that.yearCurrentIndex;
+                        window.clearTimeout(_that.yearIntervalTime);
+                        _that.currentYearNumber = _that.yearCountData[index].year;
+                        _that.showYearCountDataItemInterval();
+                        _that.yearCurrentIndex += 1;
+                        var curPage = _that.yearCruuentPage;
+                        if (curPage == _that.yearPageCount) {
+                           _that.showYearCountDataInterval();
+                        }
+                    } else {
+                        window.clearTimeout(_that.yearIntervalTime);
+                    }
+                }, 1000);
+            },
+            showYieldCountDataInterval() {
+                var _that = this;
+                _that.yieldCruuentPage = 1;
+                _that.yieldIntervalTime = window.setTimeout(function() {
+                    if (_that.yieldCurrentIndex < _that.yieldCountData.length) {
+                        var index = _that.yieldCurrentIndex;
+                        window.clearTimeout(_that.yieldIntervalTime);
+                        _that.currentYieldYearNumber = _that.yieldCountData[index].year;
+                        _that.showYieldCountDataItemInterval();
+                        _that.yieldCurrentIndex += 1;
+                        var curPage = _that.yieldCruuentPage;
+                        if (curPage == _that.yieldPageCount) {
+                           _that.showYieldCountDataInterval();
+                        }
+                    } else {
+                        window.clearTimeout(_that.yieldIntervalTime);
+                    }
+                }, 1000);
+            },
+            InitPlantAreaStatistics(){
+                var _that = this;
+                apiHelper.GetPlantAreaStatistics(
+                    3127,
+                    _that.currentCropsName,
+                    function(response){
+                        if (response.data.status == 0){
+                            _that.plantAreaStatisticsData=response.data.result;
+                            _that.plantAreaStatisticsPageCurrent=1;
+                            _that.plantAreaStatisticsPageCount=0;
+                            _that.showPlantAreaStatisticsData();
+                        }
+                    }
+                );
+            },
+            InitYearCountData() {
+                var _that = this;
+                apiHelper.GetYearCountData(
+                    _that.v_rootDistrictId,
+                    _that.currentCropsName,
+                    function(response) {
+                        if (response.data.status == 0) {
+                            _that.yearCountData = [];
+                            if(response.data.result!=null&&response.data.result!=undefined&&response.data.result.length!=null&&response.data.result.length!=undefined&&response.data.result.length>0){
+                                for(var i=response.data.result.length-6;i<response.data.result.length;i++){
+                                    if(response.data.result[i].sowDatas!=null&&response.data.result[i].sowDatas.length>0){
+                                       var item={
+                                           year:response.data.result[i].year,
+                                           sowDatas:response.data.result[i].sowDatas.sort(compareDesc("sowArea"))
+                                       };
+                                       _that.yearCountData.push(item);
+                                    }
+                                }
+                            }
+                            _that.yieldCountData=[];
+                            if(response.data.result!=null&&response.data.result!=undefined&&response.data.result.length!=null&&response.data.result.length!=undefined&&response.data.result.length>0){
+                                for(var i=response.data.result.length-6;i<response.data.result.length;i++){
+                                    if(response.data.result[i].sowDatas!=null&&response.data.result[i].sowDatas.length>0)
+                                    {
+                                       var item={
+                                           year:response.data.result[i].year,
+                                           sowDatas:response.data.result[i].sowDatas.sort(compareDesc("yield"))
+                                       };
+                                       _that.yieldCountData.push(item);
+                                    }
+                                }
+                            }
+                            _that.yearCruuentPage=1
+                            _that.yieldCruuentPage=1
+                            _that.yearCurrentIndex = 0;
+                            _that.yieldCurrentIndex=0;
+                            _that.showYearCountDataInterval();
+                            _that.showYieldCountDataInterval();
+                            _that.InitECharts();
+                        }
+                    }
+                )
+            },
+            sortYearDescSowAreaData(yearData,sortFieldName){
+                if(yearData!=null&&yearData!=undefined&&yearData.length!=null&&yearData.length!=undefined&&yearData.length>0){
+                    for(var i=0;i<yearData.length;i++){
+                        yearData[i]=yearData[i].sowDatas.sort(compareDesc(sortFieldName));
+                    }
+                }
+                return yearData;
+            },
+            getToken(){
+                var token=apiHelper.getCookie("token");
+                var result=true;
+                //console.log("getToken");
+                try{
+                    //console.log("token="+token);
+                    //console.log("typeof(token)="+typeof(token));
+                    if(token==null||token=="")
+                       result=false;
+                    else
+                       apiHelper.token=token;
+                }
+                catch(e){
+                    //console.log(e);
+                    result=false;
+                }
+                return result;
+            },
+            //退出登录，取消cookie有效时间
+            exitLogin() {
+                //console.log(123)
+                var exp = new Date();
+                exp.setTime(exp.getTime() - 10);
+                document.cookie = "token=" + escape('echo') + ";expires=" + exp.toGMTString() + ";path=/";
+                window.localStorage.removeItem(this.userName+'modules');
+                window.location = "/Login/Index";
+            }
+        }
+    });
+</script>

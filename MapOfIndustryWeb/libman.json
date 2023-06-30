@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+
+    {
+      "library": "vue@2.5.16",
+      "destination": "wwwroot/lib/vue/"
+    },
+    {
+      "library": "axios@0.24.0",
+      "destination": "wwwroot/lib/axios/"
+    },
+    {
+      "library": "element-ui@2.13.0",
+      "destination": "wwwroot/lib/element-ui/"
+    },
+    {
+      "library": "xlsx@0.17.5",
+      "destination": "wwwroot/lib/xlsx/"
+    },
+    {
+      "library": "angular.js@1.8.2",
+      "destination": "wwwroot/lib/angular.js/"
+    }
+  ]
+}

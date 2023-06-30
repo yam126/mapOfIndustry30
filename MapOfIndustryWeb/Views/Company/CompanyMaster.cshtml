@@ -1,0 +1,1124 @@
+﻿@{
+    var regionId = (string)ViewData["LandId"];
+    regionId = System.Web.HttpUtility.HtmlDecode(regionId);
+}
+@{
+    Layout = "~/Views/Shared/_AdminTemplate.cshtml";
+    string CurrentPage=(string)ViewData["CurrentPage"];
+    string LandId = (string)ViewData["LandId"];
+}
+@section Head {
+    <script type="text/javascript" src="~/js/dateTimeFromat.js"></script>
+    <script type="text/javascript" src="~/js/CompanyInfo.js"></script>
+    <script type="text/javascript" src="~/js/json.js"></script>
+    <script type="text/javascript" src="~/js/video.js"></script>
+    <script type="text/javascript" src="~/js/videojs-contrib-hls.js"></script>
+    <link rel="stylesheet" href="~/css/CompanyMaster.css" />
+    <link rel="stylesheet" href="~/css/video-js.css" />
+}
+@section PageBody {
+    <el-row style="width:98%;margin:0 auto;" class="page-cont search-container">
+        <el-col :span="24" class="page-cont">
+            <div class="alarm-header">
+                <el-button icon="el-icon-caret-left" @@click="gotoNewHome" type="success" round>返回首页</el-button>
+                <div class="site-header-input">
+                    <el-input v-model="searchWhere" placeholder="请输入公司名称或所属乡镇" stlye="width:300px"></el-input>
+                    <input type="hidden" id="landId" value="@LandId" />
+                </div>
+                <el-button class="el-button-sm" @@click="search" >搜索</el-button>
+                <el-button class="el-button-sm" @@click="showEditDialog" >添加</el-button>
+                <el-button class="el-button-sm el-button--danger" @@click="selectedDeleteCompanyInfo" >删除</el-button>
+                <el-button class="el-button-sm" @@click="importExcel" >导入Excel</el-button>
+                <el-button class="el-button-sm" @@click="exportExcel" >导出Excel</el-button>
+                <a href="/template/companyInfoTemplate.xls" title="下载导入模板">下载导入模板</a>
+                <input type="file" id="uploadExcel" style="display:none" />
+            </div>
+       </el-col>
+    </el-row>
+    <el-row style="width:98%;margin:0 auto;overflow:hidden;height:70vh;" class="page-cont search-result-container">
+        <el-table :data="pageData"
+                  tooltip-effect="dark"
+                  class="el-datatable"
+                  @@selection-change="handleSelectionChange"
+                  :row-style="elTableRowSelectedStyle"
+                  height="90%">
+                  <el-table-column label="全选" type="selection" width="50"></el-table-column>
+                  <el-table-column label="操作" width="180">
+                      <template slot-scope="scope">
+                          <!--这个是整行设置序号-->
+                          <!--<span style="margin-left: 10px">{{scope.$index + 1}}</span>-->
+                          <el-button @@click="editCompanyInfoDialog(scope.row)" style="line-height:1vh" class="companyInfo-eltable-button" round type="primary">修改</el-button>
+                      </template>
+                  </el-table-column>
+                  <el-table-column show-overflow-tooltip prop="recordId" label="编号" align="center"></el-table-column>
+                  <el-table-column show-overflow-tooltip prop="companyName" label="公司名称" align="center"></el-table-column>
+                  <el-table-column show-overflow-tooltip prop="enterpriseType" label="企业类型" align="center"></el-table-column>
+                  <el-table-column show-overflow-tooltip prop="registeredCapital" label="注册资本" align="center"></el-table-column>
+                  <el-table-column show-overflow-tooltip prop="foundedTime" label="成立时间" align="center"></el-table-column>
+                  <el-table-column show-overflow-tooltip prop="townShip" label="所属乡镇" align="center"></el-table-column>
+                  <el-table-column show-overflow-tooltip prop="employeesNum" label="员工人数" align="center"></el-table-column>
+                  <el-table-column show-overflow-tooltip prop="contacts" label="联系人" align="center"></el-table-column>
+                  <el-table-column show-overflow-tooltip prop="contactPhone" label="联系电话" align="center"></el-table-column>
+                  <el-table-column show-overflow-tooltip prop="enterpriseAddress" label="企业地址" align="center"></el-table-column>
+                  <el-table-column show-overflow-tooltip prop="enterpriseIntroduction" label="企业简介" align="center"></el-table-column>
+                  <el-table-column show-overflow-tooltip prop="currentYearSales" label="本年度销售额度" align="center"></el-table-column>
+                  <el-table-column show-overflow-tooltip prop="companyType" label="公司类别" align="center"></el-table-column>
+                  <el-table-column show-overflow-tooltip prop="regionalLevel" label="省市级别" align="center"></el-table-column>
+                  <el-table-column show-overflow-tooltip prop="enterpriseNature" label="企业性质" align="center"></el-table-column>
+        </el-table>
+    </el-row>
+    <el-row class="page-cont search-page-container">
+        <el-pagination class="el-pagination-center"
+                       :total="recordCount"
+                       :page-sizes="[10, 15, 20]"
+                       :page-size="pageSize"
+                       :page-count="pageCount"
+                       :current-page="pageIndex"
+                       @@current-change="changePage"
+                       @@size-change="changePageSize"
+                       layout="total, sizes, prev, pager, next, jumper">
+         </el-pagination>
+     </el-row>
+     <el-dialog :visible.sync="editDialogIsShow" custom-class="companyInfoEditDialog" title="编辑企业信息">
+         <div class="dialogDiv">
+             <div class="row-layout">
+                 <div class="uploadfile-container">
+                     <div class="title-container">
+                         <div class="tab-container">
+                             <div @@click="uploadFileTabChange('image')" :class="currentUploadPanel=='image'?'tab-item-click':'tab-item-noraml'">
+                                 上传图片
+                             </div>
+                             <div @@click="uploadFileTabChange('video')" :class="currentUploadPanel=='video'?'tab-item-click':'tab-item-noraml'">
+                                 上传视频
+                             </div>
+                         </div>
+                     </div>
+                     <div class="uploadfile-control-container">
+                         <el-upload
+                            class="upload-demo"
+                            action="http://8.142.16.236:6060/images?path=cropsTraceFiles"
+                            :limit="3"
+                            :headers="fileHeaders"
+                            :on-success="uploadImageSuccess"
+                            :before-upload="beforeAvatarImageUpload"
+                            :on-preview="handlePreview"
+                            :on-remove="handleRemove"
+                            :file-list="fileList"
+                            list-type="picture">
+                            <el-button size="small" type="primary">点击上传</el-button>
+                            <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过10mb,最多只能上传3张图片</div>
+                         </el-upload>
+                     </div>
+                     <div class="uploadvideo-control-container">
+                         <div v-for="(item,index) in videoUrlList" :key="index" class="txt-video-url-container">
+                             <el-input v-model="item.videoUrl" class="txt-video-url" placeholder="请输入视频地址">
+                             </el-input>
+                             <i @@click="removeVideoListItem(index)" title="删除视频地址" style="cursor:pointer" class="iconClose el-icon-circle-close"></i>
+                             <i @@click="showPreviewVideo(item)" title="播放预览视频" style="cursor:pointer" class="icon el-icon-video-camera"></i>
+                         </div>
+                         <div class="txt-video-url-container">
+                             <a @@click="addVideoList" href="#">+添加视频播放地址</a>
+                         </div>
+                         @*<el-upload
+                            class="upload-demo"
+                            action="http://8.142.16.236:6060/images?path=cropsTraceFiles"
+                            :limit="1"
+                            :headers="fileHeaders"
+                            :before-upload="beforeAvatarVideoUpload"
+                            :on-success="uploadVideoSuccess"
+                            :file-list="videoList"
+                            :show-file-list="false"
+                            list-type="picture">
+                            <el-button size="small" type="primary">点击上传</el-button>
+                            <div slot="tip" class="el-upload__tip">只能上传mp4文件，且不超过200mb</div>
+                         </el-upload>
+                         <div v-show="videoUrl!=''" style="width:100%;height:100%;object-fit:fill" @@click="previewVideo" class="video-preview-container">
+                             <video id="video-player" 
+                                    muted="muted"
+                                    preload="none" 
+                                    autoplay="autoplay"
+                                    loop="loop">
+                                    <source :src="videoUrl" type="video/mp4"/>
+                                </video>
+                         </div>*@
+                     </div>
+                 </div>
+                 <div class="input-container">
+                     <div class="tips-text">
+                         提示:红框为必填项
+                     </div>
+                     <div class="input-item-container">
+                         <div class="label">
+                             公司名称
+                         </div>
+                         <input v-model="companyInfoEdit.companyName" type="text" class="textbox-must" />
+                     </div>
+                     <div class="input-item-container">
+                         <div class="label">
+                             所属行业
+                         </div>
+                         <input v-model="companyInfoEdit.industry" type="text" class="textbox" />
+                     </div>
+                     <div class="input-item-container">
+                         <div class="label">
+                             企业类型
+                         </div>
+                         <input v-model="companyInfoEdit.enterpriseType" type="text" class="textbox" />
+                     </div>
+                     <div class="input-item-container">
+                         <div class="label">
+                             注册资本
+                         </div>
+                         <input v-model="companyInfoEdit.registeredCapital" type="text" class="textbox" />
+                     </div>
+                     <div class="input-item-date-container">
+                         <div class="label">
+                             成立时间
+                         </div>
+                         @*<input id="foundedTime" v-model="companyInfoEdit.foundedTime" type="text" class="textbox" />*@
+                         <el-date-picker v-model="companyInfoEdit.foundedTime" class="textbox" type="date" placeholder="成立时间"></el-date-picker>
+                     </div>
+                     <div class="input-item-container">
+                         <div class="label">
+                             所属乡镇
+                         </div>
+                         @*<input v-model="companyInfoEdit.townShip"   type="text" class="textbox" />*@
+                         <el-select 
+                            class="textbox-must" 
+                            filterable 
+                            remote
+                            @@change="regioneSelectedChange"
+                            :remote-method="regionAutoComplate"
+                            v-model="companyInfoEdit.townShip" >
+                             <el-option
+                                v-for="item in regionList"
+                                :key="item.id"
+                                :label="item.name"
+                                :value="item.id"
+                             ></el-option>
+                         </el-select>
+                     </div>
+                     <div class="input-item-container">
+                         <div class="label">
+                             员工人数
+                         </div>
+                         <input v-model="companyInfoEdit.employeesNum" type="text" class="textbox" />
+                     </div>
+                     <div class="input-item-container">
+                         <div class="label">
+                             联系人
+                         </div>
+                         <input v-model="companyInfoEdit.contacts" type="text" class="textbox" />
+                     </div>
+                     <div class="input-item-container">
+                         <div class="label">
+                             联系电话
+                         </div>
+                         <input v-model="companyInfoEdit.contactPhone" type="text" class="textbox" />
+                     </div>
+                     <div class="input-item-container">
+                         <div class="label">
+                             本年度销售额
+                         </div>
+                         <input id="currentYearSales" v-model="companyInfoEdit.currentYearSales" type="text" class="textbox" />
+                     </div>
+                     <div class="input-item-container">
+                         <div class="label">
+                             公司类别
+                         </div>
+                         <input v-model="companyInfoEdit.companyType" type="text" class="textbox" />
+                     </div>
+                     <div class="input-item-container">
+                         <div class="label">
+                             经度
+                         </div>
+                         <input v-model="companyInfoEdit.lng" type="text" class="textbox-must" />
+                     </div>
+                     <div class="input-item-container">
+                         <div class="label">
+                             纬度
+                         </div>
+                         <input v-model="companyInfoEdit.lat" type="text" class="textbox-must" />
+                     </div>
+                     <div class="input-item-container">
+                         <div class="label">
+                             省市级别
+                         </div>
+                         <el-select class="textbox" v-model="companyInfoEdit.regionalLevel" placeholder="请选择省市级别">
+                                 <el-option
+                                    v-for="item in areaLevelOptions"
+                                    :key="item.value"
+                                    :label="item.label"
+                                    :value="item.value">
+                                </el-option>
+                         </el-select>
+                     </div>
+                     <div class="input-item-container">
+                         <div class="label">
+                             企业性质
+                         </div>
+                         <el-select class="textbox-must" v-model="companyInfoEdit.enterpriseNature" placeholder="请选择企业性质">
+                                 <el-option
+                                    v-for="item in enterpriseNatureOptions"
+                                    :key="item.value"
+                                    :label="item.label"
+                                    :value="item.value">
+                                </el-option>
+                         </el-select>
+                     </div>
+                     <div class="input-item-container">
+                         <div class="label">
+                             经营范围
+                         </div>
+                         <input v-model="companyInfoEdit.backup03" type="text" class="textbox" />
+                     </div>
+                     <div class="input-item-Introduction-container">
+                         <div class="label">
+                             企业地址
+                         </div>
+                         <input v-model="companyInfoEdit.enterpriseAddress" type="text" class="textbox" />
+                     </div>
+                 </div>
+             </div>
+             <div class="Enterprise-Introduction-container">
+                 <div class="title-container">
+                     企业简介
+                 </div>
+                 <textarea v-model="companyInfoEdit.enterpriseIntroduction" class="txtAreaEnterpriseIntroduction" ></textarea>
+             </div>
+             <div class="control-container">
+                 <div class="center-container">
+                     <el-button @@click="saveCompanyInfo" type="primary" round>保存设置</el-button>
+                     <el-button @@click="clearDialog" type="danger" round>清空对话框</el-button>
+                 </div>
+             </div>
+         </div>
+         <div class="pictureView">
+             <div class="title-container">
+                 <el-button class="btnReturn" @@click="dialogPictureExitView" icon="el-icon-caret-left" type="success" round>返回</el-button>
+                 <div class="title">
+                     图片预览
+                 </div>
+             </div>
+             <img class="image" :src="dialogPictureView" />
+         </div>
+         <div class="videoView">
+             <div class="title-container">
+                 <el-button class="btnReturn" @@click="dialogVideoExitView" icon="el-icon-caret-left" type="success" round>返回</el-button>
+                 <div class="title">
+                     视频预览
+                 </div>
+             </div>
+             <div class="video-player-container">
+                 @*<video style="width:100%;height:100%;object-fit:fill" id="videoPlayerView" 
+                         muted="muted"
+                         preload="none" 
+                         autoplay="autoplay"
+                         loop="loop">
+                         <source :src="videoUrl" type="video/mp4"/>
+                  </video>*@
+                  <video id="videoPlayerView" controls="controls" preload="none" style="width:100%;height:100%;object-fit:fill" class="video-js vjs-default-skin">
+                      <source :src="videoUrl" type="application/x-mpegURL" />
+                  </video>
+             </div>
+         </div>
+     </el-dialog>
+     <el-dialog :visible.sync="importExcelLogDialog" custom-class="importExcelLogDialog" title="导入Excel日志" >
+         <textarea class="txtLogArea">{{importExcelLogText}}</textarea>
+     </el-dialog>
+     <iframe :src="exportSrc==''?'about:blank':exportSrc" style="display:none"></iframe>
+}
+@section VueScript{
+    <script>
+        var main = new Vue({
+            el: "#dataManage-main",
+            data:{
+                exportSrc:'',
+                importExcelLogDialog:false,
+                editDialogIsShow:false,
+                screenWidth: null,
+                screenHeight: null,
+                importExcelLogText:'',
+                CurrentPage:'@CurrentPage',
+                userName:"",
+                timestr: "",
+                datestr: "",
+                menuTemplate:'',
+                timestr: "",
+                datestr: "",
+                searchWhere:"",
+                pageData:[],
+                recordCount: 0,
+                pageCount: 0,
+                pageSize: 10,
+                pageIndex: 1,
+                sortField:'ModifiedTime',
+                sortMethod:'DESC',
+                elTableSelectedRowId: -1,
+                enterpriseNature:'',
+                areaLevelValue:'',
+                videoUrl:'',
+                SelectionIDStr:'',
+                currentUploadPanel:'image',
+                dialogPictureView:'',
+                regionList:[],
+                enterpriseNatureOptions:[
+                    {
+                        value:'加工企业',
+                        label:'加工企业'
+                    },
+                    {
+                        value:'合作社',
+                        label:'合作社'
+                    }
+                ],
+                areaLevelOptions:[
+                    {
+                        value:'国家级',
+                        label:'国家级'
+                    },
+                    {
+                        value:'省级',
+                        label:'省级'
+                    },
+                    {
+                        value:'市级',
+                        label:'市级'
+                    },
+                    {
+                        value:'县级',
+                        label:'县级'
+                    },
+                    {
+                        value:'乡级',
+                        label:'乡级'
+                    }
+                ],
+                userInfo:{
+                    Account:'',
+                    CompanyId:'',
+                    Level:''
+                },
+                //fileList: [
+                //    {
+                //        name: 'food.jpeg', 
+                //        url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
+                //    }, 
+                //    {
+                //        name: 'food2.jpeg', 
+                //        url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
+                //    }
+                //],
+                videoList:[],
+                fileList:[],
+                fileHeaders:{
+                    Authorization:"Bearer "+getCookie('token')
+                },
+                saveAction:'Add',
+                companyInfoEdit:new CompanyInfo(),
+                //Excel限制文件类型
+                limitExcelfileTypes:[
+                   "application/x-xls",
+                   "application/vnd.ms-excel"
+                ],
+                //Excel限制文件大小
+                limitExcelFileSize:100,
+                videoUrlList:[
+                    {
+                        videoUrl:''
+                    }
+                ],
+                videoPlayerView:null,
+                currentModelsId:1,
+                menuModels:[],
+                hideMenus:[],
+                timeHandle:null
+            },
+            mounted: function() {
+                this.screenWidth = document.body.clientWidth;
+                this.screenHeight = document.body.clientHeight;
+                if(!this.getToken()){
+                    window.location = "/Login/Index";
+                    return false;
+                }
+                window.onresize = () => {
+                    return (() => {
+                        this.screenWidth = document.body.clientWidth;
+                        this.screenHeight = document.body.clientHeight;
+                        this.elTableScroll();
+                    })();
+                };
+                this.initModules();
+                this.replaceGotoMenu(this.CurrentPage);
+                this.getLoginAccountUserInfo();
+                this.userName=cookieHelper.get("loginUserName");
+                this.showDateTimeClock();
+                this.getPageData();
+            },
+            methods:{
+                //#region 初始化页面模块
+                initModules() {
+                    //this.clearCookie();
+                    var _that=this;
+                    var modules=window.localStorage[_that.userName+'modules'];
+                    window.localStorage.removeItem(this.userName+'modules');
+                    modules=null;
+                    if(modules==null||modules.length<=0||typeof(modules)=='undefined')
+                    {
+                        /*apiHelper.getModules(
+                            function(response){
+                                //console.log("getModules");
+                                //console.log(response);
+                                var modulesResult=response.data.result;
+                                if(response.data.status==0){
+                                    if(modulesResult!=null&&modulesResult.length>0&&typeof(modulesResult)!='undefined')
+                                    {
+                                        _that.menuModels=modulesResult;
+                                        _that.fillMenuModelsArray();
+                                        window.localStorage.setItem(_that.userName+'modules',JSON.stringify(_that.menuModels));
+                                    }
+                                    else
+                                    {
+                                        _that.readLocalModules();
+                                        _that.fillMenuModelsArray();
+                                    }
+                                }
+                            }
+                        );*/
+                        _that.readLocalModules();
+                        _that.fillMenuModelsArray();
+                    }
+                    else
+                    {
+                        _that.menuModels=JSON.parse(modules);
+                        _that.fillMenuModelsArray();
+                    }
+                },
+                readLocalModules(){
+                    var _that=this;
+                    $.getJSON(
+                        "/MainMenuModels.json",
+                        function(jsonData){
+                            console.log("readLocalModules");
+                            console.log(jsonData);
+                            _that.menuModels=jsonData.menuModels;
+                            _that.readLocalHideMenus();
+                        }
+                    );
+                },
+                fillMenuModelsArray(){
+                    var _that=this;
+                    console.log("fillMenuModelsArray");
+                    console.log(_that.menuModels);
+                    if(_that.menuModels==null||typeof(_that.menuModels)=="undefined"||_that.menuModels.length<5)
+                        return false;
+                    for(var i=5;i<_that.menuModels.length;i++){
+                        if(_that.currentModelsId==_that.menuModels[i].id){
+                            _that.menuModels[i].uri="#";
+                        }
+                        _that.hideMenus.push(_that.menuModels[i]);
+                    }
+                },
+                readLocalHideMenus(){
+                    var _that=this;
+                    $.getJSON(
+                        "/HideMenus.json",
+                        function(jsonData){
+                            console.log("readLocalHideMenus");
+                            console.log(jsonData);
+                            _that.hideMenus=jsonData.hideMenus;
+                        }
+                    );
+                },
+                //#endregion
+                playVideoM3U8(){
+                    var _that=this;
+                    window.setTimeout(function(){
+                        _that.$nextTick(function(){
+                             if(_that.videoPlayerView==null)
+                             {
+                                 _that.videoPlayerView = videojs(
+                                     'videoPlayerView', {
+                                         src:_that.videoUrl,
+                                         loop: true,
+                                         controls: true,
+                                         preload: 'auto',
+                                         autoplay: true
+                                });
+                             }
+                             _that.videoPlayerView.src(_that.videoUrl);
+                             _that.videoPlayerView.play();
+                        });
+                    },300);
+                },
+                showPreviewVideo(videoItem){
+                    var _that=this;
+                    _that.videoUrl=videoItem.videoUrl;
+                    $(".dialogDiv").hide();
+                    $(".pictureView").hide();
+                    $(".videoView").show();
+                    //_that.playPreviewVideo();
+                    _that.playVideoM3U8();
+                },
+                removeVideoListItem(index){
+                    var _that=this;
+                    if(_that.videoUrlList.length>1)
+                       _that.videoUrlList.splice(index,1);
+                },
+                addVideoList(){
+                    var _that=this;
+                    _that.videoUrlList.push({
+                        videoUrl:''
+                    });
+                },
+                exportExcel() {
+                    var _that=this;
+                    var selectedIDStr = _that.SelectionIDStr;
+                    var searchWhere = _that.searchWhere;
+                    if (_that.recordCount <= 0) 
+                    {
+                        alert('没有数据不能导出');
+                        return false;
+                    }
+                    _that.exportSrc = apiHelper.urlHost + '/CompanyInfoExcel/ExportExcel?selectedIDStr=' + selectedIDStr + '&where=' + searchWhere;
+                    //console.log("exportExcel");
+                    //console.log(_that.exportSrc);
+                },
+                importExcel(){
+                    var _that=this;
+                    var uploadExcel=$("#uploadExcel");
+                    var file=null;
+                    uploadExcel.click();
+                    $("#uploadExcel").change(function(e){
+                      //console.log("#uploadExcel");
+                      //console.log(e);
+                      if(e.target.files==null||e.target.files.length<=0){
+                         alert('没有选择文件不能上传');
+                         return false;
+                      }
+                      file=e.target.files[0];
+                      if(file.size/1024/1024>_that.limitExcelFileSize){
+                          alert("文件上传最大"+_that.limitExcelFileSize+"mb");
+                          return false;
+                      }
+                      apiHelper.importExcel(
+                          _that.userName,
+                          "uploadExcel",
+                          function(response){
+                              //console.log(response);
+                              if(response.data.status!=0){
+                                  _that.importExcelLogDialog=true;
+                                  _that.importExcelLogText=response.data.msg;
+                              }else if(response.data.status==0){
+                                  alert("导入成功");
+                                  _that.pageIndex=1;
+                                  _that.getPageData();                                  
+                              }
+                          }
+                      );
+                    });         
+                },
+                changeExcelfileType(uploadFileType){
+                    var _that=this;
+                    var result=false;
+                    for(var i=0;i<_that.limitExcelfileTypes.length;i++){
+                        limitFileType=_that.limitExcelfileTypes[i];
+                        if(uploadFileType.toLowerCase()==limitFileType)
+                           result=true;
+                    }
+                    return result;
+                },
+                regionAutoComplate(searchKey){
+                    var _that=this;
+                    _that.regionList=[];
+                    apiHelper.OscRegionAutoComplate(
+                        "-1",
+                       searchKey,
+                       10,
+                       "",
+                       "",
+                       function(response){
+                           if(response.data.status==0){
+                               _that.regionList=response.data.result;
+                           }
+                       }
+                    );
+                },
+                regioneSelectedChange(value) {
+                    var _that = this;
+                    //console.log("regioneSelectedChange");
+                    //console.log(value);
+                    for (var i = 0; i < _that.regionList.length; i++) {
+                        if (_that.regionList[i].id == value) {
+                            //console.log("_that.regionList[i]");
+                            //console.log(_that.regionList[i]);
+                            _that.companyInfoEdit.backup02 = _that.regionList[i].id;
+                            _that.companyInfoEdit.backup01 = _that.regionList[i].parent_id
+                            break;
+                        }
+                    }
+                },
+                selectedDeleteCompanyInfo(){
+                    var _that=this;
+                    if(_that.SelectionIDStr==""){
+                        alert("请先选择要删除的数据");
+                    }
+                    if(confirm("确定要删除选中的数据吗?")){
+                        apiHelper.companyInfoDelete(
+                            _that.SelectionIDStr,
+                            function(response){
+                               if(response.data.status==0){
+                                    _that.pageIndex = 1;
+                                    _that.getPageData();
+                               }
+                            }
+                        );
+                    }
+                },
+                PlayVideo(playerId,videoSrc){
+                   //console.log("PlayVideo");
+                   //console.log(playerId);
+                   //console.log(videoSrc);
+                   try
+                   {
+                       var videoPlayer=$("#"+playerId)[0];
+                       videoPlayer.src=videoSrc;
+                       videoPlayer.load();
+                       videoPlayer.play();
+                   }
+                   catch(e){
+                   }
+                },
+                playSmallPreviewVideo(){
+                    var playerId="video-player";
+                    this.PlayVideo(playerId,this.videoUrl);
+                },
+                playPreviewVideo(){
+                    var playerId="videoPlayerView";
+                    this.PlayVideo(playerId,this.videoUrl);
+                },
+                clearDialog(){
+                    this.fileList=[];
+                    this.videoUrlList=[{videoUrl:''}];
+                    this.companyInfoEdit=new CompanyInfo(); 
+                },
+                saveCompanyInfo(){
+                   var _that=this;
+                   var checkEmptyMsg="";
+                   var saveData=this.companyInfoEdit;
+                   var saveMethod=this.saveAction;
+                   if(saveData==null){
+                       alert("数据不能为空");
+                       return false;
+                   }
+                   if(saveMethod=="Eidt"&&saveData.recordId=="")
+                      checkEmptyMsg+="记录编号不能为空、";
+                   if(saveData.companyName=="")
+                      checkEmptyMsg+="公司名称不能为空、";
+                   if(saveData.lng=="")
+                      checkEmptyMsg+="经度不能为空、";
+                   if(saveData.lat=="")
+                      checkEmptyMsg+="纬度不能为空、";
+                   if(saveData.focusImages=="")
+                      checkEmptyMsg+="请至少上传一张图片";
+                   if(checkEmptyMsg!="")
+                   {
+                       checkEmptyMsg=checkEmptyMsg.substring(0,checkEmptyMsg.length-1);
+                       alert("非空验证出错，原因["+checkEmptyMsg+"]");
+                       return false;
+                   }
+                   //for(var i=0;i<this.filesList.length;i++){
+                   //     this.filesList[i].url=this.filesList[i].url.replace('blob:','');
+                   //}
+                   //console.log("_that.videoUrl");
+                   //console.log(_that.videoUrl);
+                   //console.log("_that.fileList");
+                   //console.log(_that.fileList);
+                   saveData.videoUrl=JSON.stringify(_that.videoUrlList);
+                   saveData.focusImages=JSON.stringify(_that.fileList);
+                   //console.log("saveData");
+                   //console.log(saveData);
+                   switch(saveMethod)
+                   {
+                       case "Add":
+                         apiHelper.addCompanyInfo(
+                             saveData,
+                             function(response){
+                                 if(response.data.status==0){
+                                     _that.pageIndex=1;
+                                     _that.getPageData();
+                                     _that.editDialogIsShow=false;
+                                 }
+                             }
+                         );
+                         break;
+                       case "Edit":
+                         apiHelper.editCompanyInfo(
+                             saveData.recordId,
+                             saveData,
+                             function(response){
+                                 if(response.data.status==0){
+                                     _that.pageIndex=1;
+                                     _that.getPageData();
+                                     _that.editDialogIsShow=false;
+                                 }
+                             }
+                         );
+                         break;
+                   }
+                },
+                getCookie(cookieName) {
+                    var cookieString = document.cookie;
+                    var start = cookieString.indexOf(cookieName + '=');
+                    // 加上等号的原因是避免在某些 Cookie 的值里有
+                    // // 与 cookieName 一样的字符串。
+                    if (start == -1) // 找不到
+                        return null;
+                    start += cookieName.length + 1;
+                    var end = cookieString.indexOf(';', start);
+                    if (end == -1)
+                        return unescape(cookieString.substring(start));
+                    return unescape(cookieString.substring(start, end));
+                },
+                beforeAvatarVideoUpload(file){
+                    //console.log("beforeAvatarVideoUpload");
+                    //console.log("file");
+                    //console.log(file);
+                    const isMP4=file.type==="video/mp4";
+                    const is200mb = file.size/1024/1024<200;
+                    if(!isMP4){
+                        alert('上传的视频只能是mp4格式');
+                        return false;
+                    }
+                    if(!is200mb){
+                        alert('上传的视频大小不能超过200mb');
+                        return false;
+                    }
+                    return true;
+                },
+                //判断文件类型并且限制上传文件的大小
+                beforeAvatarImageUpload(file) {
+                    const isJPG = file.type === "image/jpg";
+                    const isPng = file.type==="image/png";
+                    const isJpeg = file.type==="image/jpeg";
+
+                    //1MB=1024*1024(1MB=1024KB 1KB=1024MB)
+                    const is10mb = file.size/1024/1024<10;
+
+                    //限制文件上传类型
+                    if (!isJPG && !isPng && !isJpeg) {
+                        alert("上传图片只能是 png,jpg,jpeg 格式!");
+                        return false;
+                    }
+
+                    //限制文件上传大小
+                    if (!is10mb) {
+                        alert("上传图片大小不能超过 10mb!");
+                        return false;
+                    }
+                    return true;
+                },
+                uploadImageSuccess(response,file,fileList){
+                    //console.log("uploadImageSuccess");
+                    //console.log("response");
+                    //console.log(response);
+                    //console.log("file");
+                    //console.log(file);
+                    //console.log("fileList");
+                    //console.log(fileList);
+                    this.fileList=fileList;
+                    //console.log("this.fileList");
+                    //console.log(this.fileList);
+                    this.companyInfoEdit.focusImages=JSON.stringify(this.fileList);
+                },
+                uploadVideoSuccess(response,file,fileList){
+                    var _that=this;
+                    try
+                    {
+                        _that.videoList=fileList;
+                        _that.videoUrl=file.response.data.src;
+                    }
+                    catch(e)
+                    {
+                        //console.log(e);
+                    }
+                },
+                editCompanyInfoDialog(editRow){
+                    var _that=this;
+                    //console.log("editCompanyInfoDialog");
+                    _that.companyInfoEdit=editRow;
+                    //console.log("editRow");
+                    //console.log(editRow);
+                    _that.videoUrlList=[{videoUrl:''}];
+                    _that.fileList=[];
+                    try
+                    {
+                        if(editRow.focusImages!="")
+                        {
+                           _that.fileList=eval(editRow.focusImages);
+                           //console.log("editCompanyInfoDialog");
+                           //console.log("_that.fileList");
+                           //console.log(_that.fileList);
+                           for(var i=0;i<this.fileList.length;i++){
+                               _that.fileList[i].url=this.fileList[i].response.data.src;
+                           }
+                        }
+                        if(editRow.videoUrl!='')
+                        {
+                            _that.videoUrlList=eval(editRow.videoUrl);
+                            //console.log("editRow.videoUrl");
+                            //console.log(editRow.videoUrl);
+                            //console.log(_that.videoUrlList);
+                        }
+                    }catch(e){
+                        //console.log("Error");
+                        //console.log(e);
+                    }
+                    //console.log(this.fileList);
+                    _that.saveAction="Edit";
+                    _that.editDialogIsShow=true;
+                },
+                handleSelectionChange(val){
+                    var _that = this;
+                    _that.SelectionIDStr = "";
+                    for (var i = 0; i < val.length; i++) {
+                        _that.SelectionIDStr += val[i].recordId + "-";
+                    }
+                    if (_that.SelectionIDStr != "")
+                        _that.SelectionIDStr = _that.SelectionIDStr.substr(0, _that.SelectionIDStr.length - 1);
+                },
+                deleteCompanyInfo() {
+                    var _that = this;
+                    var IDStr = _that.SelectionIDStr;
+                    _that.getLoginAccountUserInfo();
+                    if(_that.userInfo.Level>3)
+                    {
+                        alert('用户权限不足');
+                        return false;
+                    }
+                    if (IDStr == "") {
+                        alert("请先选择至少一条数据");
+                        return;
+                    }
+                    if (confirm("确定删除选中的数据吗?")) {
+                        apiHelper.companyInfoDelete(
+                            IDStr,
+                            function(response) {
+                                if (response.data.status == 0) {
+                                    _that.pageIndex = 1;
+                                    _that.getPageData();
+                                }
+                            }
+                        );
+                    }
+                },
+                uploadFileTabChange(tabName){
+                    this.currentUploadPanel=tabName;
+                    switch(tabName)
+                    {
+                        case "image":
+                           $(".uploadfile-control-container").show();
+                           $(".uploadvideo-control-container").hide();
+                           break;
+                        case "video":
+                           $(".uploadfile-control-container").hide();
+                           $(".uploadvideo-control-container").show();
+                           break;
+                    }
+                },
+                //el-table 动态计算高度为了显示滚动条
+                elTableScroll() {
+                    this.$nextTick(function() {
+                        if ($(".el-table__body-wrapper").length > 0 && $(".el-table__header-wrapper").length > 0) {
+                            $(".el-table__body-wrapper").each(function(index,element){
+                                var parentElement = $(element).parent().parent();
+                                var headerHeight = $(element).prev()[0].offsetHeight;
+                                var parentHeight = parentElement[0].offsetHeight;
+                                var elBodyHeight = parentHeight - headerHeight;
+                                $(element).css("height", elBodyHeight + "px");
+                            });
+                        }
+                    });
+                },
+                handleRemove(file, fileList) {
+                    //console.log(file, fileList);
+                },
+                handlePreview(file) {
+                    //console.log("handlePreview");
+                    //console.log(file);
+                    this.dialogPictureView=file.response.data.src;
+                    $(".pictureView").show();
+                    $(".dialogDiv").hide();
+                },
+                previewVideo(){
+                    $(".videoView").show();
+                    $(".dialogDiv").hide();
+                    this.playPreviewVideo();
+                },
+                dialogPictureExitView(){
+                    $(".pictureView").hide();
+                    $(".dialogDiv").show();
+                },
+                dialogVideoExitView(){
+                    if(this.videoPlayerView!=null)
+                       this.videoPlayerView.pause();
+                    $(".videoView").hide();
+                    $(".dialogDiv").show();
+                },
+                showEditDialog(){
+                    this.companyInfoEdit=new CompanyInfo();
+                    this.fileList=[];
+                    this.videoUrlList=[{
+                        videoUrl:''
+                    }];
+                    //this.videoUrl=this.companyInfoEdit.videoUrl;
+                    this.editDialogIsShow=true;
+                    this.saveAction="Add";
+                },
+                changePageSize(pageSize) {
+                    this.pageIndex = 1;
+                    this.pageSize = pageSize;
+                    this.getPageData();
+                },
+                changePage(pageIndex) {
+                    this.pageIndex = pageIndex;
+                    this.getPageData();
+                },
+                search() {
+                    this.pageIndex=1;
+                    this.getPageData();
+                },
+                getPageData() {
+                    var _that = this;
+                    //console.log("_that.searchWhere="+_that.searchWhere);
+                    apiHelper.CompanyInfoPage({
+                        where: _that.searchWhere,
+                        pageIndex: _that.pageIndex,
+                        pageSize: _that.pageSize,
+                        sortField: _that.sortField,
+                        sortMethod: _that.sortMethod
+                    },
+                    function(response) {
+                        if (response.status == 0) {
+                            _that.recordCount = response.recordCount;
+                            _that.pageCount = response.pageCount;
+                            _that.pageData = response.result;
+                            for(var i=0;i<_that.pageData.length;i++)
+                            {
+                                //_that.pageData[i].foundedTime=formatDate.dateTimeFormat(_that.pageData[i].foundedTime,false,'-');
+                                _that.pageData[i].foundedTime=_that.pageData[i].foundedTime;
+                                _that.pageData[i].createdTime=formatDate.dateTimeFormat(_that.pageData[i].createdTime,false,'-');
+                                _that.pageData[i].modifiedTime=formatDate.dateTimeFormat(_that.pageData[i].modifiedTime,false,'-');
+                            }
+                        }
+                    });
+                },
+                elTableRowSelectedStyle({ row, rowIndex }) {
+                    //console.log(row);
+                    if (this.elTableSelectedRowId == row.id) {
+                        return {
+                            "background-image": "linear-gradient(rgba(212, 81, 167, 0.69), rgba(0, 138, 255, 0.09), rgba(203, 38, 208, 0.53))",
+                            "color": "#f4e9e9"
+                        };
+                    }
+                },
+                gotoNewHome() {
+                    window.location = "/NewHome/NewHome?regionId=@LandId";
+                },
+                replaceGotoMenu(currentMenu){
+                    var resultHtml='';
+                    if(this.menuTemplate=='')
+                       this.menuTemplate=$(".goto-page-menu").html();
+                    resultHtml=this.menuTemplate;
+                    //console.log("resultHtml="+resultHtml);
+                    switch(currentMenu)
+                    {
+                        case 'NewHome':
+                             resultHtml=resultHtml.replace('CurrentMenu','产业信息管理');
+                             //console.log("resultHtml="+resultHtml);
+                             $(".goto-page-menu").html(resultHtml);
+                        break;
+                        case 'CompanyMaster':
+                             resultHtml=resultHtml.replace('CurrentMenu','公司信息管理');
+                             //console.log("resultHtml="+resultHtml);
+                             $(".goto-page-menu").html(resultHtml);
+                        break;
+                        case 'LandManage':
+                             resultHtml=resultHtml.replace('CurrentMenu','地块儿管理');
+                             //console.log("resultHtml="+resultHtml);
+                             $(".goto-page-menu").html(resultHtml);
+                        break;
+                    }
+               },
+               showDateTimeClock() {
+                    var _that = this;
+                    var nowDate = new Date();
+                    var hours = _that.fixLeadingZero(nowDate.getHours(), 2);
+                    var minutes = _that.fixLeadingZero(nowDate.getMinutes(), 2);
+                    var seconds = _that.fixLeadingZero(nowDate.getSeconds(), 2);
+                    var month = _that.fixLeadingZero(nowDate.getMonth() + 1, 2);
+                    var day = _that.fixLeadingZero(nowDate.getDate(), 2);
+                    if(_that.timeHandle!=null)
+                       window.clearInterval(_that.timeHandle);
+                    _that.timestr = hours + ":" + minutes + ":" + seconds;
+                    _that.datestr = nowDate.getFullYear() + "/" + month + "/" + day;
+                    _that.timeHandle=window.setInterval(function() {
+                        _that.showDateTimeClock();
+                    }, 1000);
+               },
+               fixLeadingZero(value, fixLength) {
+                   var str = value.toString();
+                   if (str.length < fixLength) {
+                       var len = fixLength - str.length;
+                       var tempStr = "";
+                       for (var i = 0; i < len; i++)
+                            tempStr += "0";
+                       str = tempStr + str;
+                   }
+                   return str;
+               },
+               getLoginAccountUserInfo() {
+                   this.userInfo.Account = apiHelper.getCookie("account");
+                   this.userInfo.CompanyId = apiHelper.getCookie("companyId");
+                   this.userInfo.Level = apiHelper.getCookie("level");
+                   this.userName = this.userInfo.Account;
+               },
+               getToken() {
+                   this.getLoginAccountUserInfo();
+                   var token = apiHelper.getCookie("token");
+                   var level=apiHelper.getCookie("level");
+                   var result = true;
+                   if (this.userInfo.Account == null) {
+                       result = false;
+                   } else {
+                       apiHelper.token = token;
+                       apiHelper.level = level;
+                       //console.log("apiHelper.level="+apiHelper.level);
+                       if(apiHelper.level>3){
+                           alert('用户权限不足');
+                           result=false;
+                       }
+                   }
+                   return result;
+               },
+               showMoreMenu(){
+                   if ($(".pop-more-maste-menu").css("display") == "none")
+                       $(".pop-more-maste-menu").show();
+               },
+               hideMoreMenu(){
+                   if ($(".pop-more-maste-menu").css("display") != "none")
+                       $(".pop-more-maste-menu").hide();
+               },
+               //退出登录，取消cookie有效时间
+               exitLogin() {
+                   //console.log(123);
+                   var exp = new Date();
+                   exp.setTime(exp.getTime() - 10);
+                   document.cookie = "token=" + escape('echo') + ";expires=" + exp.toGMTString() + ";path=/";
+                   window.localStorage.removeItem(this.userName+'modules');
+                   window.location = "/Login/Login";
+               }
+            }
+        });
+    </script>
+}

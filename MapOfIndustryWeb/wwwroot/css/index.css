@@ -1,0 +1,378 @@
+﻿#map-container {
+    position: relative;
+    box-shadow: 10px 10px 15px 3px #377dd557 inset, 10px -10px 15px 3px #377dd557 inset, -10px -10px 15px 3px #377dd557 inset;
+    border-radius: 15px;
+    height: 100%;
+}
+
+    #map-container .tab-button-container {
+        width: 96%;
+        height: 50px;
+        margin: 0 auto;
+        margin-top: 2%;
+        border: 0px solid red;
+    }
+
+        #map-container .tab-button-container .tab-container {
+            width: 75%;
+            height: 35px;
+            margin-top: 1%;
+            margin-left: 2%;
+            border: 0px solid red;
+            float: left;
+        }
+
+            #map-container .tab-button-container .tab-container .tab-click-button {
+                width: auto !important;
+                min-width: 65px;
+                height: 23px;
+                color: #ffffff;
+                font-family: STSong;
+                font-size: 12px;
+                background-color: #014596;
+                border: 0px;
+                border-radius: 5px;
+                margin-top: 0.2%;
+                margin-left: 1%;
+                cursor: pointer;
+                float: left;
+            }
+
+            #map-container .tab-button-container .tab-container .tab-normal-button {
+                width: auto !important;
+                min-width: 65px;
+                height: 23px;
+                color: #ffffff;
+                font-family: STSong;
+                font-size: 12px;
+                background-color: transparent;
+                border: 1px solid #014596;
+                border-radius: 5px;
+                margin-top: 0.2%;
+                margin-left: 1%;
+                cursor: pointer;
+                float: left;
+            }
+
+        #map-container .tab-button-container .tab-button-container-icon {
+            width: 36px;
+            height: 36px;
+            margin-left: 15%;
+            margin-top: 0.7%;
+            float: left;
+        }
+
+    #map-container .amap-container {
+        position: relative;
+        width: 96%;
+        height: 81%;
+        margin: 0 auto;
+        margin-top: 2%;
+        border: 0px solid red;
+    }
+
+    #map-container .district-item-container {
+        position: absolute;
+        width: 243px;
+        height: 257px;
+        bottom: 5rem;
+        left: 2rem;
+        z-index: 10;
+        border-radius: 15px;
+        background-color: #04124F;
+        box-shadow: 6px 6px 8px 3px #377dd557 inset, 6px -5px 5px 3px #377dd557 inset, -6px -5px 5px 3px #377dd557 inset;
+        border: 0px solid red;
+    }
+
+        #map-container .district-item-container .district-item-content-line {
+            width: 86%;
+            height: 16px;
+            line-height: 16px;
+            margin: 0 auto;
+            margin-top: 3%;
+            margin-left: 7%;
+            font-family: STSong;
+            font-weight: 700;
+            color: #05CCF5;
+            font-size: 13px;
+            border: 0px solid red;
+            float: left;
+        }
+
+            #map-container .district-item-container .district-item-content-line .white-font {
+                color: white;
+            }
+
+        #map-container .district-item-container .district-close-button {
+            width: 23px;
+            height: 23px;
+            line-height: 23px;
+            margin-top: 11%;
+            margin-left: 39%;
+            font-family: STSong;
+            font-size: 13px;
+            text-align: center;
+            color: #fff;
+            cursor: pointer;
+            border: 0px solid red;
+            float: left;
+        }
+
+        #map-container .district-item-container .district-name-container {
+            position: relative;
+            width: 78px;
+            height: 35px;
+            margin-top: 9%;
+            margin-left: 8%;
+            display: inline-block;
+            border: 0px solid red;
+            float: left;
+        }
+
+            #map-container .district-item-container .district-name-container .district-name {
+                width: 68px;
+                height: 25px;
+                line-height: 25px;
+                margin: 0 auto;
+                margin-top: 5px;
+                font-family: STSong;
+                font-weight: 700;
+                color: #fff;
+                text-align: center;
+                font-size: 13px;
+                background-color: #0051ff66;
+                border: 0px solid blue;
+            }
+
+        #map-container .district-item-container .crops-statistics {
+            width: 36%;
+            height: 15%;
+            margin-top: 5%;
+            margin-left: 8%;
+            background-color: #95abd966;
+            border: 0px solid red;
+            float: left;
+        }
+
+            #map-container .district-item-container .crops-statistics .crops-name {
+                width: 96%;
+                height: 17px;
+                line-height: 17px;
+                font-family: STSong;
+                font-weight: 700;
+                color: #fff;
+                font-size: 13px;
+                text-align: center;
+                margin: 0 auto;
+                margin-top: 2%;
+                border: 0px solid red;
+            }
+
+            #map-container .district-item-container .crops-statistics .crops-statistics-number {
+                width: 96%;
+                height: 17px;
+                line-height: 17px;
+                font-family: STSong;
+                font-weight: 700;
+                color: #ff9b00;
+                font-size: 13px;
+                text-align: center;
+                text-indent: 57%;
+                overflow:hidden;
+                margin: 0 auto;
+                margin-top: 2%;
+                border: 0px solid red;
+            }
+
+        #map-container .district-item-container .view-more {
+            width: 86%;
+            height: 16px;
+            line-height: 16px;
+            font-family: STSong;
+            font-size: 13px;
+            font-weight: 700;
+            text-align: left;
+            text-indent: 68%;
+            margin: 0 auto;
+            margin-top: 3%;
+            margin-left: 7%;
+            border: 0px solid red;
+            float: left;
+        }
+
+            #map-container .district-item-container .view-more a {
+                text-decoration: none;
+                text-transform: none;
+                color: #fff;
+                font-size: 12px;
+            }
+
+/*四个角样式*/
+.border_corner {
+    z-index: 2500;
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: rgba(0,0,0,0);
+    border: 2px solid #2f7f9d;
+}
+
+.border_corner_left_top {
+    top: 0;
+    left: 0;
+    border-right: none;
+    border-bottom: none;
+    border-top-left-radius: 4px;
+}
+
+.border_corner_right_top {
+    top: 0;
+    right: 0;
+    border-left: none;
+    border-bottom: none;
+    border-top-right-radius: 4px;
+}
+
+.border_corner_left_bottom {
+    bottom: 0;
+    left: 0;
+    border-right: none;
+    border-top: none;
+    border-bottom-left-radius: 4px;
+}
+
+.border_corner_right_bottom {
+    bottom: 0;
+    right: 0;
+    border-left: none;
+    border-top: none;
+    border-bottom-right-radius: 4px;
+}
+
+#data-container {
+    width: 98%;
+    height:100%;
+    margin: 0 auto;
+    border: 0px solid red;
+}
+
+    #data-container .data-container-item {
+        width: 96%;
+        /*height: auto !important;*/
+        height: 38%;
+        margin: 0 auto;
+        margin-bottom: 2%;
+        border: 1px solid;
+        border-image-source: url(../images/main/border.png);
+        border-image-slice: 27;
+        border-image-width: 15px;
+        border-image-repeat: round;
+        border-image-outset: 1px;
+        background: #35c8cf2e;
+    }
+
+        #data-container .data-container-item .data-container-item-title-container {
+            width: 65%;
+            height: 50px;
+            margin: 0 auto;
+            margin-top: -2px;
+            background: url(../images/main/card_title.png) no-repeat center;
+            border: 0px solid red;
+            overflow: hidden;
+        }
+
+            #data-container .data-container-item .data-container-item-title-container .title-left {
+                width: 13px;
+                height: 49px;
+                float: left;
+            }
+
+            #data-container .data-container-item .data-container-item-title-container .title-middle {
+                width: 100%;
+                height: 49px;
+                line-height: 49px;
+                font-family: STSong;
+                font-size: 23px;
+                color: #FFFFFF;
+                font-weight: 700;
+                text-align: center;
+                float: left;
+            }
+
+            #data-container .data-container-item .data-container-item-title-container .title-right {
+                width: 13px;
+                height: 49px;
+                float: left;
+            }
+
+        #data-container .data-container-item .data-charts-container {
+            width: 92%;
+            /*min-height: 190px;*/
+            /*height: auto !important;*/
+            height: 65%;
+            margin: 0 auto;
+            margin-top: 1%;
+            margin-bottom: 2%;
+            border: 0px solid red;
+        }
+
+    #data-container #total-statistics-container {
+        width: 96%;
+        height: 21.2%;
+        margin: 0 auto;
+        margin-top: 2%;
+        box-shadow: 10px 10px 15px 3px #377dd557 inset, 10px -10px 15px 3px #377dd557 inset, -10px -10px 15px 3px #377dd557 inset;
+        border-radius: 15px;
+    }
+
+        #data-container #total-statistics-container .statistics-item {
+            width: 43%;
+            height: 110px;
+            margin-left: 5%;
+            margin-top: 5%;
+            border: 0px solid red;
+            float: left;
+        }
+
+            #data-container #total-statistics-container .statistics-item .icon {
+                width: 35%;
+                height: 58px;
+                margin-top: 12%;
+                margin-left: 6%;
+                float: left;
+            }
+
+            #data-container #total-statistics-container .statistics-item .text-container {
+                width: 56%;
+                height: 58px;
+                margin-top: 12%;
+                margin-left: 3%;
+                border: 0px solid red;
+                float: left;
+            }
+
+                #data-container #total-statistics-container .statistics-item .text-container .title {
+                    width: 96%;
+                    height: 27px;
+                    margin: 0 auto;
+                    margin-top: 2%;
+                    font-family: STSong;
+                    color: #05BFE6;
+                    font-size: 2.5vh;
+                    font-weight: 700;
+                    text-align: center;
+                    border: 0px solid red;
+                }
+
+                #data-container #total-statistics-container .statistics-item .text-container .statistics-number {
+                    width: 96%;
+                    height: 26px;
+                    margin: 0 auto;
+                    margin-top: 3%;
+                    font-family: STSong;
+                    color: #FFC531;
+                    font-size: 2vh;
+                    font-weight: 700;
+                    text-align: center;
+                    border: 0px solid red;
+                }

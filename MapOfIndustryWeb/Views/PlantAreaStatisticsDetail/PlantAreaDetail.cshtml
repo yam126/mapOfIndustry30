@@ -1,0 +1,245 @@
+﻿<div id="detailMain">
+    <!--标题层-->
+    <div class="title-control-line">
+        <div class="title">
+            种植统计(亩)
+        </div>
+        <div @@click="showHiddenCropSeletedList" class="cropsList">
+            {{currentCropsName}}&nbsp;&or;
+        </div>
+        <div v-if="cropSelectedListIsDisplay" class="cropSelectedList">
+            <div @@click="changeCrops('玉米')" class="cropSelectedList-item">
+                玉米
+            </div>
+            <div @@click="changeCrops('谷子')" class="cropSelectedList-item">
+                谷子
+            </div>
+            <div @@click="changeCrops('大豆')" class="cropSelectedList-item">
+                大豆
+            </div>
+        </div>
+        <div @@click="gotoHome" class="btnClose">X</div>
+    </div>
+    <!--/标题层-->
+    <!--年份按钮-->
+    <div class="year-button-container">
+        <div v-for="(item,index) in yearData" :key="index" @@mouseover="yearMouseOver(item)" @@mouseout="yearMouseOut" :class="currentYear==item?'year-button-item-click':'year-button-item-normal'">
+            {{item}}
+        </div>
+    </div>
+    <!--/年份按钮-->
+    <!--总计-->
+    <div class="total-statistics">
+        总计:<span class="total-number">{{totalNumber.toFixed(2)}}</span>
+    </div>
+    <!--/总计-->
+    <!--统计图列表-->
+    <div class="progressBar-container">
+        <!--单个统计图-->
+        <div v-for='(item,index) in cropsAllPageData' :key="index" class="progressBar-container-item">
+            <div class="regionName">{{item.regionName}}</div>
+            <div id="PlantAreaProgress" class="progress-container">
+                <!--color设置前景色-->
+                <el-progress type="line" :show-text="false" :color="'#409eff'" :percentage="item.sowAreaPercentage" :stroke-width="23"></el-progress>
+            </div>
+            <div class="progress-number">
+                {{item.sowArea}}
+            </div>
+        </div>
+        <!--/单个统计图-->
+    </div>
+    <!--/统计图列表-->
+</div>
+@{
+    var landId = (string)ViewData["LandId"];
+    landId = System.Web.HttpUtility.HtmlDecode(landId);
+    var cropsType = (string)ViewData["cropsType"];
+}
+<script>
+        var app = new Vue({
+            el: "#detailMain",
+            data: {
+                rootDistrictId: '@landId',
+                cropSelectedListIsDisplay: false,
+                cropsAllPageData: null,
+                cropsPageData: [],
+                currentCropsName: '玉米',
+                currentCropsType:'@cropsType',
+                yearData: [],
+                currentYear:0,
+                currentYearIndex: 0,
+                totalNumber: 0,
+                pageSize: 20,
+                curPage: 1,
+                pageCount: 0,
+                showYearDataHandle:null,
+                maxShowYearDataLength:6,//最多显示多少年的数据
+                apiResultData: null,
+                pageTimeHandle : null
+            },
+            mounted: function() {
+                switch(this.currentCropsType)
+                {
+                    case "0":
+                      this.currentCropsName="玉米";
+                      break;
+                    case "1":
+                      this.currentCropsName="谷子";
+                      break;
+                    case "2":
+                      this.currentCropsName="大豆";
+                      break;
+                }
+                this.InitPageData();
+            },
+            methods: {
+                gotoHome() {
+                    $("#center-container").show();
+                    $("#detail-container").hide();
+                    $("#detail-container").html("");
+                },
+                yearMouseOver(year){
+                    var _that=this;
+                    var index=-1;
+                    _that.currentYear=year;
+                    if(_that.showYearDataHandle!=null)
+                        window.clearInterval(_that.showYearDataHandle);
+                    for(var i=0;i<_that.apiResultData.length;i++){
+                        if(_that.apiResultData[i].year==year)
+                        {
+                           _that.currentYearIndex=i;
+                           break;
+                        }
+                    }
+                    if(_that.showYearDataHandle!=null&&_that.currentYearIndex!=-1){
+                        _that.currentYearIndex=index;
+                        _that.showChangeYearFinal();
+                        window.clearInterval(_that.showYearDataHandle);
+                    }
+                },
+                yearMouseOut(){
+                    this.showChangeYear();
+                },
+                changeCrops(cropsName) {
+                    var _that = this;
+                    _that.currentCropsName = cropsName;
+                    _that.cropSelectedListIsDisplay = false;
+                    _that.InitPageData();                   
+                },
+                showChangeYear(){
+                    var _that=this;
+                    _that.showYearDataHandle=window.setInterval(function(){
+                        if(_that.showYearDataHandle!=null)
+                            window.clearInterval(_that.showYearDataHandle);
+                        //alert(_that.currentYear);
+                        //_that.showChangeYearFinal();
+                        //_that.showChangeYear();
+                        _that.currentYearIndex==-1;
+                        for(var i=0;i<_that.apiResultData.length;i++){
+                            if(_that.apiResultData[i].year==_that.currentYear)
+                            {
+                                _that.currentYearIndex=i;
+                                break;
+                            }
+                        }
+                        if(_that.currentYearIndex==-1)
+                           _that.currentYearIndex=_that.apiResultData.length-6;
+                        //alert(_that.currentYearIndex);
+                        _that.showChangeYearFinal(function(){
+                            _that.currentYearIndex+=1;
+                            if(_that.currentYearIndex>_that.apiResultData.length-1)
+                                _that.currentYearIndex=_that.apiResultData.length-6;
+                           _that.currentYear=_that.apiResultData[_that.currentYearIndex].year;
+                           _that.cropsAllPageData = _that.apiResultData[_that.currentYearIndex].sowDatas.sort(compareDesc("sowArea"));
+                           _that.GetTotalNumber();
+                           _that.showChangeYear();
+                        });
+                    },2000);
+                },
+                //sortYearDescSowAreaData(yearData,sortFieldName){
+                //    if(yearData!=null&&yearData!=undefined&&yearData.length!=null&&yearData.length!=undefined&&yearData.length>0){
+                //        for(var i=0;i<yearData.length;i++){
+                //            yearData[i]=yearData[i].sort(compareDesc(sortFieldName));
+                //        }
+                //    }
+                //    return yearData;
+                //},
+                showChangeYearFinal(callback){
+                    var _that=this;
+                    //console.log(_that.apiResultData);
+                    //console.log("showChangeYearFinal()");
+                    //console.log("_that.ChangeYearCurrentYearIndex");               
+                    var yearIndex=-1;
+                    for(var i=0;i<_that.apiResultData.length;i++){
+                        if(_that.apiResultData[i].year==_that.currentYear)
+                        {
+                           _that.currentYearIndex=i;
+                           break;
+                        }
+                    }
+                    yearIndex=_that.currentYearIndex;
+                    //console.log("_that.currentYearIndex");
+                    //console.log(yearIndex);  
+                    //console.log(_that.apiResultData[yearIndex]);
+                    _that.currentYear=_that.apiResultData[yearIndex].year;
+                    _that.cropsAllPageData = _that.apiResultData[yearIndex].sowDatas.sort(compareDesc("sowArea"));
+                    //_that.cropsAllPageData = _that.sortYearDescSowAreaData(_that.cropsAllPageData,"sowArea");
+                    //console.log("_that.cropsAllPageData---------------------------------------------------------------------------------");
+                    //console.log(_that.cropsAllPageData);
+                    _that.GetTotalNumber();
+                    callback();
+                },
+                GetTotalNumber() {
+                    var _that = this;
+                    var allPageData = _that.cropsAllPageData;
+                    _that.totalNumber = 0;
+                    if (allPageData == null || allPageData.length <= 0)
+                        return false;
+                    for (var i = 0; i < allPageData.length; i++) {
+                        _that.totalNumber += allPageData[i].sowArea;
+                    }
+                },
+                InitPageData() {
+                    var _that = this;
+                    _that.yearData = [];
+                    _that.totalNumber = 0;
+                    if(_that.showYearDataHandle!=null)
+                       window.clearInterval(_that.showYearDataHandle);
+                    _that.yearData=[];
+                    _that.cropsAllPageData=null;
+                    _that.cropsPageData=[];
+                    _that.currentYearIndex = 0;
+                    apiHelper.GetYearCountData(
+                        _that.rootDistrictId,
+                        _that.currentCropsName,
+                        function(response) {
+                            if (response.data.status == 0) {
+                                var result = response.data.result;
+                                _that.apiResultData = result;
+                                if (result != null && result.length != null && result.length > 0) {
+                                    _that.cropsAllPageData = result[result.length-6].sowDatas;
+                                    _that.currentYearIndex=result.length-6;
+                                    _that.currentYear=result[_that.currentYearIndex].year;
+                                    for (var i = result.length-6; i < result.length; i++) {
+                                        //达到最大显示年份则跳出循环
+                                        //if(i>_that.maxShowYearDataLength)
+                                           //break;
+                                        if(_that.yearData.indexOf(result[i].year)==-1)
+                                           _that.yearData.push(result[i].year);
+                                    }
+                                    _that.GetTotalNumber();
+                                    _that.showChangeYear();
+                                }
+                            }
+                        }
+                    );
+                },
+                showHiddenCropSeletedList() {
+                    if (this.cropSelectedListIsDisplay)
+                        this.cropSelectedListIsDisplay = false;
+                    else
+                        this.cropSelectedListIsDisplay = true;
+                }
+            }
+        });
+</script>

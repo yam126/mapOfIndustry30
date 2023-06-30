@@ -1,0 +1,61 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = MapOfIndustryWeb
+build_property.RootNamespace = MapOfIndustryWeb
+build_property.ProjectDir = D:\tianzheng\mapOfIndustry30\MapOfIndustryWeb\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\tianzheng\mapOfIndustry30\MapOfIndustryWeb
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/tianzheng/mapOfIndustry30/MapOfIndustryWeb/Views/AveragePrice/AveragePrice.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXZlcmFnZVByaWNlXEF2ZXJhZ2VQcmljZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/tianzheng/mapOfIndustry30/MapOfIndustryWeb/Views/Company/CompanyMaster.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxDb21wYW55TWFzdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/tianzheng/mapOfIndustry30/MapOfIndustryWeb/Views/CountDataStatisticsDetail/CountDataDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnREYXRhU3RhdGlzdGljc0RldGFpbFxDb3VudERhdGFEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/tianzheng/mapOfIndustry30/MapOfIndustryWeb/Views/DataManage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YU1hbmFnZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/tianzheng/mapOfIndustry30/MapOfIndustryWeb/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/tianzheng/mapOfIndustry30/MapOfIndustryWeb/Views/Land/LandManage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFuZFxMYW5kTWFuYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/tianzheng/mapOfIndustry30/MapOfIndustryWeb/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/tianzheng/mapOfIndustry30/MapOfIndustryWeb/Views/Main/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFpblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/tianzheng/mapOfIndustry30/MapOfIndustryWeb/Views/NewHome/NewHome.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3SG9tZVxOZXdIb21lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/tianzheng/mapOfIndustry30/MapOfIndustryWeb/Views/PlantAreaStatisticsDetail/PlantAreaDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhbnRBcmVhU3RhdGlzdGljc0RldGFpbFxQbGFudEFyZWFEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/tianzheng/mapOfIndustry30/MapOfIndustryWeb/Views/Shared/_AdminTemplate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pblRlbXBsYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 

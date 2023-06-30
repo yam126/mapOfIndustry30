@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>产业信息管理系统</title>
+    <link rel="stylesheet" href="~/css/NewHome.css" />
+    <link rel="stylesheet" href="~/css/datamanage.css" />
+    <link rel="stylesheet" href="~/lib/element-ui/theme-chalk/index.css" />
+    <script src="~/js/jquery.min.js">
+        import { time } from "console";
+    </script>
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/lib/vue/vue.js"></script>
+    <script type="text/javascript" src="~/lib/element-ui/index.js"></script>
+    <script src="~/js/echarts.min.js"></script>
+    <script src="~/lib/axios/axios.js"></script>
+    <script src="~/js/request.js"></script>
+    <script src="~/js/GPStransform.js"></script>
+    <script src="~/lib/linq/linq.js"></script>
+    <script src="~/js/echarts-collections.js"></script>
+    <script src="~/js/json.js"></script>
+    <script src="~/js/apiHelper.js"></script>
+    <script src="~/js/testData.js"></script>
+    <script src="~/lib/axios/axios.js"></script>
+    <script src="~/lib/moment/moment.js"></script>
+    <script src="~/js/cookieHelper.js"></script>
+    <script src="~/js/menu.js"></script>
+    <link href="~/css/index.css" rel="stylesheet" />
+    @*<script type="text/javascript">
+        window._AMapSecurityConfig = {
+            securityJsCode: 'acca991ccaf8f2bb97df91a7bf547a24',
+        }
+    </script>*@
+    @*<script type="text/javascript" src="~/lib/amap/loader.js"></script>
+    <script type="text/javascript" src="~/js/AMapLoader.js"></script>*@
+    <script type="text/javascript" src="~/lib/echarts/echarts.min.js"></script>
+    <script type="text/javascript" src="~/js/echarts-collections.js"></script>    
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".goto-page-menu").click(function(){
+               showGotoPageMenu();
+            });
+        });
+        function showGotoPageMenu(){
+            if($(".goto-page-pop-menu").css("display")=="none")
+               $(".goto-page-pop-menu").show();
+            else
+               $(".goto-page-pop-menu").hide();
+        }
+        function gotoPage(ActionUrl){
+            self.location=ActionUrl;
+        }
+    </script>
+    @RenderSection("Head")
+    <style type="text/css">
+        [v-cloak] {
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-body" id="dataManage-main" v-cloak>
+        <!--管理跳转菜单-->
+        <div class="goto-page-menu">
+            CurrentMenu&nbsp;&#9660;
+        </div>
+        <!--/管理跳转菜单-->
+        <!--菜单列表-->
+        <div class="goto-page-pop-menu">
+            <div onClick="gotoPage('/DataManage/Index')" class="item-menu">
+                产业信息管理
+            </div>
+            <div onClick="gotoPage('/Company/CompanyMaster')" class="item-menu">
+                公司信息管理
+            </div>
+            <div onclick="gotoPage('/Land/LandManage')" class="item-menu">
+                地块儿管理
+            </div>
+        </div>
+        <!--/菜单列表-->
+        <div class="logo02">
+            <div id="titleLeft">
+                <div class="time-container">
+                    <div class="time-text">
+                        {{timestr}}
+                    </div>
+                    <div class="date-text">
+                        {{datestr}}
+                    </div>
+                </div>
+                <div v-if="menuModels!=null&&menuModels.length>0" :class="menuModels[0].id==currentModelsId?'title_nav_click':'title_nav_normal'">
+                    <a :href="menuModels[0].id==currentModelsId?'#':menuModels[0].uri" target="_self">{{menuModels[0].name}}</a>
+                </div>
+                <div v-if="menuModels!=null&&menuModels.length>0" :class="menuModels[1].id==currentModelsId?'title_nav_click':'title_nav_normal'">
+                    <a :href="menuModels[1].id==currentModelsId?'#':menuModels[1].uri" target="_self">{{menuModels[1].name}}</a>
+                </div>
+                <div v-if="menuModels!=null&&menuModels.length>0" :class="menuModels[2].id==currentModelsId?'title_nav_click':'title_nav_normal'">
+                    <a :href="menuModels[2].id==currentModelsId?'#':menuModels[2].uri" target="_self">{{menuModels[2].name}}</a>
+                </div>
+            </div>
+            <div id="homeTitle">
+                <div class="centerTitle"></div>
+            </div>
+            <div id="titleRight">
+                <div v-if="menuModels!=null&&menuModels.length>0" :class="menuModels[3].id==currentModelsId?'title_nav_click':'title_nav_normal'">
+                    <a :href="menuModels[3].id==currentModelsId?'#':menuModels[3].uri" target="_self">{{menuModels[3].name}}</a>
+                </div>
+                <div v-if="menuModels!=null&&menuModels.length>0" :class="menuModels[4].id==currentModelsId?'title_nav_click':'title_nav_normal'">
+                    <a :href="menuModels[4].id==currentModelsId?'#':menuModels[4].uri" target="_self">{{menuModels[4].name}}</a>
+                </div>
+                <div @@mouseover="showMoreMenu" id="more-menu" class="title_nav_normal">
+                    更多管理&#9660;
+                    <div v-if="hideMenus!=null&&hideMenus.length>0" @@mouseout="hideMoreMenu" class="pop-more-maste-menu">
+                        @*<div class="menu-item">
+                            <a href="http://8.142.16.236:6010/" target="_self">
+                                农事管理
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a href="http://8.142.16.236:7002" target="_self">
+                                水肥一体化
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a href="http://8.142.16.236:6018" target="_self">
+                                人员管理
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a href="http://8.142.16.236:6017/" target="_self">
+                                视频监控
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a href="http://8.142.16.236:6015/" target="_self">
+                                灾害防控
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a href="http://8.142.16.236:6014/" target="_self">
+                                智慧农机
+                            </a>             
+                        </div>
+                        <div class="menu-item">
+                            <a href="http://8.142.16.236:6020/" target="_self">
+                                仓储管理
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a href="http://8.142.16.236:6011/" target="_self">
+                                植保信息
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a href="http://8.142.16.236:6013/" target="_self">
+                                农业专家
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a href="http://8.142.16.236:6019/" target="_self">
+                                溯源系统
+                            </a>
+                        </div>*@
+                        <div v-for="(item,index) in hideMenus" class="menu-item">
+                            <a :href="item.uri" target="_self">
+                                {{item.name}}
+                            </a>
+                        </div>
+                    </div>
+                    <!--<div v-if="hideMenus==null||hideMenus.length<=0" class="pop-more-maste-menu">
+                        <div class="menu-item">
+                            <a href="http://8.142.16.236:6010/" target="_self">
+                                农事管理
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a href="http://8.142.16.236:7002" target="_self">
+                                水肥一体化
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a href="http://8.142.16.236:6018" target="_self">
+                                人员管理
+                            </a>
+                            @*<a href="#" target="_self">
+                                人员管理
+                            </a>*@
+                        </div>
+                        <div class="menu-item">
+                            <a href="http://8.142.16.236:6017/" target="_self">
+                                视频监控
+                            </a>
+                            @*<a href="#" target="_self">
+                                视频监控
+                            </a>*@
+                        </div>
+                        <div class="menu-item">
+                            <a href="http://8.142.16.236:6015/" target="_self">
+                                灾害防控
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a href="http://8.142.16.236:6014/" target="_self">
+                                智慧农机
+                            </a>
+                            @*<a href="#" target="_self">
+                                智慧农机
+                            </a>*@
+                        </div>
+                        <div class="menu-item">
+                            <a href="http://8.142.16.236:6020/" target="_self">
+                                仓储管理
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a href="http://8.142.16.236:6011/" target="_self">
+                                植保信息
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a href="http://8.142.16.236:6013/" target="_self">
+                                农业专家
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a href="http://8.142.16.236:6019/" target="_self">
+                                溯源系统
+                            </a>
+                        </div>
+                    </div>-->
+                </div>
+                <div class="user-container">
+                    <img src="~/images/newhome/account.png" />
+                    <div :title="userName" class="content">
+                        {{userName}}
+                    </div>
+                    <div class="arrow">
+                        &#9660;
+                    </div>
+                    <!--弹出菜单-->
+                    <div class="pop-menu">
+                        <div @@click="exitLogin" class="pop-menu-item">
+                            退出
+                        </div>
+                    </div>
+                    <!--/弹出菜单-->
+                </div>
+            </div>
+        </div>
+      @RenderSection("PageBody")
+    </div>
+</body>
+</html>
+@{
+    string LandId = (string)ViewData["LandId"];
+}
+@RenderSection("VueScript")

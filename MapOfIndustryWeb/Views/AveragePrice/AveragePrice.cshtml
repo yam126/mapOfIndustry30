@@ -1,0 +1,79 @@
+﻿<div id="averagePrice">
+    <div class="title-container">
+        <div class="title-center">
+            价格走势(元)
+        </div>
+        <div @@click="gotoHome" class="btnClose">X</div>
+    </div>
+    <div id="maxAveragePriceEcharts" class="echart-container">
+    </div>
+</div>
+@{
+    var landId = (string)ViewData["LandId"];
+    landId = System.Web.HttpUtility.HtmlDecode(landId);
+}
+<script>
+    var app = new Vue({
+        el: "#averagePrice",
+        data: {
+            v_rootDistrictId:'@landId'
+        },
+        mounted:function(){
+            this.InitECharts();
+        },
+        methods:{
+            InitECharts() {
+                var _that=this;
+                apiHelper.GetAveragePriceStatistics(
+                    _that.v_rootDistrictId,
+                    function(response) {
+                        if (response.data.status == 0) {
+                            var copsName = new Array();
+                            var yearsData = new Array();
+                            var cropsYearData = new Array();
+                            var result = response.data.result;
+                            //console.log("GetAveragePriceStatisticsResult");
+                            //console.log(result);
+                            if (result != null && result.length > 0) {
+                                for (var i = 0; i < result.length; i++) {
+                                    copsName.push(result[i].cropsName);
+                                    var yearsItemData = new Array();
+                                    var priceData = new Array();
+                                    for (var y = 0; y < result[i].yearsData.length; y++) {
+                                        if(yearsData.indexOf(result[i].yearsData[y])==-1)
+                                            yearsData.push(result[i].yearsData[y]);
+                                    }
+                                    for (var j = 0; j < result[i].priceData.length; j++) {
+                                        priceData.push(result[i].priceData[j]);
+                                        yearsItemData.push(result[i].priceData[j]);
+                                    }
+                                    var cropsYearItemData = {
+                                        cropsName: result[i].cropsName,
+                                        yearsData: priceData
+                                    };
+                                    cropsYearData.push(cropsYearItemData);
+                                }
+                                //console.log("GetAveragePriceStatisticsCopsName");
+                                //console.log(copsName);
+                                //console.log("GetAveragePriceStatisticsYearsData");
+                                //console.log(yearsData);
+                                //console.log("GetAveragePriceStatisticsCropsYearData");
+                                //console.log(cropsYearData);
+                                $(document).ready(function(){
+                                    var chartDom=document.getElementById("maxAveragePriceEcharts");
+                                    //console.log("chartDom");
+                                    //console.log(chartDom);
+                                    averagePriceCharts(chartDom, copsName, yearsData, cropsYearData);
+                                });
+                            }
+                        }
+                    });
+            },
+            gotoHome() {
+                $("#center-container").show();
+                $("#detail-container").hide();
+                $("#detail-container").html("");
+            }
+        }
+    });
+</script>

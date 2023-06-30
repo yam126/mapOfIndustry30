@@ -1,0 +1,215 @@
+﻿* {
+    padding: 0;
+    margin: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-size: 100px;
+}
+
+
+@media screen and (max-width:2000px) {
+    html, body {
+        font-size: 50px;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+.login-bg {
+    /*background: #eeeeee url() 0 0 no-repeat;*/
+    background: url(../images/login/bg1.jpg) no-repeat center;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+}
+
+.logo {
+    z-index: 2000;
+    position: relative;
+    top: 2rem;
+    width: 100%;
+    height: 10%
+}
+
+.header_logo {
+    text-align: center;
+}
+
+.title {
+    z-index: 2000;
+    position: relative;
+    top: 2rem;
+    width: 100%;
+    height: 5%;
+}
+
+.login-box {
+    z-index: 2000;
+    position: relative;
+    top: 2.4rem;
+    width: 100%;
+    height: 56%;
+    text-align: center;
+}
+
+    .login-box .login-box-bg {
+        height: 100%;
+        background: url(../images/login/login_boxbg.png) no-repeat center;
+        background-size: 27% 100%;
+        padding-top:7%;
+        box-sizing:border-box
+    }
+
+.login-input {
+    width: 17.5%;
+    display: inline-block;
+    /*margin-top: 0.5rem;*/
+}
+
+    .login-input .username {
+        height: 41px;
+        line-height: 0.8;
+        width: 100%;
+        background-image: url(../images/login/username.png);
+        background-size: 20px 55%;
+        background-repeat: no-repeat;
+        background-position: 0% 45%;
+        padding-left: 30px;
+        border-radius: 4px;
+    }
+
+    .login-input .userpwd {
+        height: 41px;
+        line-height: 0.6;
+        width: 100%;
+        background-image: url(../images/login/userpwd.png);
+        background-size: 20px 55%;
+        background-repeat: no-repeat;
+        background-position: 0% 45%;
+        padding-left: 30px;
+        border-radius: 4px
+    }
+
+.login-inputcode {
+    width: 9.95%;
+    /* display: flex; */
+    margin-left: -35px;
+    margin: 0rem auto 0 auto;
+    display: inline-block;
+}
+
+    .login-inputcode .usercode {
+        height: 41px;
+        line-height: 0.6;
+        width: 100%;
+        background-image: url(../images/login/usercode.png);
+        background-size: 20px 55%;
+        background-repeat: no-repeat;
+        background-position: 0% 45%;
+        padding-left: 30px;
+        border-radius: 4px
+    }
+.login-btn{
+    margin-top:0.2rem;
+}
+.login-yzm {
+    width: 6.6%;
+    display: inline-block;
+    text-align: center;
+    color: blue;
+    cursor:pointer
+}
+    .login-yzm .el-input {
+        color: blue;
+        font-style: italic;
+        border: none;
+        height: 49px;
+        text-align: center;
+        font-size: 24px;
+        width: 100%;
+        cursor: pointer
+    }
+@media screen and (max-height:800px) {
+    .logo {
+        top: 1rem;
+    }
+
+    .header_logo {
+        text-align: center;
+    }
+
+        .header_logo img {
+            transform: scale(0.5); /*缩放*/
+            -ms-transform: scale(0.5);
+            -moz-transform: scale(0.5);
+            -webkit-transform: scale(0.5);
+            -o-transform: scale(0.5);
+        }
+
+    .title {
+        top: 1.5rem;
+    }
+
+    .login-box {
+        top: 2rem;
+    }
+
+    .login-input {
+        margin-top: 0.5rem;
+    }
+
+    .login-inputcode {
+        margin-top: 0.5rem;
+    }
+}
+
+@media screen and (max-width:1400px) {
+    .login-box .login-box-bg {
+        background-size: 28% 100%;
+    }
+}
+
+@media screen and (max-width:1200px) {
+    .login-box .login-box-bg {
+        background-size: 33% 100%;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    .login-box .login-box-bg {
+        background-size: 38% 100%;
+    }
+
+    .login-input {
+        margin-top: 0.5rem;
+    }
+
+    .login-inputcode {
+        margin-top: 0.5rem;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .login-box .login-box-bg {
+        background-size: 46% 100%;
+    }
+
+    .login-input {
+        margin-top: 2rem;
+    }
+
+    .login-inputcode {
+        margin-top: 2rem;
+    }
+}

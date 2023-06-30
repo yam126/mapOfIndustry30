@@ -13,6 +13,6 @@ ConnectionStrings<br/>
 config node<br/>
 the DataBase-Arrange-Scrpit-2023-6-30.sql is have test Example data<br/>
 you create datbase after must run DataBase-Arrange-Scrpit-2023-6-30.sql sql script init data base<br/>
-
-
+hompepage preview
+<img src="https://github.com/yam126/mapOfIndustry30/blob/main/PrintScreen/homePage.JPG?raw=true" />
 
